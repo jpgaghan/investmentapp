@@ -1,22 +1,54 @@
-import React from "react";
+import React from 'react';
 import './Login.css';
-import {Modal,Button} from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 
-export const Login = props => (
+export default class Login extends React.Component {
 
-    <div className="static-modal">
-    <Modal.Dialog>
-      <Modal.Header>
-        <Modal.Title>Login</Modal.Title>
-      </Modal.Header>
-  
-      <Modal.Body>Need to implement email login line</Modal.Body>
-  
-      <Modal.Footer>
-        <Button>New to TBD? Sign Up</Button>
-        <Button bsStyle="primary">Login</Button>
-      </Modal.Footer>
-    </Modal.Dialog>
-  </div>
+  constructor(props, context) {
+    super(props, context);
 
-);
+    this.handleHide = this.handleHide.bind(this);
+
+    this.state = {
+      show: false
+    };
+  }
+
+  handleHide() {
+    this.setState({ show: false });
+  }
+  render() {
+    return (
+      <li className="presentation" >
+        <Button
+          bsStyle="primary"
+          bsSize="large"
+          onClick={() => this.setState({ show: true })}
+        >
+          Login
+            </Button>
+
+        <Modal
+          show={this.state.show}
+          onHide={this.handleHide}
+          container={this}
+          aria-labelledby="contained-modal-title"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id="contained-modal-title">
+              Contained Modal
+                </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            Elit est explicabo ipsum eaque dolorem blanditiis doloribus sed id
+            ipsam, beatae, rem fuga id earum? Inventore et facilis obcaecati.
+              </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={this.handleHide}>Close</Button>
+          </Modal.Footer>
+        </Modal>
+      </li>
+    );
+  }
+
+};
