@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import './Carousel.css';
-import { Carousel } from "react-bootstrap";
 import API from "../../utils/API";
+import { Carousel } from "react-bootstrap";
 
 
 class NewsCarousel extends Component {
@@ -9,11 +9,24 @@ class NewsCarousel extends Component {
         results: [],
         articles: [{
             img: '',
-            // title: '',
+            title: '',
+            description: '',
         }, {
             img: '',
+            title: '',
+            description: '',
         }, {
-            img: ''
+            img: '',
+            title: '',
+            description: ''
+        }, {
+            img: '',
+            title: '',
+            description: ''
+        }, {
+            img: '',
+            title: '',
+            description: ''
         }],
     };
     componentDidMount() {
@@ -27,10 +40,24 @@ class NewsCarousel extends Component {
                 results: res.data.articles,
                 articles: [{
                     img: res.data.articles[0].urlToImage,
+                    title: res.data.articles[0].title,
+                    description: res.data.articles[0].description
                 }, {
                     img: res.data.articles[1].urlToImage,
+                    title: res.data.articles[1].title,
+                    description: res.data.articles[1].description
                 }, {
                     img: res.data.articles[2].urlToImage,
+                    title: res.data.articles[2].title,
+                    description: res.data.articles[2].description
+                }, {
+                    img: res.data.articles[3].urlToImage,
+                    title: res.data.articles[3].title,
+                    description: res.data.articles[3].description
+                }, {
+                    img: res.data.articles[4].urlToImage,
+                    title: res.data.articles[4].title,
+                    description: res.data.articles[4].description
                 }],
             });
         })
@@ -40,27 +67,41 @@ class NewsCarousel extends Component {
         return (
 
             <div className="wholeCarousel">
-                <pre>{JSON.stringify(this.state.articles["title"], null, 2)}</pre>
+                {/* <pre>{JSON.stringify(this.state.articles["title"], null, 2)}</pre> */}
                 <Carousel>
                     <Carousel.Item>
                         <img width={900} height={500} alt="900x500" src={this.state.articles[0].img} />}
                         <Carousel.Caption>
-                            {/* <h3>{this.state.results[0].title}</h3> */}
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            <h3>{this.state.articles[0].title}</h3>
+                            <p>{this.state.articles[0].description}</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                     <img width={900} height={500} alt="900x500" src={this.state.articles[1].img} />}
                         <Carousel.Caption>
-                            <h3>Second slide label</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h3>{this.state.articles[1].title}</h3>
+                            <p>{this.state.articles[1].description}</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                     <img width={900} height={500} alt="900x500" src={this.state.articles[2].img} />}
                         <Carousel.Caption>
-                            <h3>Third slide label</h3>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            <h3>{this.state.articles[2].title}</h3>
+                            <p>{this.state.articles[2].description}.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                    <img width={900} height={500} alt="900x500" src={this.state.articles[3].img} />}
+                        <Carousel.Caption>
+                            <h3>{this.state.articles[3].title}</h3>
+                            <p>{this.state.articles[3].description}.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                    <img width={900} height={500} alt="900x500" src={this.state.articles[4].img} />}
+                        <Carousel.Caption>
+                            <h3>{this.state.articles[4].title}</h3>
+                            <p>{this.state.articles[4].description}.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
