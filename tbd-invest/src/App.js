@@ -9,38 +9,28 @@ class App extends Component {
     page: "landing"
   }
   render() {
-  switch (page) {
-    case page === "landing":
-     
-      return (
-  
-        <div>
-          <NavBar />
-        
+    switch (this.state.page) {
+      case "landing":
+        return (
           <div>
-            <Footer />
+            <NavBar />
+            <div>
+              <Footer />
+            </div>
           </div>
-        </div>
-      );
-      break;
-    case page === "main":
-      return (
-    
-        <div>
-          <NavBar />
-        
+        );
+      case "main":
+        return (
           <div>
-            <Footer />
+            <NavBar />
+            <div>
+              <Footer />
+            </div>
           </div>
-        </div>
-      );
-      break;
-    default:
-        
-      break;
-  }
-  
-    
+        );
+      default:
+        break;
+    }
   }
 }
 
