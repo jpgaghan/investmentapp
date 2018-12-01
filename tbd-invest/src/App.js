@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import NavBar from './components/NavBar';
+
 import Footer from './components/Footer';
+import NewsCarousel from './components/Carousel';
 
 
 class App extends Component {
@@ -9,11 +11,18 @@ class App extends Component {
     page: "landing"
   }
   render() {
+
   switch (page) {
     case page === "landing":
-     
-      return (
-  
+
+    return (
+
+      <div>
+        <NavBar />
+
+        <NewsCarousel />
+      
+
         <div>
           <NavBar />
         
