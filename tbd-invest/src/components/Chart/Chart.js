@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import API from "../utils/API";
+import searchForm from "../Chart/searchForm";
 
 
 class Chart extends Component {
     state = {
         ticker: "",
-        chartRange: "",
+        chartRange: "1m",
         results: [],
     };
     
@@ -17,4 +18,29 @@ class Chart extends Component {
         })
         .catch(err => console.log(err));
     };
+
+    handleInputChange = event => {
+        const name = event.target.name;
+        const value = event.target.value;
+        this.setState({
+            [name]: value
+        });
+    };
+
+    handleFormSubmit = event => {
+        event.preventDefault();
+        this.searchHolding(this.state.ticker, this.state.chartRange);
+    };
+
+    render() {
+        return (
+            <searchForm
+            handleFormSubmit={this.handleFormSubmit}
+            handleInputChange={this.handleInputChange}
+            />
+        
+        );
+    }
 }
+
+export default Chart;
