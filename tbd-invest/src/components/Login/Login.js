@@ -38,8 +38,9 @@ export default class Login extends React.Component {
               Login
                 </Modal.Title>
           </Modal.Header>
-          <Modal.Body>
 
+          <Modal.Body>
+            
             <Form horizontal>
               <FormGroup controlId="formHorizontalEmail">
                 <Col componentClass={ControlLabel} sm={2}>
@@ -71,7 +72,9 @@ export default class Login extends React.Component {
                 </Col>
               </FormGroup>
             </Form>;
+
             </Modal.Body>
+
           <Modal.Footer>
             <Button onClick={this.handleHide}>Close</Button>
           </Modal.Footer>
