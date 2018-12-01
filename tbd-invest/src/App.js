@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-// import Login from './components/Login';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
+import NewsCarousel from './components/Carousel';
 
 class App extends Component {
   render() {
@@ -10,10 +10,9 @@ class App extends Component {
 
       <div>
         <NavBar />
-        <div>
-          {/* <Login /> */}
-        </div>
 
+        <NewsCarousel />
+      
         <div>
           <Footer />
         </div>
