@@ -12,8 +12,8 @@ class App extends Component {
   }
   render() {
 
-  switch (page) {
-    case page === "landing":
+  // switch (page) {
+  //   case page === "landing":
 
     return (
 
@@ -21,36 +21,33 @@ class App extends Component {
         <NavBar />
 
         <NewsCarousel />
-      
-
-        <div>
-          <NavBar />
         
           <div>
             <Footer />
           </div>
-        </div>
+ 
+      </div>
       );
-      break;
-    case page === "main":
-      return (
+    //   break;
+    // case page === "main":
+    //   return (
     
-        <div>
-          <NavBar />
+    //     <div>
+    //       <NavBar />
         
-          <div>
-            <Footer />
-          </div>
-        </div>
-      );
-      break;
-    default:
+    //       <div>
+    //         <Footer />
+    //       </div>
+    //     </div>
+    //   );
+    //   break;
+    // default:
         
-      break;
+    //   break;
   }
   
     
   }
-}
+// }
 
 export default App;
