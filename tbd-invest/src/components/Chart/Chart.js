@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import API from "../utils/API";
-import searchForm from "../Chart/searchForm";
+import API from "../../utils/API";
+import SearchForm from "../Search/SearchForm";
 
 
-class Chart extends React.Component {
+class Charts extends Component {
     state = {
         ticker: "",
         chartRange: "1d",
@@ -13,8 +13,8 @@ class Chart extends React.Component {
     searchHolding = (symbol, range) => {
         API.chart(symbol, range)
         .then(res => {
-            console.log(res.data.response.chart);
-            this.setState({ results: res.data.response.chart })
+            console.log(res.data.chart);
+            this.setState({ results: res.data.chart })
         })
         .catch(err => console.log(err));
     };
@@ -34,13 +34,12 @@ class Chart extends React.Component {
 
     render() {
         return (
-            <searchForm
+            <SearchForm
             handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}
             />
-            
         );
     }
 }
 
-export default Chart;
+export default Charts;

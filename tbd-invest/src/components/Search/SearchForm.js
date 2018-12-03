@@ -1,7 +1,7 @@
 import React from "react";
 import "./searchForm.css";
 
-const searchForm = props => (
+const SearchForm = props => (
     <div>
         <h4>Stock Search</h4>
         <form className="search">
@@ -24,4 +24,4 @@ const searchForm = props => (
     </div>
 );
 
-export default searchForm;
+export default SearchForm;
