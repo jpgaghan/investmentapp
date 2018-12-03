@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import API from "../utils/API";
-import searchForm from "../Chart/searchForm";
-
+import API from "../../utils/API";
+import SearchForm from "../SearchForm/SearchForm";
 
 class Chart extends Component {
     state = {
@@ -34,7 +33,7 @@ class Chart extends Component {
 
     render() {
         return (
-            <searchForm
+            <SearchForm
             handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}
             />
