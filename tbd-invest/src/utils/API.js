@@ -7,5 +7,4 @@ export default {
     chart: function(symbol, range) {
         return axios.get(baseUrl + symbol + batch + range);
     }
-    
 };

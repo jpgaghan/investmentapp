@@ -3,10 +3,10 @@ import API from "../utils/API";
 import searchForm from "../Chart/searchForm";
 
 
-class Chart extends Component {
+class Chart extends React.Component {
     state = {
         ticker: "",
-        chartRange: "1m",
+        chartRange: "1d",
         results: [],
     };
     
@@ -38,7 +38,7 @@ class Chart extends Component {
             handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}
             />
-        
+            
         );
     }
 }

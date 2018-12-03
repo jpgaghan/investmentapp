@@ -10,7 +10,6 @@ class App extends Component {
 
       <div>
         <NavBar />
-      
         <div>
           <Footer />
         </div>

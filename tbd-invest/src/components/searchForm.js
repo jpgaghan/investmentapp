@@ -6,14 +6,14 @@ const searchForm = props => (
         <h4>Stock Search</h4>
         <form className="search">
             <div className="form-group">
-                <label htmlFor="symbol">Stock Symbol:</label>
+                <label htmlFor="ticker">Stock Symbol:</label>
                 <input
-                    value={props.symbol}
+                    value={props.ticker}
                     onChange={props.handleInputChange}
-                    name="symbol"
+                    name="ticker"
                     className="form-control"
                     placeholder="Symbol"
-                    id="symbol"
+                    id="ticker"
                 />
             </div>
             <button
