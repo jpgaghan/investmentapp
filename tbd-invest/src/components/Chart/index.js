@@ -1,3 +1,3 @@
-import Chart from './Chart';
+import Charts from './Chart';
 
-export default Chart;
+export default Charts;
