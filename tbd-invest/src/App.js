@@ -3,27 +3,40 @@ import TickerCard from "./components/TickerCard";
 
 // import logo from './logo.svg';
 import './App.css';
+import NavBar from './components/NavBar';
+
+import Footer from './components/Footer';
+import NewsCarousel from './components/Carousel';
+
 
 class App extends Component {
+  state = {
+    page: "landing"
+  }
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <TickerCard></TickerCard>
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+    switch (this.state.page) {
+      case "landing":
+        return (
+          <div>
+            <NavBar />
+            <NewsCarousel />
+            <div>
+              <Footer />
+            </div>
+          </div>
+        );
+      case "main":
+        return (
+          <div>
+            <NavBar />
+            <div>
+              <Footer />
+            </div>
+          </div>
+        );
+      default:
+        break;
+    }
   }
 }
 
