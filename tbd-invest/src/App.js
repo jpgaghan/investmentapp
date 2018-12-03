@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 
 import Footer from './components/Footer';
 import NewsCarousel from './components/Carousel';
+import Charts from './components/Chart';
 
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
           <div>
             <NavBar />
             <NewsCarousel />
+            <Charts />
             <div>
               <Footer />
             </div>
@@ -26,6 +28,7 @@ class App extends Component {
         return (
           <div>
             <NavBar />
+            
             <div>
               <Footer />
             </div>
