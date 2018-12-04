@@ -2,6 +2,7 @@ import React from "react";
 import './Nav.css';
 import Login from "../Login/Login";
 import {Navbar,Nav,NavItem} from "react-bootstrap";
+import SignUp from '../SignUp/SignUpView';
 
 //login modal
 export const NavBar = props => (
@@ -23,6 +24,8 @@ export const NavBar = props => (
          CONTACT
         </NavItem>
           <Login />
+          <SignUp />
+      
       </Nav>
     </Navbar.Collapse>
   </Navbar>

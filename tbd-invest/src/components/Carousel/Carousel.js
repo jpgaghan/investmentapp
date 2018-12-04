@@ -35,7 +35,6 @@ class NewsCarousel extends Component {
     getNews = () => {
         API.carou()
         .then(res => {
-            console.log(res.data.articles);
             this.setState({
                 results: res.data.articles,
                 articles: [{
@@ -65,12 +64,13 @@ class NewsCarousel extends Component {
 
     render() {
         return (
-
             <div className="wholeCarousel">
                 {/* <pre>{JSON.stringify(this.state.articles["title"], null, 2)}</pre> */}
                 <Carousel>
                     <Carousel.Item>
+
                         <img width={900} height={500} alt="900x500" src={this.state.articles[0].img} />
+
                         <Carousel.Caption>
                             <h3>{this.state.articles[0].title}</h3>
                             <p>{this.state.articles[0].description}</p>
@@ -78,6 +78,7 @@ class NewsCarousel extends Component {
                     </Carousel.Item>
                     <Carousel.Item>
                     <img width={900} height={500} alt="900x500" src={this.state.articles[1].img} />
+
                         <Carousel.Caption>
                         <h3>{this.state.articles[1].title}</h3>
                             <p>{this.state.articles[1].description}</p>

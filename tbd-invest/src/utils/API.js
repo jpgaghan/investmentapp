@@ -5,13 +5,18 @@ const batch = "/batch?types=quote,news,chart&range=";
 
 export default {
     chart: function(symbol, range) {
+        console.log("call success");
         return axios.get(baseUrl + symbol + batch + range);
+        
     },
 
     // Carousel News API Call
 
-    carou: function() {
+    carou: () => {
         return axios.get("https://newsapi.org/v2/everything?domains=wsj.com&apiKey=eeecaf51d140496494590dc75247b963");
+    },
+
+    annualfinancials: (symbol) => {
+        return axios.get(baseUrl + symbol + "/financials?period=annual");
     }
 };
-
