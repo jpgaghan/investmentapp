@@ -70,6 +70,12 @@ export default class Login extends React.Component {
                   <Button type="submit">Sign in</Button>
                 </Col>
               </FormGroup>
+              
+              <FormGroup>
+               <Col smOffset={2} sm={10}>
+                 <Button type="submit">Create Account</Button>
+               </Col>
+             </FormGroup>
             </Form>;
             </Modal.Body>
           <Modal.Footer>
