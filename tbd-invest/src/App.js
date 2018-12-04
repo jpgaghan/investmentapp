@@ -1,19 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import NavBar from './components/NavBar';
-<<<<<<< HEAD
-=======
-// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
->>>>>>> 285f2412c0caede77e10ea9437b19f929a37babe
 import Footer from './components/Footer';
-import firebase from './firebase.js';
+// import Login from '.components/Login ';
+// import firebase from './firebase.js';
 import NewsCarousel from './components/Carousel';
-<<<<<<< HEAD
-import { BrowserRouter as Router, Route } from "react-router-dom";
+// import Charts from './components/Chart';
+// import { BrowserRouter as Router, Route } from "react-router-dom";
 
-=======
-import Charts from './components/Chart';
->>>>>>> 285f2412c0caede77e10ea9437b19f929a37babe
 
 
 class App extends Component {
@@ -27,7 +21,7 @@ class App extends Component {
           <div>
             <NavBar />
             <NewsCarousel />
-            <Charts />
+            {/* <Charts /> */}
             <div>
               <Footer />
             </div>
