@@ -1,5 +1,14 @@
+html {
+    background-color: grey;
+}
+body {
+    background-color: grey;
+}
+
+
+
+/* Carousel */
 .wholeCarousel {
-   
     width: 900px;
     margin: auto;
 }
@@ -12,4 +21,24 @@
 .carousel-caption {
     left: 10%;
     right: 10%;
+    padding-bottom: 7% !important;
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 900px) {
+    .wholeCarousel {
+        width: 90%;
+    }
+    .carousel-inner {
+        height: auto;
+    }
+    .carousel-caption {
+        padding-bottom: 3% !important
+    }
 }
