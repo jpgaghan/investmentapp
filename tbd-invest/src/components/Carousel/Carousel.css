@@ -1,0 +1,15 @@
+.wholeCarousel {
+   
+    width: 900px;
+    margin: auto;
+}
+.carousel-inner {
+    height: 470px;
+}
+.carousel-indicators {
+    bottom: 5px !important;
+}
+.carousel-caption {
+    left: 10%;
+    right: 10%;
+}
