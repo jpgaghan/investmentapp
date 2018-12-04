@@ -1,21 +1,72 @@
 import React from "react";
+import { Button } from "react-bootstrap";
+import { Panel } from "react-bootstrap";
+import { Row } from "react-bootstrap";
+import { Col } from "react-bootstrap";
+import { Grid } from "react-bootstrap";
 import "./TickerCard.css";
 
-const TickerCard = props => (
+class TickerCard extends React.Component {
+    constructor(props, context) {
+        super(props, context);
 
-    <div className="card" style={{ width: 18 + "rem"}} >
-        <div className="card-body">
-            <h5 className="card-title">{props.compayName || "Company Name"}</h5>
-            <h6 className="card-subtitle mb-2 text-muted">{props.tickerName || "Ticker Name"}</h6>
-            <hr></hr>
-            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" className="card-link">Card link</a>
-            <a href="#" className="card-link">Another link</a>
-        </div>
-    </div>
+        this.state = {
+            open: false
+        };
+    }
 
-);
+    render(props) {
+        return (
+            <div>
+                <div className="card">
+                    
+                    <Grid className="rowFlex">
+                        <Row className="cardTitle">
+
+                            <Col xs={12} md={8}>
+                                <h4 className="card-title">{'"Ticker Name"'}</h4>
+                                <h6 className="card-subtitle mb-2 text-muted">{'"Primary Exchange"'}</h6>
+                            </Col>
+
+                            <Col className="alignRight">
+                                <Button className="expandBttn" onClick={() => this.setState({ open: !this.state.open })}>+</Button>
+                            </Col>
+                        </Row>
+                        
+                        <Row>
+                            
+                            <Col xs={12} md={8}>
+                                <Row>
+                                    <h6 className="card-subtitle mb-2 text-muted">{'"Company Name"'}</h6>
+                                    <h6 className="card-subtitle mb-2 text-muted">{'"Technology"'}</h6>
+                                </Row>
+                            </Col>
+
+                            <Col>
+                            
+                            </Col>
+                        </Row>
+
+                        <Row>
+                            <Panel id="collapsible-panel-TickerCard-1" expanded={this.state.open}>
+                                <Panel.Collapse>
+                                    <Panel.Body>
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life
+                                        accusamus terry richardson ad squid. Nihil anim keffiyeh
+                                        helvetica, craft beer labore wes anderson cred nesciunt sapiente
+                                        ea proident.
+                                    </Panel.Body>
+                                </Panel.Collapse>
+                            </Panel>
+                        </Row>
+
+                    </Grid>
+
+                </div>
+
+            </div>
+        );
+    }
+}
 
 export default TickerCard;
-
-// style="width: 18rem;"

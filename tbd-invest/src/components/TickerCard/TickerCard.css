@@ -1,0 +1,27 @@
+
+.card {
+    display: flex;
+    max-width: 300px;
+    /* width: 30%; */
+
+    margin: auto;
+    border: 5px solid red;
+}
+
+.alignRight {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.alignLeft {
+    justify-content: flex-start;
+}
+
+.rowFlex {
+    display: flex;
+}
+
+/* .expandBttn {
+    display: flex;
+    align-self: flex-end;
+} */

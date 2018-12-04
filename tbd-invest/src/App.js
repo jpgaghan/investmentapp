@@ -20,6 +20,28 @@ class App extends Component {
           <div>
             <NavBar />
             <NewsCarousel />
+            <br></br>
+            <div className="tickerContainer">
+              <TickerCard />
+              <TickerCard />
+              <TickerCard />
+              <TickerCard />
+              <TickerCard />
+              <TickerCard />
+              <TickerCard />
+              <TickerCard />
+              <TickerCard />
+              <TickerCard />
+              <TickerCard />
+              <TickerCard />
+              <TickerCard />
+              <TickerCard />
+              <TickerCard />
+              <TickerCard />
+              <TickerCard />
+              <TickerCard />
+            </div>
+
             <div>
               <Footer />
             </div>
