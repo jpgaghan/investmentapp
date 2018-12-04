@@ -1,8 +1,8 @@
 import React from 'react';
-import './Login.css';
+import './SignUpView.css';
 import { Modal, Button, Col, FormGroup, Checkbox, FormControl, Form, ControlLabel } from "react-bootstrap";
 
-export default class Login extends React.Component {
+export default class SignUpView extends React.Component {
 
   constructor(props, context) {
     super(props, context);
@@ -25,7 +25,7 @@ export default class Login extends React.Component {
           bsSize="large"
           onClick={() => this.setState({ show: true })}
         >
-          Login
+          Sign Up
             </Button>
         <Modal
           show={this.state.show}
@@ -35,7 +35,7 @@ export default class Login extends React.Component {
         >
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title">
-              Login
+              Sign Up
                 </Modal.Title>
           </Modal.Header>
 
@@ -68,7 +68,7 @@ export default class Login extends React.Component {
 
               <FormGroup>
                 <Col smOffset={2} sm={10}>
-                  <Button type="submit">Sign in</Button>
+                  <Button type="submit">Create Account</Button>
                 </Col>
               </FormGroup>
             </Form>;
