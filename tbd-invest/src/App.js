@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import './App.css';
 import NavBar from './components/NavBar';
+<<<<<<< HEAD
+=======
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+>>>>>>> 285f2412c0caede77e10ea9437b19f929a37babe
 import Footer from './components/Footer';
 import firebase from './firebase.js';
 import NewsCarousel from './components/Carousel';
+<<<<<<< HEAD
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
+=======
+import Charts from './components/Chart';
+>>>>>>> 285f2412c0caede77e10ea9437b19f929a37babe
 
 
 class App extends Component {
@@ -13,44 +21,33 @@ class App extends Component {
     page: "landing"
   }
   render() {
-
-  // switch (page) {
-  //   case page === "landing":
-
-    return (
-
-      <div>
-        <NavBar />
-
-        <NewsCarousel />
-        
+    switch (this.state.page) {
+      case "landing":
+        return (
           <div>
-            <Footer />
+            <NavBar />
+            <NewsCarousel />
+            <Charts />
+            <div>
+              <Footer />
+            </div>
           </div>
- 
-      </div>
-      );
-    //   break;
-    // case page === "main":
-    //   return (
-    
-    //     <div>
-    //       <NavBar />
-        
-    //       <div>
-    //         <Footer />
-    //       </div>
-    //     </div>
-    //   );
-    //   break;
-    // default:
-        
-    //   break;
+        );
+      case "main":
+        return (
+          <div>
+            <NavBar />
+            
+            <div>
+              <Footer />
+            </div>
+          </div>
+        );
+      default:
+        break;
+    }
   }
-  
-    
-  }
-// }
+}
 
 export default App;
 
