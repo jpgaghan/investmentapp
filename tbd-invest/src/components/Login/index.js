@@ -36,7 +36,7 @@ export default class Login extends Component {
   try {
    const user = firebase
     .auth()
-    .createUserWithEmailAndPassword(username, password);
+    .signInWithEmailAndPassword(username, password);
     //updating status is app.js to read main and pass userID to the status 
     this.handleHide({show: false});
     this.props.handlePage({page:"main"})
