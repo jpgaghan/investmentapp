@@ -2,7 +2,7 @@ import React from "react";
 import './Nav.css';
 import Login from "../Login/index";
 import {Navbar,Nav,NavItem} from "react-bootstrap";
-import SignUp from '../SignUp/SignUpView';
+import SignUp from '../SignUp/index';
 
 //login modal
 export const NavBar = ({handlePage}) => (
@@ -25,7 +25,9 @@ export const NavBar = ({handlePage}) => (
             <Login 
               handlePage={handlePage}
             />
-            <SignUp />
+            <SignUp
+              handlePage={handlePage} 
+            />
         
         </Nav>
       </Navbar.Collapse>
