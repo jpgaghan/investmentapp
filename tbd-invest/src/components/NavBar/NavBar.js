@@ -10,7 +10,7 @@ export const NavBar = ({ handlePage }) => (
     <Navbar className="navStyle" inverse collapseOnSelect>
       <Navbar.Header>
         <Navbar.Brand>
-          <a href="#brand">TBD App</a>
+          <a className="brandName" href="#brand">TBD App</a>
         </Navbar.Brand>
         <Navbar.Toggle />
       </Navbar.Header>
