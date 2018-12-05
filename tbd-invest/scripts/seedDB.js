@@ -11,7 +11,7 @@ mongoose.connect(
   }
 );
 
-const bookSeed = [
+const interestrateSeed = [
   {
       year: 1914,
       annualpercentagerate: 1.3
@@ -433,9 +433,9 @@ const bookSeed = [
       annualpercentagerate: 2.2    }
 ];
 
-db.Book
+db.InterestRate
   .remove({})
-  .then(() => db.Book.collection.insertMany(bookSeed))
+  .then(() => db.InterestRate.collection.insertMany(interestrateSeed))
   .then(data => {
     console.log(data.insertedIds.length + " records inserted!");
     process.exit(0);

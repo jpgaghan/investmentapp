@@ -1,11 +1,51 @@
-.navbar {
-    height: 75px;
-    padding: 10px;
-   
+/* NavBar */
+.brandName {
+    font-size: 30px;
+    color: limegreen !important;
+    font-weight: bold;
+    letter-spacing: 1.5px;
 }
-
+.navbar {
+    height: 60px;
+    padding: 4px;
+    border-radius: 0;
+    font-size: 22px;
+}
 .loginBtn {
     font-size: 20px;
-
     padding: 10px;
 }
+.btn {
+    padding: 7px 20px;
+    font-size: 22px;
+    margin: 2px 14px 0px 14px;
+}
+.container {
+    padding-left: 0;
+    padding-right: 0;
+}
+/* .collpaseNav{
+    float: right;
+    text-align: right;
+    margin-bottom: 5px;
+    padding: 32px;
+    background-color: rgb(51, 51, 51);
+    opacity: 0.9;
+    border: 2px black solid;
+    } */
+@media only screen and (max-width: 768px) {
+    .container {
+        padding: 0 5px;
+    }
+    .navList {
+    z-index: 999999;
+    position: relative;
+    float: right;
+    text-align: right;
+    }
+    .carousel-control {
+        opacity: 0;
+    }
+
+}
+
