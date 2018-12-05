@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './Carousel.css';
+import "./Carousel.css";
 import API from "../../utils/API";
 import { Carousel } from "react-bootstrap";
 
@@ -10,11 +10,11 @@ class NewsCarousel extends Component {
         articles: [{
             img: '',
             title: '',
-            description: '',
+            description: ''
         }, {
             img: '',
             title: '',
-            description: '',
+            description: ''
         }, {
             img: '',
             title: '',
@@ -35,7 +35,6 @@ class NewsCarousel extends Component {
     getNews = () => {
         API.carou()
         .then(res => {
-            console.log(res.data.articles);
             this.setState({
                 results: res.data.articles,
                 articles: [{
@@ -65,40 +64,42 @@ class NewsCarousel extends Component {
 
     render() {
         return (
-
             <div className="wholeCarousel">
                 {/* <pre>{JSON.stringify(this.state.articles["title"], null, 2)}</pre> */}
                 <Carousel>
                     <Carousel.Item>
-                        <img width={900} height={500} alt="900x500" src={this.state.articles[0].img} />}
+
+                        <img width={900} height={500} alt="900x500" src={this.state.articles[0].img} />
+
                         <Carousel.Caption>
                             <h3>{this.state.articles[0].title}</h3>
                             <p>{this.state.articles[0].description}</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
-                    <img width={900} height={500} alt="900x500" src={this.state.articles[1].img} />}
+                    <img width={900} height={500} alt="900x500" src={this.state.articles[1].img} />
+
                         <Carousel.Caption>
                         <h3>{this.state.articles[1].title}</h3>
                             <p>{this.state.articles[1].description}</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
-                    <img width={900} height={500} alt="900x500" src={this.state.articles[2].img} />}
+                    <img width={900} height={500} alt="900x500" src={this.state.articles[2].img} />
                         <Carousel.Caption>
                             <h3>{this.state.articles[2].title}</h3>
                             <p>{this.state.articles[2].description}.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
-                    <img width={900} height={500} alt="900x500" src={this.state.articles[3].img} />}
+                    <img width={900} height={500} alt="900x500" src={this.state.articles[3].img} />
                         <Carousel.Caption>
                             <h3>{this.state.articles[3].title}</h3>
                             <p>{this.state.articles[3].description}.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
-                    <img width={900} height={500} alt="900x500" src={this.state.articles[4].img} />}
+                    <img width={900} height={500} alt="900x500" src={this.state.articles[4].img} />
                         <Carousel.Caption>
                             <h3>{this.state.articles[4].title}</h3>
                             <p>{this.state.articles[4].description}.</p>
