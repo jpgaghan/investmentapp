@@ -9,14 +9,14 @@ export default {
         console.log(symbol + " " + range);
         return axios.get(baseUrl + symbol + batch + range);
     },
-
     // Carousel News API Call
-
     carou: () => {
         return axios.get("https://newsapi.org/v2/everything?domains=wsj.com&apiKey=eeecaf51d140496494590dc75247b963");
     },
-
-    // annualfinancials: (symbol) => {
-    //     return axios.get(baseUrl + symbol + "/financials?period=annual");
-    // }
+    annualfinancials: (symbol) => {
+        return axios.get(baseUrl + symbol + "/financials?period=annual");
+    },
+    statsfinancials: (symbol) => {
+        return axios.get(baseUrl + symbol + "/stats");
+    }
 };

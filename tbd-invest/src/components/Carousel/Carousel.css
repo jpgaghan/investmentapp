@@ -23,7 +23,13 @@ body {
     right: 10%;
     padding-bottom: 7% !important;
 }
-
+h3 {
+    font-weight: 700;
+}
+p {
+    font-weight: 500;
+    font-size: 16px;
+}
 
 
 

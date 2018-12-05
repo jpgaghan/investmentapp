@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import firebase from '../../firebase';
-import SigninComponent from './SignUpView'
+import LoginComponent from './Login'
 
 
-export default class SignUp extends Component {
+export default class Login extends Component {
 
   constructor(props, context) {
    super(props, context);
@@ -36,7 +36,7 @@ export default class SignUp extends Component {
   try {
    const user = firebase
     .auth()
-    .createUserWithEmailAndPassword(username, password);
+    .signInWithEmailAndPassword(username, password);
     //updating status is app.js to read main and pass userID to the status 
     this.handleHide({show: false});
     this.props.handlePage({page:"main"})
@@ -46,7 +46,7 @@ export default class SignUp extends Component {
  };
 
  render() {
-  return <SigninComponent
+  return <LoginComponent
           {...this.state}
           onSubmit={this.handleLogin} 
           handleChange={this.handleChange}
