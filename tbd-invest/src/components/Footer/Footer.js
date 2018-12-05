@@ -5,7 +5,7 @@ import './Footer.css';
 export const Footer = () => (
 <footer className="footer">
   <div className="container">
-    <span>Footer Information</span>
+    <span>Project Presented in December, 2018. UNC Charlotte Full Stack Web Developer Program.<br />Active Group Members: Lauren Lapoint, Grant Fath, James Cresswell, Daniel Elston, and Jonathan Gaghan</span>
   </div>
 </footer>
 );

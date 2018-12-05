@@ -65,7 +65,7 @@ class NewsCarousel extends Component {
     render() {
         return (
             <div className="wholeCarousel">
-                {/* <pre>{JSON.stringify(this.state.articles["title"], null, 2)}</pre> */}
+            
                 <Carousel>
                     <Carousel.Item>
 
