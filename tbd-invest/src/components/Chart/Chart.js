@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import SearchForm from "../Search/SearchForm";
-import Canvas from "../Canvasjs/Canvas";
-// import CanvasJSReact from "../Canvasjs/canvasjs.react";
-// var CanvasJS = CanvasJSReact.CanvasJS;
-// var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+import { AreaChart } from "react-easy-chart";
+
 
 
 
@@ -13,28 +11,28 @@ class Charts extends Component {
         ticker: "",
         chartRange: "1d",
         results: [],
+        dataPoints: [],
     };
 
     chartDisplay = () => {
-            var dataPoints = [];
+            var dataPointsA = [];
             console.log(this.state.results);
             this.state.results.forEach(function (element) {
                 var dateM = element.minute.split(":");
-                var hour = dateM[0];
-                var minute = dateM[1];
-                dataPoints.push({ x: new Date(2018, 2, 9, hour, minute), y: parseFloat(element.close) 
+                var hour = parseInt(dateM[0]);
+                var minute = parseInt(dateM[1]);
+                dataPointsA.push({ x: (hour, minute), y: parseFloat(element.close) 
                 });
             });
-            return(dataPoints);
-
+            this.setState({dataPoints: dataPointsA});
     }
     
     searchHolding = (symbol, range) => {
         API.chart(symbol, range)
         .then(res => {
-            // console.log(res.data.chart);
+            console.log(res.data.chart);
             this.setState({ results: res.data.chart })
-            // console.log(this.state.results);
+            console.log(this.state.results);
             this.chartDisplay();
         })
         .catch(err => console.log(err));
@@ -61,7 +59,16 @@ class Charts extends Component {
             handleInputChange={this.handleInputChange}
             />
             <div>
-                <Canvas chartDisplay={this.chartDisplay} />
+                <AreaChart
+                    xType={"time"}
+                    axes
+                    margin={{top: 30, right: 30, bottom: 30, left: 50}}
+                    width={1050}
+                    height={450} 
+                    data = {[
+                        this.state.dataPoints
+                    ]}
+                />
             </div>
             </div>
         );
