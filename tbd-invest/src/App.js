@@ -2,24 +2,30 @@ import React, { Component } from 'react';
 import './App.css';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
-// import Login from '.components/Login ';
+// import Login from './components/Login ';
 // import firebase from './firebase.js';
 import NewsCarousel from './components/Carousel';
 // import Charts from './components/Chart';
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 
-
-
 class App extends Component {
-  state = {
-    page: "landing"
+  constructor(props, context){
+    super(props, context);
+    this.state = {
+      page: "landing",
+      userid: ""
+    }
+    this.handlePage = this.handlePage.bind(this)
+  }
+  handlePage(e){
+    this.setState({page:e.page})
   }
   render() {
     switch (this.state.page) {
       case "landing":
         return (
           <div>
-            <NavBar />
+            <NavBar handlePage={this.handlePage}/>
             <NewsCarousel />
             {/* <Charts /> */}
             <div>
@@ -27,11 +33,11 @@ class App extends Component {
             </div>
           </div>
         );
+      case "loggedin":
       case "main":
         return (
           <div>
             <NavBar />
-            
             <div>
               <Footer />
             </div>
