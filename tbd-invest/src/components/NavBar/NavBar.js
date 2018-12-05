@@ -15,7 +15,7 @@ export const NavBar = props => (
       </Navbar.Brand>
       <Navbar.Toggle />
     </Navbar.Header>
-    <Navbar.Collapse>
+    <Navbar.Collapse className="collapseNav">
       <Nav pullRight>
         <NavItem eventKey={1} href="#">
          ABOUT
@@ -32,3 +32,4 @@ export const NavBar = props => (
   </div>
 
 );
+

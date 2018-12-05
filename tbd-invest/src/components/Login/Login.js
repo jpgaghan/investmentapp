@@ -25,7 +25,7 @@ export default class Login extends React.Component {
           bsSize="large"
           onClick={() => this.setState({ show: true })}
         >
-          Login
+          LOGIN
             </Button>
         <Modal
           show={this.state.show}
@@ -35,7 +35,7 @@ export default class Login extends React.Component {
         >
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title">
-              Login
+              LOGIN
                 </Modal.Title>
           </Modal.Header>
 

@@ -25,7 +25,7 @@ export default class SignUpView extends React.Component {
           bsSize="large"
           onClick={() => this.setState({ show: true })}
         >
-          Sign Up
+          SIGN UP
             </Button>
         <Modal
           show={this.state.show}
