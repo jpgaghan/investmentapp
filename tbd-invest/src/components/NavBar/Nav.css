@@ -37,5 +37,15 @@
     .container {
         padding: 0 5px;
     }
+    .navList {
+    z-index: 999999;
+    position: relative;
+    float: right;
+    text-align: right;
+    }
+    .carousel-control {
+        opacity: 0;
+    }
+
 }
 

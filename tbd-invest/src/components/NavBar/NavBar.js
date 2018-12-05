@@ -14,7 +14,7 @@ export const NavBar = ({ handlePage }) => (
         </Navbar.Brand>
         <Navbar.Toggle />
       </Navbar.Header>
-      <Navbar.Collapse>
+      <Navbar.Collapse className="navList">
         <Nav pullRight>
           <NavItem eventKey={1} href="#">
             About
