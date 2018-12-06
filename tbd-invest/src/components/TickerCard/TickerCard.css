@@ -1,0 +1,33 @@
+
+.card {
+    display: flex;
+    max-width: 900px;   
+    min-width: 300px; 
+    /* width: 30%; */
+    background-color: aliceblue;
+
+    margin: auto;
+    border: 3px solid #000000;
+}
+
+.alignRight {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.alignLeft {
+    justify-content: flex-start;
+}
+
+.rowFlex {
+    display: flex;
+}
+
+/* .expandBttn {
+    display: flex;
+    align-self: flex-end;
+} */
+
+/* .expandedCard {
+    width: 2000px;
+} */
