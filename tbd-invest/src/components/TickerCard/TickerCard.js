@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { Panel } from "react-bootstrap";
+import API from "../../utils/API";
 // import { Row } from "react-bootstrap";
 // import { Col } from "react-bootstrap";
 // import { Grid } from "react-bootstrap";
@@ -11,15 +12,43 @@ class TickerCard extends React.Component {
         super(props, context);
 
         this.state = {
-            open: false
+            open: false,
+            CurrentPrice: "",
+            PreviousClose: "",
+            DailyRange: "",
+            DailyVolume: "",
+            MarketCap: "",
+            Beta: "",
+            PE: "",
+            EPS: "",
+            Sector: "",
+            DailyPercentChange: ""
         };
+        this.getNews=this.getNews.bind(this)
     }
-
+    getNews = () => {
+        API.financialData()
+        .then(res => {
+            this.setState({
+            CurrentPrice: res.quote.latestPrice,
+            PreviousClose: res.chart,
+            DailyRange: "",
+            DailyVolume: "",
+            MarketCap: "",
+            Beta: "",
+            PE: "",
+            EPS: "",
+            Sector: "",
+            DailyPercentChange: ""
+            })
+        })
+    }
+    
     render(props) {
 
             {
                 switch (this.state.open) {
-                    case "false":
+                    case false:
                         
                     return(
                         <div>
@@ -74,7 +103,7 @@ class TickerCard extends React.Component {
                         </div>
                     );
 
-                    case "true":
+                    case true:
 
                     return(
                         <div>
@@ -169,8 +198,9 @@ class TickerCard extends React.Component {
                                         <Panel className="expandedCard" id="collapsible-panel-TickerCard-1" expanded={this.state.open}>
                                             <Panel.Collapse>
                                                 <Panel.Body>
+                                                    {/* financial api data goes here */}
                                                     Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                                    accusamus terry richardson ad squid. Nihil anim keffiyeh
+                                                    accusamus terry richardsedrtytrertgfdertfcdfvcxdrtgbvcfrtyhbon ad squid. Nihil anim keffiyeh
                                                     helvetica, craft beer labore wes anderson cred nesciunt sapiente
                                                     ea proident.
                                                 </Panel.Body>
