@@ -19,7 +19,7 @@ class TickerCard extends React.Component {
 
             {
                 switch (this.state.open) {
-                    case "false":
+                    case false:
                         
                     return(
                         <div>
@@ -28,13 +28,12 @@ class TickerCard extends React.Component {
                                 <div className="divFlex">
                                     <div className="cardTitle">
 
-                                        <div xs={12} md={8}>
+                                        <div>
                                             <h4 className="card-title">{'"Ticker Name"'}</h4>
                                             <h6 className="card-subtitle mb-2 text-muted">{'"Primary Exchange"'}</h6>
+                                            
 
-                                            <div className="alignRight">
-                                                <Button className="expandBttn" onClick={() => this.setState({ open: !this.state.open })}>+</Button>
-                                            </div>
+                                            <Button className="expandBttn" onClick={() => this.setState({ open: !this.state.open })}>+</Button>
                                         </div>
 
                                         
@@ -42,7 +41,7 @@ class TickerCard extends React.Component {
                                     
                                     <div>
                                         
-                                        <div xs={12} md={8}>
+                                        <div>
                                             <div>
                                                 <h6 className="card-subtitle mb-2 text-muted">{'"Company Name"'}</h6>
                                                 <h6 className="card-subtitle mb-2 text-muted">{'"Technology"'}</h6>
@@ -54,19 +53,6 @@ class TickerCard extends React.Component {
                                         </div>
                                     </div>
 
-                                    <div>
-                                        <Panel className="expandedCard" id="collapsible-panel-TickerCard-1" expanded={this.state.open}>
-                                            <Panel.Collapse>
-                                                <Panel.Body>
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                                    accusamus terry richardson ad squid. Nihil anim keffiyeh
-                                                    helvetica, craft beer labore wes anderson cred nesciunt sapiente
-                                                    ea proident.
-                                                </Panel.Body>
-                                            </Panel.Collapse>
-                                        </Panel>
-                                    </div>
-
                                 </div>
 
                             </div>
@@ -74,7 +60,7 @@ class TickerCard extends React.Component {
                         </div>
                     );
 
-                    case "true":
+                    case true:
 
                     return(
                         <div>
@@ -83,7 +69,7 @@ class TickerCard extends React.Component {
                                 <div className="divFlex">
                                     <div className="cardTitle">
 
-                                        <div xs={12} md={8}>
+                                        <div>
                                             <h4 className="card-title">{'"Ticker Name"'}</h4>
                                             <h6 className="card-subtitle mb-2 text-muted">{'"Primary Exchange"'}</h6>
 
@@ -97,7 +83,7 @@ class TickerCard extends React.Component {
                                     
                                     <div>
                                         
-                                        <div xs={12} md={8}>
+                                        <div>
                                             <div>
                                                 <h6 className="card-subtitle mb-2 text-muted">{'"Company asdflijkasdfoiaw;kojasdfasdfasdfkhName"'}</h6>
                                                 <h6 className="card-subtitle mb-2 text-muted">{'"Technology"'}</h6>
@@ -139,7 +125,7 @@ class TickerCard extends React.Component {
                                 <div className="divFlex">
                                     <div className="cardTitle">
 
-                                        <div xs={12} md={8}>
+                                        <div>
                                             <h4 className="card-title">{'"Ticker Name"'}</h4>
                                             <h6 className="card-subtitle mb-2 text-muted">{'"Primary Exchange"'}</h6>
 
@@ -153,7 +139,7 @@ class TickerCard extends React.Component {
                                     
                                     <div>
                                         
-                                        <div xs={12} md={8}>
+                                        <div>
                                             <div>
                                                 <h6 className="card-subtitle mb-2 text-muted">{'"Company Name"'}</h6>
                                                 <h6 className="card-subtitle mb-2 text-muted">{'"Technology"'}</h6>

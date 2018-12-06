@@ -1,13 +1,15 @@
 
 .card {
     display: flex;
-    max-width: 900px;   
-    min-width: 300px; 
+    max-width: 1000px;   
+    min-width: 240px; 
     /* width: 30%; */
     background-color: aliceblue;
 
     margin: auto;
-    border: 3px solid #000000;
+    border: 1px solid #000000;
+    margin: 1px;
+    padding: 0px 5px;
 }
 
 .alignRight {
@@ -23,10 +25,10 @@
     display: flex;
 }
 
-/* .expandBttn {
+.expandBttn {
     display: flex;
     align-self: flex-end;
-} */
+}
 
 /* .expandedCard {
     width: 2000px;

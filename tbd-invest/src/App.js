@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 // import Login from './components/Login ';
 // import firebase from './firebase.js';
 import NewsCarousel from './components/Carousel';
-// import Charts from './components/Chart';
+import Charts from './components/Chart';
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
@@ -52,7 +52,7 @@ class App extends Component {
               <TickerCard />
             </div>
 
-            {/* <Charts /> */}
+            <Charts />
             <div className="footerContainer">
               <Footer />
             </div>
