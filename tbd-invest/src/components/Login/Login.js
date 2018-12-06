@@ -70,7 +70,7 @@ import { Modal, Button, Col, FormGroup, Checkbox, FormControl, Form, ControlLabe
                   <Button type="submit">Sign in</Button>
                 </Col>
               </FormGroup>
-            </Form>;
+            </Form>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={handleLogstatus}>Close</Button>
@@ -82,5 +82,4 @@ import { Modal, Button, Col, FormGroup, Checkbox, FormControl, Form, ControlLabe
   };
 
   export default LoginComponent;
-
 

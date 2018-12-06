@@ -68,7 +68,7 @@ const SigninComponent = ({
                  <Button type="submit">Sign Up</Button>
                </Col>
              </FormGroup>
-           </Form>;
+           </Form>
          </Modal.Body>
          <Modal.Footer>
            <Button onClick={handleLogin}>Close</Button>
