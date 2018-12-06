@@ -8,6 +8,7 @@ import { Modal, Button, Col, FormGroup, Checkbox, FormControl, Form, ControlLabe
    show,
    handleHide,
    handleLogin,
+   handleLogstatus,
    handleusernameChange,
    handlepasswordChange,
    username,
@@ -72,7 +73,7 @@ import { Modal, Button, Col, FormGroup, Checkbox, FormControl, Form, ControlLabe
             </Form>;
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={handleLogin}>Close</Button>
+            <Button onClick={handleLogstatus}>Close</Button>
           </Modal.Footer>
         </Modal>
         }
