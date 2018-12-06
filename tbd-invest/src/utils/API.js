@@ -13,6 +13,6 @@ export default {
         return axios.get("https://newsapi.org/v2/everything?domains=wsj.com&apiKey=eeecaf51d140496494590dc75247b963");
     },
     financialData: (symbol) => {
-        return axios.get(baseUrl + symbol + "/batch/?types=quote,news,chart,logo")
+        return axios.get(baseUrl + symbol + "/batch/?types=quote,news,chart,logo,stats")
     },
 };

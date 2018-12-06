@@ -12,6 +12,7 @@ class TickerCard extends React.Component {
         super(props, context);
 
         this.state = {
+            stock: "aapl",
             open: false,
             CurrentPrice: "",
             PreviousClose: "",
@@ -24,23 +25,28 @@ class TickerCard extends React.Component {
             Sector: "",
             DailyPercentChange: ""
         };
-        this.getNews=this.getNews.bind(this)
+        this.getfinancialData=this.getfinancialData.bind(this)
     }
-    getNews = () => {
-        API.financialData()
+    getfinancialData = () => {
+        console.log("here")
+        API.financialData(this.state.stock)
         .then(res => {
+            console.log(res)
             this.setState({
-            CurrentPrice: res.quote.latestPrice,
-            PreviousClose: res.chart,
-            DailyRange: "",
-            DailyVolume: "",
-            MarketCap: "",
-            Beta: "",
+            CurrentPrice: res.data.quote.latestPrice,
+            // PreviousClose: res.data.chart(res.data.chart.length-1),
+            // .close,
+            DailyRange: res.data.chart.length,
+            DailyVolume: res.data.quo,
+            MarketCap: res.data.quote.marketCap,
+            Beta: res.data.stats.beta,
             PE: "",
-            EPS: "",
-            Sector: "",
-            DailyPercentChange: ""
+            EPS: res.data.stats.consensusEPS,
+            Sector: res.data.quote.sector,
+            // DailyPercentChange: res.data.chart(res.data.chart.length-1)
+            // .changePercent
             })
+            console.log(this.state)
         })
     }
     
@@ -60,7 +66,6 @@ class TickerCard extends React.Component {
                                         <div xs={12} md={8}>
                                             <h4 className="card-title">{'"Ticker Name"'}</h4>
                                             <h6 className="card-subtitle mb-2 text-muted">{'"Primary Exchange"'}</h6>
-
                                             <div className="alignRight">
                                                 <Button className="expandBttn" onClick={() => this.setState({ open: !this.state.open })}>+</Button>
                                             </div>
