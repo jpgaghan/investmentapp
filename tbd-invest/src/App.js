@@ -3,7 +3,7 @@ import './App.css';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 // import Login from './components/Login ';
-// import firebase from './firebase.js';
+import firebase from './firebase.js';
 import NewsCarousel from './components/Carousel';
 import Charts from './components/Chart';
 // import { BrowserRouter as Router, Route } from "react-router-dom";

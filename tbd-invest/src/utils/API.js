@@ -6,7 +6,6 @@ const batch = "/batch?types=quote,news,chart&range=";
 export default {
     chart: function(symbol, range) {
         console.log("call success");
-        console.log(symbol + " " + range);
         return axios.get(baseUrl + symbol + batch + range);
     },
     // Carousel News API Call
