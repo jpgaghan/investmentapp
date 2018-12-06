@@ -53,7 +53,7 @@ class App extends Component {
             </div>
 
             {/* <Charts /> */}
-            <div>
+            <div className="footerContainer">
               <Footer />
             </div>
           </div>
@@ -63,7 +63,7 @@ class App extends Component {
         return (
           <div>
             <NavBar />
-            <div>
+            <div className="footerContainer">
               <Footer />
             </div>
           </div>

@@ -1,11 +1,13 @@
 
 .card {
     display: flex;
-    max-width: 300px;
+    max-width: 900px;   
+    min-width: 300px; 
     /* width: 30%; */
+    background-color: aliceblue;
 
     margin: auto;
-    border: 5px solid red;
+    border: 3px solid #000000;
 }
 
 .alignRight {
@@ -24,4 +26,8 @@
 /* .expandBttn {
     display: flex;
     align-self: flex-end;
+} */
+
+/* .expandedCard {
+    width: 2000px;
 } */
