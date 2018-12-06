@@ -3,7 +3,7 @@ import API from "../../utils/API";
 import SearchForm from "../Search/SearchForm";
 import { AreaChart } from "react-easy-chart";
 import * as d3  from "d3";
-import { timeParse as parse } from "d3-time-format";
+// import { timeParse as parse } from "d3-time-format";
 
 
 class Charts extends Component {
@@ -12,7 +12,6 @@ class Charts extends Component {
         chartRange: "1m",
         results: [],
         dataPoints: [],
-        dateFormatter: "",
     };
      
     
@@ -23,28 +22,13 @@ class Charts extends Component {
             this.state.results.forEach(function (element) {               
                 var dateM = element.date.split("-");
                 var formatTime = d3.timeFormat("%d-%m-%y");
-                // this.setState({dateFormatter:  dateM});
-                // console.log(month(dateM));
-                // console.log(element.date);
-                // console.log(parseDate(element.date));
-                // console.log(new Date(dateM));
-                var year = (parseInt(dateM[0]));
-                var month = (parseInt(dateM[1]));
-                var day = (parseInt(dateM[2]));
                 var da = formatTime(new Date(dateM));
-                console.log(da);
-                // console.log(dateM);
                 dataPointsA.push({ x: da, y: parseFloat(element.close) 
                 });
-                // console.log(dataPointsA, "dataPointsA");
             });
             this.setState({dataPoints: dataPointsA});
     }
     
-    
-    x = function(d) {
-        return new Date(d.da);
-    }
     searchHolding = (symbol, range) => {
         API.chart(symbol, range)
         .then(res => {
@@ -80,7 +64,7 @@ class Charts extends Component {
                 <AreaChart
                     axes
                     xType={"time"}
-                    margin={{top: 30, right: 30, bottom: 30, left: 50}}
+                    margin={{top: 30, right: 30, bottom: 70, left: 50}}
                     width={1050}
                     height={250}
                     datePattern={'%d-%m-%Y'}
@@ -88,11 +72,6 @@ class Charts extends Component {
                     data = {[
                         this.state.dataPoints
                     ]}
-                    // x={x}
-                    
-                    // xScale={'time'}
-                    // xTicks={[this.state.dataPoints.length, " "]}
-                    // xTickFormat={function(d) { return this.state.dateFormatter(new Date(d)) }}
                 />
             </div>
             </div>
