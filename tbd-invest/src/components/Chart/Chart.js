@@ -1,18 +1,20 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import SearchForm from "../Search/SearchForm";
-// import ChartArea from "./AreaChart";
 import * as d3  from "d3";
 import { AreaChart } from "react-easy-chart";
-// import { timeParse as parse } from "d3-time-format";
+import { Button } from "react-bootstrap";
+
 
 
 class Charts extends Component {
     state = {
         ticker: "",
-        chartRange: "1d",
+        chartRange: "1m",
         results: [],
         dataPoints: [],
+        dataPattern: "",
+        tickFormat: ""
     };
      
     
@@ -28,6 +30,8 @@ class Charts extends Component {
                 dataPointsA.push({ x: da, y: parseFloat(element.close) 
                 });
             });
+            this.setState({dataPattern: "%d-%m-%Y" });
+            this.setState({tickFormat: "%d %b"});
             this.setState({dataPoints: dataPointsA});
     }
     chartDisplayD = () => {
@@ -44,7 +48,8 @@ class Charts extends Component {
             var dm = formatTime(new Date(date));
             dataPointsD.push({ x: dm, y: parseFloat(element.close) });
         });
-        // console.log(dataPointsD);
+        this.setState({dataPattern: "%Y-%m-%d %H:%M"});
+        this.setState({tickFormat: "%I:%M"});
         this.setState({dataPoints: dataPointsD});
     }
     
@@ -85,6 +90,21 @@ class Charts extends Component {
             handleInputChange={this.handleInputChange}
             />
             <div>
+                <Button
+                  bsStyle="primary"
+                  bsSize="small"
+                  onClick={this.chartDisplayD}
+                >Daily Chart</Button>
+                <Button
+                  bsStyle="primary"
+                  bsSize="small"
+                  onClick={this.chartDisplay}
+                >30-Day Chart</Button>
+                <Button
+                  bsStyle="primary"
+                  bsSize="small"
+                  onClick={this.chartDisplay}
+                >Year Chart</Button>
                 <AreaChart 
                 // range = {this.state.chartRange}
                     axes
@@ -92,8 +112,8 @@ class Charts extends Component {
                     margin={{top: 30, right: 30, bottom: 70, left: 50}}
                     width={1050}
                     height={250}
-                    datePattern={'%Y-%m-%d %H:%M'}
-                    tickTimeDisplayFormat={'%I:%M'}
+                    datePattern={this.state.dataPattern}
+                    tickTimeDisplayFormat={this.state.tickFormat}
                     data = {[
                         this.state.dataPoints
                     ]}
