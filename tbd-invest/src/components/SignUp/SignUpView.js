@@ -2,6 +2,7 @@ import React from 'react';
 import './SignUpView.css';
 import { Modal, Button, Col, FormGroup, Checkbox, FormControl, Form, ControlLabel } from "react-bootstrap";
 
+
 const SigninComponent = ({
   onSubmit,
   show,
@@ -9,16 +10,21 @@ const SigninComponent = ({
   handleLogin,
   handleusernameChange,
   handlepasswordChange,
+  handleLogout,
   username,
-  password
+  password,
+  userid
  }) => {
    return (
      <li className="signin-component" >
        <Button
          bsStyle="primary"
          bsSize="large"
-         onClick={() => handleHide({ show: true })}
+        //  onClick={() => handleHide({ show: true })}
+         onClick={() => !userid ? handleHide({ show: true }) : handleLogout()}
+
        >
+       {userid ? 'Logout' : 'Login'}
          Sign Up
        </Button>
        
