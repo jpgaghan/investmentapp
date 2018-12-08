@@ -13,10 +13,15 @@ export default class SignUp extends Component {
    this.handleusernameChange = this.handleusernameChange.bind(this);
    this.handleLogin = this.handleLogin.bind(this);
    this.handleLogout = this.handleLogout.bind(this);
+  //  this.handleBecameAuthed = this.handleBecameAuthed.bind(this);
+  //  this.handleUserUnAuthed = this.handleUserUnAuthed.bind(this);
+  this.handleLogstatus = this.handleLogstatus.bind(this);
    this.state = {
     show: false,
     username: '',
-    password: ''
+    password: '',
+    logstatus: false
+
    };
   }
   handleusernameChange(e) {
@@ -30,16 +35,22 @@ export default class SignUp extends Component {
     this.setState({ show: e.show });
   }
 
- handleLogin(event){
-  event.preventDefault();
+  handleLogstatus(event){
+    event.preventDefault();
+    console.log("up")
+    this.state.logstatus ? this.handleLogout():this.handleLogin()
+  }
+
+ handleLogin(){
+  // event.preventDefault();
   const { username, password } = this.state;
 
   console.log(username, password)
 
-   const user = firebase
+ firebase
     .auth()
     .createUserWithEmailAndPassword(username, password).then(res => {
-      this.props.handleBecameAuthed(res.user);
+      // this.props.handleBecameAuthed(res.user);
       this.handleHide({show: false});
       this.setState({logstatus: true})
       this.props.handlePage({page:"main"})
@@ -51,6 +62,8 @@ handleLogout() {
   .auth()
   .signOut().then(res => {
     console.log("here")
+
+    // TypeError: _this2.props.handleBecameAuthed is not a function
   //updating status is app.js to read main and pass userID to the status 
   this.props.handleUserUnAuthed();
   this.handleHide({show: false});
@@ -70,6 +83,8 @@ handleLogout() {
           handlepasswordChange={this.handlepasswordChange}
           handleusernameChange={this.handleusernameChange}
           handleLogstatus={this.handleLogstatus}
+          handleBecameAuthed={this.handleBecameAuthed}
+          handleUserUnAuthed={this.handleUserUnAuthed}
 
         />) : null;
  }

@@ -24,7 +24,7 @@ export const NavBar = ({ handlePage, handleBecameAuthed, userid, handleUserUnAut
           <NavItem eventKey={2} href="#">
             Contact
             </NavItem>
-           
+
           <Login
             handleUserUnAuthed={handleUserUnAuthed}
             userid={userid}
@@ -32,17 +32,19 @@ export const NavBar = ({ handlePage, handleBecameAuthed, userid, handleUserUnAut
             handleBecameAuthed={handleBecameAuthed}
           />
           <SignUp
+            handleUserUnAuthed={handleUserUnAuthed}
             userid={userid}
             handlePage={handlePage}
+            handleBecameAuthed
           />
 
-           <NavItem className="username">
+          <NavItem className="username">
             {/* short circuit evaluation */}
             {(userEmail && userEmail.slice(0, userEmail.indexOf('@'))) || ''}
-          
+
             <FaUserCircle />
 
-            </NavItem>
+          </NavItem>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
