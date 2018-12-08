@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { Panel } from "react-bootstrap";
+import API from "../../utils/API";
 // import { Row } from "react-bootstrap";
 // import { Col } from "react-bootstrap";
 // import { Grid } from "react-bootstrap";
@@ -11,10 +12,45 @@ class TickerCard extends React.Component {
         super(props, context);
 
         this.state = {
-            open: false
+            stock: "aapl",
+            open: false,
+            CurrentPrice: "",
+            PreviousClose: "",
+            DailyRange: "",
+            DailyVolume: "",
+            MarketCap: "",
+            Beta: "",
+            PE: "",
+            EPS: "",
+            Sector: "",
+            DailyPercentChange: ""
         };
+        this.getfinancialData=this.getfinancialData.bind(this)
     }
-
+    getfinancialData = () => {
+        console.log("here")
+        API.financialData(this.state.stock)
+        .then(res => {
+            console.log(res.data.chart.length-1)
+            this.setState({
+            CurrentPrice: res.data.quote.latestPrice,
+            PreviousClose: res.data.chart[res.data.chart.length-2].close,
+            DailyRange: res.data.chart.length,
+            DailyVolume: res.data.chart[res.data.chart.length-2].volume,
+            MarketCap: res.data.quote.marketCap,
+            Beta: res.data.stats.beta,
+            PE: res.data.quote.peRatio,
+            EPS: res.data.stats.consensusEPS,
+            Sector: res.data.quote.sector,
+            DailyPercentChange: res.data.chart[res.data.chart.length-2].changePercent,
+            Exchange: res.data.quote.primaryExchange,
+            CompanyName: res.data.quote.companyName,
+            })
+            this.setState({ open: !this.state.open })
+            console.log(this.state)
+        })
+    }
+    
     render(props) {
 
             {
@@ -27,10 +63,14 @@ class TickerCard extends React.Component {
                                 
                                 <div className="cardTitle row">
 
-                                    <div className="col">
-                                        <h4 className="card-title">{'"Ticker Name"'}</h4>
-                                        <h6 className="card-subtitle mb-2 text-muted">{'"FALSE Exchange"'}</h6>
-                                    </div>
+                                        <div xs={12} md={8}>
+                                            <h4 className="card-title">{this.state.stock}</h4>
+                                            <h6 className="card-subtitle mb-2 text-muted">{this.state.Exchange}</h6>
+                                            <div className="alignRight">
+                                                <Button className="expandBttn" onClick={()=>{this.getfinancialData()}}>+</Button>
+                                                {/* () => this.setState({ open: !this.state.open }) */}
+                                            </div>
+                                        </div>
 
                                     <div className="col">
                                         <button className="expandBttn" onClick={() => this.setState({ open: !this.state.open })}>+</button>
@@ -41,6 +81,14 @@ class TickerCard extends React.Component {
                                 <div>
                                     
                                     <div>
+                                        
+                                        <div xs={12} md={8}>
+                                            <div>
+                                                <h6 className="card-subtitle mb-2 text-muted">{this.state.CompanyName}</h6>
+                                                <h6 className="card-subtitle mb-2 text-muted">{this.state.Sector}</h6>
+                                            </div>
+                                        </div>
+
                                         <div>
                                             <h6 className="card-subtitle mb-2 text-muted">{'"Company Name"'}</h6>
                                             <h6 className="card-subtitle mb-2 text-muted">{'"Technology"'}</h6>
@@ -66,12 +114,12 @@ class TickerCard extends React.Component {
                                 <div className="divFlex">
                                     <div className="cardTitle">
 
-                                        <div>
-                                            <h4 className="card-title">{'"Ticker Name"'}</h4>
-                                            <h6 className="card-subtitle mb-2 text-muted">{'"TRUE Exchange"'}</h6>
+                                        <div xs={12} md={8}>
+                                            <h4 className="card-title">{this.state.stock}</h4>
+                                            <h6 className="card-subtitle mb-2 text-muted">{this.state.Exchange}</h6>
 
                                             <div className="alignRight">
-                                                <button className="expandBttn" bsSize="xsmall" onClick={() => this.setState({ open: !this.state.open })}>+</button>
+                                                <Button className="expandBttn" onClick={()=>{this.getfinancialData()}}>+</Button>
                                             </div>
                                         </div>
 
@@ -82,8 +130,8 @@ class TickerCard extends React.Component {
                                         
                                         <div>
                                             <div>
-                                                <h6 className="card-subtitle mb-2 text-muted">{'"Company asdflijkasdfoiaw;kojasdfasdfasdfkhName"'}</h6>
-                                                <h6 className="card-subtitle mb-2 text-muted">{'"Technology"'}</h6>
+                                                <h6 className="card-subtitle mb-2 text-muted">{this.state.CompanyName}</h6>
+                                                <h6 className="card-subtitle mb-2 text-muted">{this.state.Sector}</h6>
                                             </div>
                                         </div>
 
@@ -116,8 +164,55 @@ class TickerCard extends React.Component {
                     default:
 
                     return(
-                        <div className="card">
-                              <img width={160} height={160} alt="900x500" src={'https://www.adobe.com/content/dam/acom/en/devnet/authors/bio/k/kevin_fauth_bio.jpg'} />
+                        <div>
+                            <div className="card">
+                                
+                                <div className="divFlex">
+                                    <div className="cardTitle">
+
+                                        <div xs={12} md={8}>
+                                            <h4 className="card-title">{this.state.stock}</h4>
+                                            <h6 className="card-subtitle mb-2 text-muted">{this.state.Exchange}</h6>
+                                            <div className="alignRight">
+                                                <Button className="expandBttn" onClick={()=>{this.getfinancialData()}}>+</Button>
+                                            </div>
+                                        </div>
+
+                                        
+                                    </div>
+                                    
+                                    <div>
+                                        
+                                        <div xs={12} md={8}>
+                                            <div>
+                                                <h6 className="card-subtitle mb-2 text-muted">{this.state.CompanyName}</h6>
+                                                <h6 className="card-subtitle mb-2 text-muted">{this.state.Sector}</h6>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                        
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <Panel className="expandedCard" id="collapsible-panel-TickerCard-1" expanded={this.state.open}>
+                                            <Panel.Collapse>
+                                                <Panel.Body>
+                                                    {/* financial api data goes here */}
+                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life
+                                                    accusamus terry richardsedrtytrertgfdertfcdfvcxdrtgbvcfrtyhbon ad squid. Nihil anim keffiyeh
+                                                    helvetica, craft beer labore wes anderson cred nesciunt sapiente
+                                                    ea proident.
+                                                </Panel.Body>
+                                            </Panel.Collapse>
+                                        </Panel>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
                         </div>
                     );
                         break;

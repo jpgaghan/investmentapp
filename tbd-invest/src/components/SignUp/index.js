@@ -12,6 +12,7 @@ export default class SignUp extends Component {
    this.handlepasswordChange = this.handlepasswordChange.bind(this);
    this.handleusernameChange = this.handleusernameChange.bind(this);
    this.handleLogin = this.handleLogin.bind(this);
+   this.handleLogout = this.handleLogout.bind(this);
    this.state = {
     show: false,
     username: '',
@@ -32,28 +33,44 @@ export default class SignUp extends Component {
  handleLogin(event){
   event.preventDefault();
   const { username, password } = this.state;
+
   console.log(username, password)
-  try {
+
    const user = firebase
     .auth()
-    .createUserWithEmailAndPassword(username, password);
-    //updating status is app.js to read main and pass userID to the status 
-    this.handleHide({show: false});
-    this.props.handlePage({page:"main"})
-  } catch (error) {
-   alert(error);
-  }
- };
+    .createUserWithEmailAndPassword(username, password).then(res => {
+      this.props.handleBecameAuthed(res.user);
+      this.handleHide({show: false});
+      this.setState({logstatus: true})
+      this.props.handlePage({page:"main"})
+    }).catch (error => alert(error));
+  };
 
+handleLogout() {
+  firebase
+  .auth()
+  .signOut().then(res => {
+    console.log("here")
+  //updating status is app.js to read main and pass userID to the status 
+  this.props.handleUserUnAuthed();
+  this.handleHide({show: false});
+  this.setState({logstatus: false})
+  this.props.handlePage({page:"landing"})
+  }).catch (error => alert(error))
+}
  render() {
-  return <SigninComponent
+
+          return !this.props.userid ? (<SigninComponent
           {...this.state}
           onSubmit={this.handleLogin} 
           handleChange={this.handleChange}
           handleHide={this.handleHide} 
           handleLogin={this.handleLogin}
+          handleLogout={this.handleLogout}
           handlepasswordChange={this.handlepasswordChange}
           handleusernameChange={this.handleusernameChange}
-        />;
+          handleLogstatus={this.handleLogstatus}
+
+        />) : null;
  }
 };

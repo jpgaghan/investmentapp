@@ -6,6 +6,19 @@ body {
   background-image: url(../src/photos/slate.jpg);
 }
 
+.container {
+  display: flex;
+
+}
+
+.alignRight {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.alignLeft {
+  justify-content: flex-start;
+}
 
 .tickerContainer {
   display: flex;
