@@ -23,7 +23,6 @@ import { Modal, Button, Col, FormGroup, Checkbox, FormControl, Form, ControlLabe
         >
           Login
         </Button>
-        
         {
           <Modal
           show={show || false}
