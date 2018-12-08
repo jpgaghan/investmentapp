@@ -37,7 +37,6 @@ class Charts extends Component {
     chartDisplayD = () => {
         var dataPointsD = [];
         this.state.results.forEach(function (element) {
-            
             var timeM = element.minute;
             var dateM = element.date;
             var date = [];
@@ -47,27 +46,22 @@ class Charts extends Component {
             date.push(year, month, day, timeM);
             var formatTime = d3.timeFormat("%Y-%m-%d %H:%M");
             var dm = formatTime(new Date(date));
-            console.log(dm);
             dataPointsD.push({ x: dm, y: parseFloat(element.marketClose) });
         });
         this.setState({dataPattern: "%Y-%m-%d %H:%M"});
         this.setState({tickFormat: "%I:%M %p"});
         this.setState({dataPoints: dataPointsD});
-        console.log(dataPointsD);
     }
     
     searchHolding = (symbol, range) => {
         API.chart(symbol, range)
         .then(res => {
-            // console.log(res.data.chart);
             this.setState({ results: res.data.chart })
-            // console.log(this.state.results);
             if (this.state.chartRange === "1m" || this.state.chartRange === "1y") {
             this.chartDisplay();
             }
             else {
                 this.chartDisplayD();
-                // console.log(res.data.chart);
             }
             
         })

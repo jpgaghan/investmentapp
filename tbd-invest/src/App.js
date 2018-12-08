@@ -5,7 +5,8 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import NewsCarousel from './components/Carousel';
 import Charts from './components/Chart';
-import { AreaChart } from "react-easy-chart";
+import SearchForm from "./components/Search";
+// import { AreaChart } from "react-easy-chart";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
@@ -42,8 +43,8 @@ class App extends Component {
                 
                   <div className="alignRight" xs={6} m={6}>
                     <NewsCarousel />
-                   
-                    <Charts />
+                    <SearchForm />
+                    {/* <Charts /> */}
                   </div>
                 
               </div>
@@ -71,8 +72,10 @@ class App extends Component {
               <TickerCard />
               <TickerCard />
             </div>
-
-            <Charts />
+            <div>
+            <SearchForm />
+            </div>
+            {/* <Charts /> */}
             <div className="footerContainer">
               <Footer />
             </div>
