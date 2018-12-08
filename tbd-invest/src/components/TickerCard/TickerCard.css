@@ -2,12 +2,13 @@
 .card {
     display: flex;
     max-width: 1000px;   
-    min-width: 240px; 
+    min-width: 220px; 
     /* width: 30%; */
     background-color: aliceblue;
 
     margin: auto;
     border: 1px solid #000000;
+    border-radius: 5px;
     margin: 1px;
     padding: 0px 5px;
 }
@@ -21,15 +22,21 @@
     justify-content: flex-start;
 }
 
-.rowFlex {
+.row {
     display: flex;
+    flex-direction: row;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
 }
 
 .expandBttn {
     display: flex;
+    border-radius: 2px;
+
+    /* height: 10px;
+    width: 10px; */
     align-self: flex-end;
 }
-
-/* .expandedCard {
-    width: 2000px;
-} */

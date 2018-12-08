@@ -25,34 +25,31 @@ class TickerCard extends React.Component {
                         <div>
                             <div className="card">
                                 
-                                <div className="divFlex">
-                                    <div className="cardTitle">
+                                <div className="cardTitle row">
 
-                                        <div>
-                                            <h4 className="card-title">{'"Ticker Name"'}</h4>
-                                            <h6 className="card-subtitle mb-2 text-muted">{'"Primary Exchange"'}</h6>
-                                            
+                                    <div className="col">
+                                        <h4 className="card-title">{'"Ticker Name"'}</h4>
+                                        <h6 className="card-subtitle mb-2 text-muted">{'"FALSE Exchange"'}</h6>
+                                    </div>
 
-                                            <Button className="expandBttn" onClick={() => this.setState({ open: !this.state.open })}>+</Button>
-                                        </div>
-
-                                        
+                                    <div className="col">
+                                        <button className="expandBttn" onClick={() => this.setState({ open: !this.state.open })}>+</button>
                                     </div>
                                     
+                                </div>
+                                
+                                <div>
+                                    
                                     <div>
-                                        
                                         <div>
-                                            <div>
-                                                <h6 className="card-subtitle mb-2 text-muted">{'"Company Name"'}</h6>
-                                                <h6 className="card-subtitle mb-2 text-muted">{'"Technology"'}</h6>
-                                            </div>
-                                        </div>
-
-                                        <div>
-                                        
+                                            <h6 className="card-subtitle mb-2 text-muted">{'"Company Name"'}</h6>
+                                            <h6 className="card-subtitle mb-2 text-muted">{'"Technology"'}</h6>
                                         </div>
                                     </div>
 
+                                    <div>
+                                    
+                                    </div>
                                 </div>
 
                             </div>
@@ -71,10 +68,10 @@ class TickerCard extends React.Component {
 
                                         <div>
                                             <h4 className="card-title">{'"Ticker Name"'}</h4>
-                                            <h6 className="card-subtitle mb-2 text-muted">{'"Primary Exchange"'}</h6>
+                                            <h6 className="card-subtitle mb-2 text-muted">{'"TRUE Exchange"'}</h6>
 
                                             <div className="alignRight">
-                                                <Button className="expandBttn" onClick={() => this.setState({ open: !this.state.open })}>+</Button>
+                                                <button className="expandBttn" bsSize="xsmall" onClick={() => this.setState({ open: !this.state.open })}>+</button>
                                             </div>
                                         </div>
 
@@ -119,55 +116,8 @@ class TickerCard extends React.Component {
                     default:
 
                     return(
-                        <div>
-                            <div className="card">
-                                
-                                <div className="divFlex">
-                                    <div className="cardTitle">
-
-                                        <div>
-                                            <h4 className="card-title">{'"Ticker Name"'}</h4>
-                                            <h6 className="card-subtitle mb-2 text-muted">{'"Primary Exchange"'}</h6>
-
-                                            <div className="alignRight">
-                                                <Button className="expandBttn" onClick={() => this.setState({ open: !this.state.open })}>+</Button>
-                                            </div>
-                                        </div>
-
-                                        
-                                    </div>
-                                    
-                                    <div>
-                                        
-                                        <div>
-                                            <div>
-                                                <h6 className="card-subtitle mb-2 text-muted">{'"Company Name"'}</h6>
-                                                <h6 className="card-subtitle mb-2 text-muted">{'"Technology"'}</h6>
-                                            </div>
-                                        </div>
-
-                                        <div>
-                                        
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <Panel className="expandedCard" id="collapsible-panel-TickerCard-1" expanded={this.state.open}>
-                                            <Panel.Collapse>
-                                                <Panel.Body>
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                                    accusamus terry richardson ad squid. Nihil anim keffiyeh
-                                                    helvetica, craft beer labore wes anderson cred nesciunt sapiente
-                                                    ea proident.
-                                                </Panel.Body>
-                                            </Panel.Collapse>
-                                        </Panel>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
+                        <div className="card">
+                              <img width={160} height={160} alt="900x500" src={'https://www.adobe.com/content/dam/acom/en/devnet/authors/bio/k/kevin_fauth_bio.jpg'} />
                         </div>
                     );
                         break;
