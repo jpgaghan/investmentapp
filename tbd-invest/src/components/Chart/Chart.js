@@ -10,7 +10,7 @@ import { Button } from "react-bootstrap";
 class Charts extends Component {
     state = {
         ticker: "",
-        chartRange: "1m",
+        chartRange: "1d",
         results: [],
         dataPoints: [],
         dataPattern: "",
@@ -23,10 +23,10 @@ class Charts extends Component {
             // console.log(this.state.results);
             this.state.results.forEach(function (element) {               
                 var dateM = element.date.split("-");
-                console.log(dateM);
+                // console.log(dateM);
                 var formatTime = d3.timeFormat("%d-%m-%y");
                 var da = formatTime(new Date(dateM));
-                console.log(da);
+                // console.log(da);
                 dataPointsA.push({ x: da, y: parseFloat(element.close) 
                 });
             });
@@ -37,6 +37,7 @@ class Charts extends Component {
     chartDisplayD = () => {
         var dataPointsD = [];
         this.state.results.forEach(function (element) {
+            
             var timeM = element.minute;
             var dateM = element.date;
             var date = [];
@@ -44,13 +45,15 @@ class Charts extends Component {
             var month = dateM[4] + dateM[5];
             var day = dateM[6] + dateM[7];
             date.push(year, month, day, timeM);
-            var formatTime = d3.timeFormat("%y-%m-%d %H:%M");
+            var formatTime = d3.timeFormat("%Y-%m-%d %H:%M");
             var dm = formatTime(new Date(date));
+            console.log(dm);
             dataPointsD.push({ x: dm, y: parseFloat(element.close) });
         });
         this.setState({dataPattern: "%Y-%m-%d %H:%M"});
-        this.setState({tickFormat: "%I:%M"});
+        this.setState({tickFormat: "%I:%M %p"});
         this.setState({dataPoints: dataPointsD});
+        console.log(dataPointsD);
     }
     
     searchHolding = (symbol, range) => {
@@ -64,7 +67,9 @@ class Charts extends Component {
             }
             else {
                 this.chartDisplayD();
+                // console.log(res.data.chart);
             }
+            
         })
         .catch(err => console.log(err));
     };
@@ -78,7 +83,7 @@ class Charts extends Component {
     };
 
     handleFormSubmit = event => {
-        event.preventDefault();
+        event.preventDefault();        
         this.searchHolding(this.state.ticker, this.state.chartRange);
     };
 
@@ -93,20 +98,35 @@ class Charts extends Component {
                 <Button
                   bsStyle="primary"
                   bsSize="small"
-                  onClick={this.chartDisplayD}
+                  onClick={(symbol, chartRange) => {
+                    symbol = this.state.ticker;
+                    chartRange = "1d";
+                    this.setState({ chartRange: "1d" });
+                    this.searchHolding(symbol, chartRange);
+                }}
                 >Daily Chart</Button>
                 <Button
                   bsStyle="primary"
                   bsSize="small"
-                  onClick={this.chartDisplay}
+                  onClick={(symbol, chartRange) => {
+                    symbol = this.state.ticker;
+                    chartRange = "1m";
+                    this.setState({ chartRange: "1m" });
+                    this.searchHolding(symbol, chartRange);
+                }}
                 >30-Day Chart</Button>
                 <Button
                   bsStyle="primary"
                   bsSize="small"
-                  onClick={this.chartDisplay}
+                  onClick={(symbol, chartRange) => {
+                      symbol = this.state.ticker;
+                      chartRange = "1y";
+                      this.setState({ chartRange: "1y" });
+                      this.searchHolding(symbol, chartRange);
+                  }}
+                
                 >Year Chart</Button>
                 <AreaChart 
-                // range = {this.state.chartRange}
                     axes
                     xType={"time"}
                     margin={{top: 30, right: 30, bottom: 70, left: 50}}
