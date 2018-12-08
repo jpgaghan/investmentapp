@@ -7,16 +7,15 @@ export default {
     chart: function(symbol, range) {
         console.log("call success");
         return axios.get(baseUrl + symbol + batch + range);
-        
     },
-
     // Carousel News API Call
-
     carou: () => {
         return axios.get("https://newsapi.org/v2/everything?domains=wsj.com&apiKey=eeecaf51d140496494590dc75247b963");
     },
-
     annualfinancials: (symbol) => {
         return axios.get(baseUrl + symbol + "/financials?period=annual");
+    },
+    statsfinancials: (symbol) => {
+        return axios.get(baseUrl + symbol + "/stats");
     }
 };
