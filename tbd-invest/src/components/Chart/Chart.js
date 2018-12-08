@@ -10,7 +10,7 @@ import { Button } from "react-bootstrap";
 class Charts extends Component {
     state = {
         ticker: "",
-        chartRange: "1m",
+        chartRange: "",
         results: [],
         dataPoints: [],
         dataPattern: "",
@@ -37,6 +37,7 @@ class Charts extends Component {
     chartDisplayD = () => {
         var dataPointsD = [];
         this.state.results.forEach(function (element) {
+            console.log(element.date);
             var timeM = element.minute;
             var dateM = element.date;
             var date = [];
@@ -64,7 +65,9 @@ class Charts extends Component {
             }
             else {
                 this.chartDisplayD();
+                console.log(res.data.chart);
             }
+            
         })
         .catch(err => console.log(err));
     };
@@ -73,12 +76,13 @@ class Charts extends Component {
         const name = event.target.name;
         const value = event.target.value;
         this.setState({
-            [name]: value
+            [name]: value,
+            chartRange: "1d"
         });
     };
 
     handleFormSubmit = event => {
-        event.preventDefault();
+        event.preventDefault();        
         this.searchHolding(this.state.ticker, this.state.chartRange);
     };
 
@@ -93,17 +97,33 @@ class Charts extends Component {
                 <Button
                   bsStyle="primary"
                   bsSize="small"
-                  onClick={this.chartDisplayD}
+                  onClick={(symbol, chartRange) => {
+                    symbol = this.state.ticker;
+                    chartRange = "1d";
+                    this.setState({ chartRange: "1d" });
+                    this.searchHolding(symbol, chartRange);
+                }}
                 >Daily Chart</Button>
                 <Button
                   bsStyle="primary"
                   bsSize="small"
-                  onClick={this.chartDisplay}
+                  onClick={(symbol, chartRange) => {
+                    symbol = this.state.ticker;
+                    chartRange = "1m";
+                    this.setState({ chartRange: "1m" });
+                    this.searchHolding(symbol, chartRange);
+                }}
                 >30-Day Chart</Button>
                 <Button
                   bsStyle="primary"
                   bsSize="small"
-                  onClick={this.chartDisplay}
+                  onClick={(symbol, chartRange) => {
+                      symbol = this.state.ticker;
+                      chartRange = "1y";
+                      this.setState({ chartRange: "1y" });
+                      this.searchHolding(symbol, chartRange);
+                  }}
+                
                 >Year Chart</Button>
                 <AreaChart 
                 // range = {this.state.chartRange}
