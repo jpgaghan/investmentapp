@@ -8858,11 +8858,14 @@ react-faux-dom@^4.1.0:
     query-selector "^1.0.9"
     style-attr "^1.0.1"
 
+<<<<<<< HEAD
 react-icon@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-icon/-/react-icon-1.0.0.tgz#6038598eb07fb3e64b3e7865d271f79f3559de0b"
   integrity sha1-YDhZjrB/s+ZLPnhl0nH3nzVZ3gs=
 
+=======
+>>>>>>> fa968490c79cc5bfbc54ebbf7a0f721b602dfaa8
 react-icons@^3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.2.2.tgz#7b1dc795004a119a35175e62ecef91e5c9c90962"
