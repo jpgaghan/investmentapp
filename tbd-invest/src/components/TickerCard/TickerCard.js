@@ -31,21 +31,22 @@ class TickerCard extends React.Component {
         console.log("here")
         API.financialData(this.state.stock)
         .then(res => {
-            console.log(res)
+            console.log(res.data.chart.length-1)
             this.setState({
             CurrentPrice: res.data.quote.latestPrice,
-            // PreviousClose: res.data.chart(res.data.chart.length-1),
-            // .close,
+            PreviousClose: res.data.chart[res.data.chart.length-2].close,
             DailyRange: res.data.chart.length,
-            DailyVolume: res.data.quo,
+            DailyVolume: res.data.chart[res.data.chart.length-2].volume,
             MarketCap: res.data.quote.marketCap,
             Beta: res.data.stats.beta,
-            PE: "",
+            PE: res.data.quote.peRatio,
             EPS: res.data.stats.consensusEPS,
             Sector: res.data.quote.sector,
-            // DailyPercentChange: res.data.chart(res.data.chart.length-1)
-            // .changePercent
+            DailyPercentChange: res.data.chart[res.data.chart.length-2].changePercent,
+            Exchange: res.data.quote.primaryExchange,
+            CompanyName: res.data.quote.companyName,
             })
+            this.setState({ open: !this.state.open })
             console.log(this.state)
         })
     }
@@ -64,10 +65,11 @@ class TickerCard extends React.Component {
                                     <div className="cardTitle">
 
                                         <div xs={12} md={8}>
-                                            <h4 className="card-title">{'"Ticker Name"'}</h4>
-                                            <h6 className="card-subtitle mb-2 text-muted">{'"Primary Exchange"'}</h6>
+                                            <h4 className="card-title">{this.state.stock}</h4>
+                                            <h6 className="card-subtitle mb-2 text-muted">{this.state.Exchange}</h6>
                                             <div className="alignRight">
-                                                <Button className="expandBttn" onClick={() => this.setState({ open: !this.state.open })}>+</Button>
+                                                <Button className="expandBttn" onClick={()=>{this.getfinancialData()}}>+</Button>
+                                                {/* () => this.setState({ open: !this.state.open }) */}
                                             </div>
                                         </div>
 
@@ -78,8 +80,8 @@ class TickerCard extends React.Component {
                                         
                                         <div xs={12} md={8}>
                                             <div>
-                                                <h6 className="card-subtitle mb-2 text-muted">{'"Company Name"'}</h6>
-                                                <h6 className="card-subtitle mb-2 text-muted">{'"Technology"'}</h6>
+                                                <h6 className="card-subtitle mb-2 text-muted">{this.state.CompanyName}</h6>
+                                                <h6 className="card-subtitle mb-2 text-muted">{this.state.Sector}</h6>
                                             </div>
                                         </div>
 
@@ -118,11 +120,11 @@ class TickerCard extends React.Component {
                                     <div className="cardTitle">
 
                                         <div xs={12} md={8}>
-                                            <h4 className="card-title">{'"Ticker Name"'}</h4>
-                                            <h6 className="card-subtitle mb-2 text-muted">{'"Primary Exchange"'}</h6>
+                                            <h4 className="card-title">{this.state.stock}</h4>
+                                            <h6 className="card-subtitle mb-2 text-muted">{this.state.Exchange}</h6>
 
                                             <div className="alignRight">
-                                                <Button className="expandBttn" onClick={() => this.setState({ open: !this.state.open })}>+</Button>
+                                                <Button className="expandBttn" onClick={()=>{this.getfinancialData()}}>+</Button>
                                             </div>
                                         </div>
 
@@ -133,8 +135,8 @@ class TickerCard extends React.Component {
                                         
                                         <div xs={12} md={8}>
                                             <div>
-                                                <h6 className="card-subtitle mb-2 text-muted">{'"Company asdflijkasdfoiaw;kojasdfasdfasdfkhName"'}</h6>
-                                                <h6 className="card-subtitle mb-2 text-muted">{'"Technology"'}</h6>
+                                                <h6 className="card-subtitle mb-2 text-muted">{this.state.CompanyName}</h6>
+                                                <h6 className="card-subtitle mb-2 text-muted">{this.state.Sector}</h6>
                                             </div>
                                         </div>
 
@@ -174,11 +176,10 @@ class TickerCard extends React.Component {
                                     <div className="cardTitle">
 
                                         <div xs={12} md={8}>
-                                            <h4 className="card-title">{'"Ticker Name"'}</h4>
-                                            <h6 className="card-subtitle mb-2 text-muted">{'"Primary Exchange"'}</h6>
-
+                                            <h4 className="card-title">{this.state.stock}</h4>
+                                            <h6 className="card-subtitle mb-2 text-muted">{this.state.Exchange}</h6>
                                             <div className="alignRight">
-                                                <Button className="expandBttn" onClick={() => this.setState({ open: !this.state.open })}>+</Button>
+                                                <Button className="expandBttn" onClick={()=>{this.getfinancialData()}}>+</Button>
                                             </div>
                                         </div>
 
@@ -189,8 +190,8 @@ class TickerCard extends React.Component {
                                         
                                         <div xs={12} md={8}>
                                             <div>
-                                                <h6 className="card-subtitle mb-2 text-muted">{'"Company Name"'}</h6>
-                                                <h6 className="card-subtitle mb-2 text-muted">{'"Technology"'}</h6>
+                                                <h6 className="card-subtitle mb-2 text-muted">{this.state.CompanyName}</h6>
+                                                <h6 className="card-subtitle mb-2 text-muted">{this.state.Sector}</h6>
                                             </div>
                                         </div>
 
