@@ -2,6 +2,7 @@ import React from 'react';
 import './SignUpView.css';
 import { Modal, Button, Col, FormGroup, Checkbox, FormControl, Form, ControlLabel } from "react-bootstrap";
 
+
 const SigninComponent = ({
   onSubmit,
   show,
