@@ -1,36 +1,56 @@
 import React, { Component } from 'react';
 import TickerCard from "./components/TickerCard";
-
-// import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
-// import Login from './components/Login ';
-// import firebase from './firebase.js';
 import NewsCarousel from './components/Carousel';
 import Charts from './components/Chart';
+import { AreaChart } from "react-easy-chart";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
-  constructor(props, context){
+  constructor(props, context) {
     super(props, context);
     this.state = {
       page: "landing",
-      userid: ""
+      userid: null,
+      userEmail:null,
     }
-    this.handlePage = this.handlePage.bind(this)
+    this.handlePage = this.handlePage.bind(this);
+    this.handleBecameAuthed = this.handleBecameAuthed.bind(this);
+    this.handleUserUnAuthed = this.handleUserUnAuthed.bind(this);
   }
-  handlePage(e){
-    this.setState({page:e.page})
+  handlePage(e) {
+    this.setState({ page: e.page })
+  }
+  handleBecameAuthed(user){
+    const {uid, email} = user
+    this.setState({userid:uid, userEmail:email});
+  }
+  handleUserUnAuthed(){
+    this.setState({userid: null, userEmail:null});  
   }
   render() {
     switch (this.state.page) {
       case "landing":
         return (
           <div>
-            <NavBar handlePage={this.handlePage}/>
-            <NewsCarousel />
+            <NavBar userEmail={this.state.userEmail} handleUserUnAuthed={this.handleUserUnAuthed} userid={this.state.userid} handleBecameAuthed={this.handleBecameAuthed} handlePage={this.handlePage} />
+
+            <div className="container">
+              <div className="divFlex">
+                
+                  <div className="alignRight" xs={6} m={6}>
+                    <NewsCarousel />
+                   
+                    <Charts />
+                  </div>
+                
+              </div>
+            </div>
+
             <br></br>
+
             <div className="tickerContainer">
               <TickerCard />
               <TickerCard />
@@ -62,9 +82,9 @@ class App extends Component {
       case "main":
         return (
           <div>
-            <NavBar handlePage={this.handlePage}/>
+            <NavBar userEmail={this.state.userEmail} handleUserUnAuthed={this.handleUserUnAuthed} userid={this.state.userid}  handleBecameAuthed={this.handleBecameAuthed} handlePage={this.handlePage} />
             <div className="footerContainer">
-              <Footer />
+              {/* <Footer /> */}
             </div>
           </div>
         );

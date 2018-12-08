@@ -8,21 +8,25 @@ import { Modal, Button, Col, FormGroup, Checkbox, FormControl, Form, ControlLabe
    show,
    handleHide,
    handleLogin,
+   handleLogout,
    handleLogstatus,
    handleusernameChange,
    handlepasswordChange,
    username,
-   password
+   password,
+   userid
   }) => {
+    console.log('user logged in status', userid);
     return (
       <li className="login-component" >
         <Button
           bsStyle="primary"
           bsSize="large"
-          onClick={() => handleHide({ show: true })}
+          onClick={() => !userid ? handleHide({ show: true }) : handleLogout()}
         >
-          Login
+          {userid ? 'Logout' : 'Login'}
         </Button>
+        
         {
           <Modal
           show={show || false}
@@ -66,13 +70,13 @@ import { Modal, Button, Col, FormGroup, Checkbox, FormControl, Form, ControlLabe
               </FormGroup>
               <FormGroup>
                 <Col smOffset={2} sm={10}>
-                  <Button type="submit">Sign in</Button>
+                  <Button type="submit" onClick={handleLogstatus}>Sign in</Button>
                 </Col>
               </FormGroup>
             </Form>
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={handleLogstatus}>Close</Button>
+            <Button onClick={handleHide}>Close</Button>
           </Modal.Footer>
         </Modal>
         }
