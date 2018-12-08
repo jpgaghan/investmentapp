@@ -7,7 +7,9 @@ import NewsCarousel from './components/Carousel';
 import Charts from './components/Chart';
 import SearchForm from "./components/Search";
 // import { AreaChart } from "react-easy-chart";
+import WordLookup from './components/WordLookup';
 // import { BrowserRouter as Router, Route } from "react-router-dom";
+import { AreaChart } from "react-easy-chart";
 
 class App extends Component {
   constructor(props, context) {
@@ -52,6 +54,10 @@ class App extends Component {
 
             <br></br>
 
+            <div className="WordLookupContainer">
+              <WordLookup />
+            </div>
+
             <div className="tickerContainer">
               <TickerCard />
               <TickerCard />
@@ -72,11 +78,8 @@ class App extends Component {
               <TickerCard />
               <TickerCard />
             </div>
-            <div>
-            <SearchForm />
-            </div>
-            {/* <Charts /> */}
-            <div className="footerContainer">
+
+\            <div className="footerContainer">
               <Footer />
             </div>
           </div>
