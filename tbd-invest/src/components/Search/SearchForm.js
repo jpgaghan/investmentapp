@@ -14,6 +14,7 @@ const SearchForm = props => (
                     className="form-control"
                     placeholder="Symbol"
                     id="ticker"
+                    onKeyUp="this.value = this.value.toUpperCase()"
                 />
             </div>
             <button
