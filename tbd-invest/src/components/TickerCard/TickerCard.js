@@ -27,6 +27,7 @@ class TickerCard extends React.Component {
         };
         this.getfinancialData=this.getfinancialData.bind(this)
     }
+    
     getfinancialData = () => {
         console.log("here")
         API.financialData(this.state.stock)
@@ -64,11 +65,17 @@ class TickerCard extends React.Component {
                                 <div className="cardTitle row">
 
                                         <div xs={12} md={8}>
+                                            <h1>case false</h1>
                                             <h4 className="card-title">{this.state.stock}</h4>
                                             <h6 className="card-subtitle mb-2 text-muted">{this.state.Exchange}</h6>
                                             <div className="alignRight">
-                                                <Button className="expandBttn" onClick={()=>{this.getfinancialData()}}>+</Button>
+                                                {/* <Button className="expandBttn" onClick={()=>{this.getfinancialData()}}>+</Button> */}
                                                 {/* () => this.setState({ open: !this.state.open }) */}
+                                                {
+                                                    (() => {
+                                                        this.getfinancialData();
+                                                    })
+                                                }
                                             </div>
                                         </div>
 
@@ -115,15 +122,19 @@ class TickerCard extends React.Component {
                                     <div className="cardTitle">
 
                                         <div xs={12} md={8}>
+                                            <h1>case true</h1>
                                             <h4 className="card-title">{this.state.stock}</h4>
                                             <h6 className="card-subtitle mb-2 text-muted">{this.state.Exchange}</h6>
 
                                             <div className="alignRight">
-                                                <Button className="expandBttn" onClick={()=>{this.getfinancialData()}}>+</Button>
+                                                {/* <Button className="expandBttn" onClick={()=>{this.getfinancialData()}}>+</Button> */}
+                                            </div>
+
+                                            <div className="col">
+                                                <button className="expandBttn" onClick={() => this.setState({ open: !this.state.open })}>+</button>
                                             </div>
                                         </div>
 
-                                        
                                     </div>
                                     
                                     <div>

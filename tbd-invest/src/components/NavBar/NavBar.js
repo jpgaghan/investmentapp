@@ -3,7 +3,7 @@ import './Nav.css';
 import Login from "../Login/index";
 import { Navbar, Nav, NavItem } from "react-bootstrap";
 import SignUp from '../SignUp/index';
-import { FaUserCircle } from 'react-icons/fa';
+// import { FaUserCircle } from 'react-icons/fa';
 
 
 //login modal
@@ -40,7 +40,7 @@ export const NavBar = ({ handlePage, handleBecameAuthed, userid, handleUserUnAut
             {/* short circuit evaluation */}
             {(userEmail && userEmail.slice(0, userEmail.indexOf('@'))) || ''}
           
-            <FaUserCircle />
+            {/* <FaUserCircle /> */}
 
             </NavItem>
         </Nav>

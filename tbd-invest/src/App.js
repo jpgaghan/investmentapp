@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import TickerCard from "./components/TickerCard";
 import './App.css';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import NewsCarousel from './components/Carousel';
 import Charts from './components/Chart';
+import TickerContainer from "./components/TickerContainer"
 import { AreaChart } from "react-easy-chart";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -43,7 +43,7 @@ class App extends Component {
                   <div className="alignRight" xs={6} m={6}>
                     <NewsCarousel />
                    
-                    <Charts />
+                    {/* <Charts /> */}
                   </div>
                 
               </div>
@@ -51,27 +51,9 @@ class App extends Component {
 
             <br></br>
 
-            <div className="tickerContainer">
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-            </div>
 
+            < TickerContainer />
+              
             <Charts />
             <div className="footerContainer">
               <Footer />
