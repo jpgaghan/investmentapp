@@ -6,7 +6,6 @@ import Footer from './components/Footer';
 import NewsCarousel from './components/Carousel';
 import Charts from './components/Chart';
 import { AreaChart } from "react-easy-chart";
-// import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
   constructor(props, context) {
@@ -72,8 +71,7 @@ class App extends Component {
               <TickerCard />
             </div>
 
-            <Charts />
-            <div className="footerContainer">
+\            <div className="footerContainer">
               <Footer />
             </div>
           </div>
