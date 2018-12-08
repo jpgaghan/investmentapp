@@ -21,7 +21,6 @@ const SigninComponent = ({
        <Button
          bsStyle="primary"
          bsSize="large"
-        //  onClick={() => handleHide({ show: true })}
          onClick={() => !userid ? handleHide({ show: true }) : handleLogout()}
 
        >
@@ -37,7 +36,7 @@ const SigninComponent = ({
        >
          <Modal.Header closeButton>
            <Modal.Title id="contained-modal-title">
-             Login
+             Sign Up
            </Modal.Title>
          </Modal.Header>
          <Modal.Body>
@@ -77,7 +76,7 @@ const SigninComponent = ({
            </Form>
          </Modal.Body>
          <Modal.Footer>
-           <Button onClick={handleHide}>Close</Button>
+           <Button onClick={handleLogin}>Close</Button>
          </Modal.Footer>
        </Modal>
        }

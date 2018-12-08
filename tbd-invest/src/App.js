@@ -38,17 +38,19 @@ class App extends Component {
           <div>
             <NavBar userEmail={this.state.userEmail} handleUserUnAuthed={this.handleUserUnAuthed} userid={this.state.userid} handleBecameAuthed={this.handleBecameAuthed} handlePage={this.handlePage} />
 
-            <div className="container">
-              <div className="divFlex">
+            <div>
+              <div>
                 
-                  <div className="alignRight" xs={6} m={6}>
+                  <div>
                     <NewsCarousel />
                    
-                    <Charts />
+            
                   </div>
                 
               </div>
+            
             </div>
+                <Charts />
 
             <br></br>
 
