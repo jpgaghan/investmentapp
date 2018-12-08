@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-// import './Carousel.css';
+import './Carousel.css';
 import API from "../../utils/API";
-// import { Carousel } from "react-bootstrap";
+import { Carousel } from "react-bootstrap";
+import NewsCarousel from './NewsCarousel';
 
 
 class FinancialData extends Component {

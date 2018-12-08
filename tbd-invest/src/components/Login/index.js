@@ -46,7 +46,9 @@ export default class Login extends Component {
    firebase
     .auth()
     .signInWithEmailAndPassword(username, password).then(res => {
+      console.log(res);
     //updating status is app.js to read main and pass userID to the status 
+    this.props.handleBecameAuthed(res.user);
     this.handleHide({show: false});
     this.setState({logstatus: true})
     this.props.handlePage({page:"main"})
@@ -55,12 +57,11 @@ export default class Login extends Component {
  
 
  handleLogout(){
-  console.log("herrr")
   firebase
     .auth()
     .signOut().then(res => {
-      console.log("here")
     //updating status is app.js to read main and pass userID to the status 
+    this.props.handleUserUnAuthed();
     this.handleHide({show: false});
     this.setState({logstatus: false})
     this.props.handlePage({page:"landing"})
@@ -70,6 +71,7 @@ export default class Login extends Component {
  render() {
   return <LoginComponent
           {...this.state}
+          userid={this.props.userid}
           onSubmit={this.handleLogstatus} 
           handleChange={this.handleChange}
           handleHide={this.handleHide} 
