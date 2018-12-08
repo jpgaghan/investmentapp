@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import TickerCard from "./components/TickerCard";
-
-// import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
@@ -9,6 +7,7 @@ import Footer from './components/Footer';
 import firebase from './firebase.js';
 import NewsCarousel from './components/Carousel';
 import Charts from './components/Chart';
+import WordLookup from './components/WordLookup';
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
@@ -31,6 +30,10 @@ class App extends Component {
             <NavBar handlePage={this.handlePage}/>
             <NewsCarousel />
             <br></br>
+            <div className="WordLookupContainer">
+              <WordLookup />
+            </div>
+
             <div className="tickerContainer">
               <TickerCard />
               <TickerCard />
