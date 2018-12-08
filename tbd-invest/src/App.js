@@ -72,6 +72,7 @@ class App extends Component {
               <TickerCard />
             </div>
 
+            <Charts />
             <div className="footerContainer">
               <Footer />
             </div>
@@ -94,5 +95,4 @@ class App extends Component {
 }
 
 export default App;
-
 

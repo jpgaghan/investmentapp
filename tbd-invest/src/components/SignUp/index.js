@@ -20,6 +20,7 @@ export default class SignUp extends Component {
    };
   }
   handleusernameChange(e) {
+    console.log(e.target.value)
     this.setState({ username: e.target.value });
   }
   handlepasswordChange(e) {
