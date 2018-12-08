@@ -26,7 +26,6 @@ const SigninComponent = ({
 
        >
        {userid ? 'Logout' : 'Sign Up'}
-         Sign Up
        </Button>
        
        {
