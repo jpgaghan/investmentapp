@@ -68,26 +68,26 @@ class Charts extends Component {
         .catch(err => console.log(err));
     };
 
-    handleInputChange = event => {
-        const name = event.target.name;
-        const value = event.target.value;
-        this.setState({
-            [name]: value
-        });
-    };
+    // handleInputChange = event => {
+    //     const name = event.target.name;
+    //     const value = event.target.value;
+    //     this.setState({
+    //         [name]: value
+    //     });
+    // };
 
-    handleFormSubmit = event => {
-        event.preventDefault();        
-        this.searchHolding(this.state.ticker, this.state.chartRange);
-    };
+    // handleFormSubmit = event => {
+    //     event.preventDefault();        
+    //     this.searchHolding(this.state.ticker, this.state.chartRange);
+    // };
 
     render() {
         return (
             <div>
-            <SearchForm
+            {/* <SearchForm
             handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}
-            />
+            /> */}
             <div>
                 <Button
                   bsStyle="primary"

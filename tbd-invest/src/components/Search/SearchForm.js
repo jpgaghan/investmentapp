@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./searchForm.css";
+import Charts from "../Chart/Chart.js";
 
 class SearchForm extends Component {
     state = {
@@ -41,6 +42,7 @@ class SearchForm extends Component {
                         onClick={this.handleFormSubmit}
                         className="btn btn-success">Search</button>
                 </form>
+                    <Charts symbol={this.state.ticker}/>
             </div>
         )
     }
