@@ -4,10 +4,12 @@ import './App.css';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import NewsCarousel from './components/Carousel';
-import Charts from './components/Chart';
+
+import SearchForm from "./components/Search";
+
 import WordLookup from './components/WordLookup';
 // import { BrowserRouter as Router, Route } from "react-router-dom";
-import { AreaChart } from "react-easy-chart";
+
 
 class App extends Component {
   constructor(props, context) {
@@ -43,8 +45,10 @@ class App extends Component {
                 
                   <div>
                     <NewsCarousel />
-                   
-            
+
+                    <SearchForm />
+                    {/* <Charts /> */}
+
                   </div>
                 
               </div>
