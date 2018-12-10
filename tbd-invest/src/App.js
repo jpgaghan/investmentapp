@@ -34,7 +34,7 @@ class App extends Component {
       case "landing":
         return (
           <div>
-            <NavBar userEmail={this.state.userEmail} handleUserUnAuthed={this.handleUserUnAuthed} userid={this.state.userid} handleBecameAuthed={this.handleBecameAuthed} handlePage={this.handlePage} />
+            <NavBar state={this.state} userEmail={this.state.userEmail} handleUserUnAuthed={this.handleUserUnAuthed} userid={this.state.userid} handleBecameAuthed={this.handleBecameAuthed} handlePage={this.handlePage} />
 
             <div className="container">
               <div className="divFlex">

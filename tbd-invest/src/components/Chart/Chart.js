@@ -93,6 +93,7 @@ class Charts extends Component {
             <SearchForm
             handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}
+            ticker={this.state.ticker}
             />
             <div>
                 <Button

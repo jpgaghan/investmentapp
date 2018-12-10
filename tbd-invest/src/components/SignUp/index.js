@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import firebase from '../../firebase';
-import SigninComponent from './SignUpView'
+import SigninComponent from './SignUpView';
 
 
 export default class SignUp extends Component {
@@ -51,6 +51,7 @@ export default class SignUp extends Component {
     .auth()
     .createUserWithEmailAndPassword(username, password).then(res => {
       // this.props.handleBecameAuthed(res.user);
+      this.props.handleBecameAuthed(res.user);      
       this.handleHide({show: false});
       this.setState({logstatus: true})
       this.props.handlePage({page:"main"})
@@ -68,6 +69,7 @@ handleLogout() {
   this.props.handleUserUnAuthed();
   this.handleHide({show: false});
   this.setState({logstatus: false})
+  
   this.props.handlePage({page:"landing"})
   }).catch (error => alert(error))
 }
@@ -85,7 +87,6 @@ handleLogout() {
           handleLogstatus={this.handleLogstatus}
           handleBecameAuthed={this.handleBecameAuthed}
           handleUserUnAuthed={this.handleUserUnAuthed}
-
         />) : null;
  }
 };

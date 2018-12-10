@@ -1,5 +1,7 @@
 import React from "react";
 import "./searchForm.css";
+import Watchlist from "../WatchlistBtn/index";
+
 
 const SearchForm = props => (
     <div>
@@ -19,8 +21,10 @@ const SearchForm = props => (
             <button
                 type="submit"
                 onClick={props.handleFormSubmit}
-                className="btn btn-success">Search</button>
+                className="btn btn-success">Search
+            </button>
         </form>
+        <Watchlist symbol = {props.ticker}/>
     </div>
 );
 
