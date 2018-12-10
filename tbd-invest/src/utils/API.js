@@ -15,4 +15,13 @@ export default {
     financialData: (symbol) => {
         return axios.get(baseUrl + symbol + "/batch/?types=quote,news,chart,logo,stats")
     },
+    saveWatchlist: function(ticker, uid) {
+        return axios.post(
+            "/api/tickers",
+            {
+                ticker,
+                uid
+            }
+        );
+      }
 };

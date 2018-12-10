@@ -36,7 +36,6 @@ export const NavBar = ({ handlePage, handleBecameAuthed, userid, handleUserUnAut
             userid={userid}
             handlePage={handlePage}
             handleBecameAuthed={handleBecameAuthed}
-
           />
 
           <NavItem className="username">

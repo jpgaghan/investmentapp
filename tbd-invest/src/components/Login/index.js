@@ -51,7 +51,7 @@ export default class Login extends Component {
     this.props.handleBecameAuthed(res.user);
     this.handleHide({show: false});
     this.setState({logstatus: true})
-    this.props.handlePage({page:"main"})
+    this.props.handlePage({page:"main"})  
     }).catch (error => alert(error))
   }
  

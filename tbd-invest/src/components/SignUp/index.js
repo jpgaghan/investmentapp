@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import firebase from '../../firebase';
-import SigninComponent from './SignUpView'
+import SigninComponent from './SignUpView';
 
 
 export default class SignUp extends Component {
@@ -13,9 +13,7 @@ export default class SignUp extends Component {
    this.handleusernameChange = this.handleusernameChange.bind(this);
    this.handleLogin = this.handleLogin.bind(this);
    this.handleLogout = this.handleLogout.bind(this);
-  //  this.handleBecameAuthed = this.handleBecameAuthed.bind(this);
-  //  this.handleUserUnAuthed = this.handleUserUnAuthed.bind(this);
-  this.handleLogstatus = this.handleLogstatus.bind(this);
+   this.handleLogstatus = this.handleLogstatus.bind(this);
    this.state = {
     show: false,
     username: '',
@@ -42,15 +40,13 @@ export default class SignUp extends Component {
   }
 
  handleLogin(){
-  // event.preventDefault();
   const { username, password } = this.state;
-
-  console.log(username, password)
 
  firebase
     .auth()
     .createUserWithEmailAndPassword(username, password).then(res => {
-      this.props.handleBecameAuthed(res.user);
+      // this.props.handleBecameAuthed(res.user);
+      this.props.handleBecameAuthed(res.user);      
       this.handleHide({show: false});
       this.setState({logstatus: true})
       this.props.handlePage({page:"main"})
@@ -68,11 +64,11 @@ handleLogout() {
   this.props.handleUserUnAuthed();
   this.handleHide({show: false});
   this.setState({logstatus: false})
+  
   this.props.handlePage({page:"landing"})
   }).catch (error => alert(error))
 }
  render() {
-
           return !this.props.userid ? (<SigninComponent
           {...this.state}
           onSubmit={this.handleLogin} 
@@ -85,7 +81,6 @@ handleLogout() {
           handleLogstatus={this.handleLogstatus}
           handleBecameAuthed={this.handleBecameAuthed}
           handleUserUnAuthed={this.handleUserUnAuthed}
-
         />) : null;
  }
 };

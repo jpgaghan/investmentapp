@@ -24,7 +24,8 @@ const SigninComponent = ({
          onClick={() => !userid ? handleHide({ show: true }) : handleLogout()}
 
        >
-       {userid ? 'Logout' : 'Sign Up'}
+       {userid ? 'Logout' : 'Login'}
+         Sign Up
        </Button>
        
        {
