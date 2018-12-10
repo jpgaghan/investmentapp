@@ -3,8 +3,8 @@ import "./searchForm.css";
 
 const SearchForm = props => (
     <div>
-        <h4>Stock Search</h4>
         <form className="search">
+        <h2>Stock Search</h2>
             <div className="form-group">
                 <label htmlFor="ticker">Stock Symbol:</label>
                 <input
@@ -14,7 +14,7 @@ const SearchForm = props => (
                     className="form-control"
                     placeholder="Symbol"
                     id="ticker"
-                    onKeyUp="this.value = this.value.toUpperCase()"
+                    style={{ textTransform: 'uppercase'}}
                 />
             </div>
             <button

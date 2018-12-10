@@ -3,9 +3,11 @@ import './Nav.css';
 import Login from "../Login/index";
 import { Navbar, Nav, NavItem } from "react-bootstrap";
 import SignUp from '../SignUp/index';
+import { FaUserCircle } from 'react-icons/fa';
+
 
 //login modal
-export const NavBar = ({ handlePage }) => (
+export const NavBar = ({ handlePage, handleBecameAuthed, userid, handleUserUnAuthed, userEmail }) => (
   <div>
     <Navbar className="navStyle" inverse collapseOnSelect>
       <Navbar.Header>
@@ -21,14 +23,28 @@ export const NavBar = ({ handlePage }) => (
           </NavItem>
           <NavItem eventKey={2} href="#">
             Contact
-          </NavItem>
+            </NavItem>
+
           <Login
+            handleUserUnAuthed={handleUserUnAuthed}
+            userid={userid}
             handlePage={handlePage}
+            handleBecameAuthed={handleBecameAuthed}
           />
           <SignUp
+            handleUserUnAuthed={handleUserUnAuthed}
+            userid={userid}
             handlePage={handlePage}
+            handleBecameAuthed
           />
 
+          <NavItem className="username">
+            {/* short circuit evaluation */}
+            {(userEmail && userEmail.slice(0, userEmail.indexOf('@'))) || ''}
+
+            <FaUserCircle />
+
+          </NavItem>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
