@@ -50,7 +50,7 @@ export default class SignUp extends Component {
  firebase
     .auth()
     .createUserWithEmailAndPassword(username, password).then(res => {
-      // this.props.handleBecameAuthed(res.user);
+      this.props.handleBecameAuthed(res.user);
       this.handleHide({show: false});
       this.setState({logstatus: true})
       this.props.handlePage({page:"main"})
