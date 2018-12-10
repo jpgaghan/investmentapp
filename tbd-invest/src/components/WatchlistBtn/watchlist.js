@@ -1,15 +1,15 @@
 import React from 'react';
-// import './SignUpView.css';
 import { Modal, Button, Col, FormGroup, Checkbox, FormControl, Form, ControlLabel } from "react-bootstrap";
 
 
-const watchlistComponent = savetoWatchlist => (
-  <button
-    type="submit"
-    onClick={this.savetoWatchlist}
-    ticker ={this.context.symbol}
-    className="btn btn-success">Search
-  </button>
+const WatchlistComponent = ({savetoWatchlist, ticker, uid}) => (
+  <div>
+    <button
+      type="submit"
+      onClick={savetoWatchlist}
+      className="btn btn-success">Save to Watchlist
+    </button>
+  </div>
  );
 
- export default watchlistComponent;
+ export default WatchlistComponent;

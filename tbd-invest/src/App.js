@@ -4,8 +4,12 @@ import './App.css';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import NewsCarousel from './components/Carousel';
-import Charts from './components/Chart';
-import { AreaChart } from "react-easy-chart";
+
+import SearchForm from "./components/Search";
+
+import WordLookup from './components/WordLookup';
+// import { BrowserRouter as Router, Route } from "react-router-dom";
+
 
 class App extends Component {
   constructor(props, context) {
@@ -36,19 +40,27 @@ class App extends Component {
           <div>
             <NavBar state={this.state} userEmail={this.state.userEmail} handleUserUnAuthed={this.handleUserUnAuthed} userid={this.state.userid} handleBecameAuthed={this.handleBecameAuthed} handlePage={this.handlePage} />
 
-            <div className="container">
-              <div className="divFlex">
+            <div>
+              <div>
                 
-                  <div className="alignRight" xs={6} m={6}>
+                  <div>
                     <NewsCarousel />
-                   
-                    <Charts />
+
+                    <SearchForm uid={this.state.userid}/>
+                    {/* <Charts /> */}
+
                   </div>
                 
               </div>
+            
             </div>
+                {/* <Charts /> */}
 
             <br></br>
+
+            <div className="WordLookupContainer">
+              <WordLookup />
+            </div>
 
             <div className="tickerContainer">
               <TickerCard />
@@ -81,6 +93,27 @@ class App extends Component {
         return (
           <div>
             <NavBar userEmail={this.state.userEmail} handleUserUnAuthed={this.handleUserUnAuthed} userid={this.state.userid}  handleBecameAuthed={this.handleBecameAuthed} handlePage={this.handlePage} />
+            <div>
+              <div>
+                
+                  <div>
+                    <NewsCarousel />
+
+                    <SearchForm uid={this.state.userid}/>
+                    {/* <Charts /> */}
+
+                  </div>
+                
+              </div>
+            
+            </div>
+                {/* <Charts /> */}
+
+            <br></br>
+
+            <div className="WordLookupContainer">
+              <WordLookup />
+            </div>
             <div className="footerContainer">
               {/* <Footer /> */}
             </div>

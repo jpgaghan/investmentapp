@@ -42,7 +42,7 @@ export const NavBar = ({ handlePage, handleBecameAuthed, userid, handleUserUnAut
             {/* short circuit evaluation */}
             {(userEmail && userEmail.slice(0, userEmail.indexOf('@'))) || ''}
 
-            <FaUserCircle />
+            {/* <FaUserCircle /> */}
 
           </NavItem>
         </Nav>

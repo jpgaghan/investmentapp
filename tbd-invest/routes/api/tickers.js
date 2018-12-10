@@ -2,9 +2,8 @@ const router = require("express").Router();
 const Controller = require("../../controllers/Controller");
 
 // Matches with "/api/books/:id"
-router
-  .route("/:id")
-  .get(Controller.findById)
+router.route("/")
+  .post(Controller.create)
   .put(Controller.update)
   .delete(Controller.remove);
 
