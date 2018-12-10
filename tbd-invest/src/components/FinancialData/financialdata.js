@@ -97,7 +97,7 @@ class FinancialData extends Component {
     }
 }
 
-export default NewsCarousel;
+export default FinancialData;
 
 
 
