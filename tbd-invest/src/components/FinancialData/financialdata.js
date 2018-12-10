@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import './Carousel.css';
 import API from "../../utils/API";
-import { Carousel } from "react-bootstrap";
-import NewsCarousel from './NewsCarousel';
+
 
 
 class FinancialData extends Component {
@@ -16,83 +14,40 @@ class FinancialData extends Component {
         PE: "",
         EPS: "",
         Sector: "",
-        DailyPercentChange: ""
+        DailyPercentChange: "",
+        week52high: "",
+        week52low: "",
     };
     componentDidMount() {
-        this.getNews();
+        if (this.props.submitted) {
+          this.getFinancials();
+        } 
     }
-    getNews = () => {
-        API.carou()
+    getFinancials = () => {
+        API.financialData(this.props.ticker)
         .then(res => {
+            console.log(res.data)
             this.setState({
-                results: res.data.articles,
-                articles: [{
-                    img: res.data.articles[0].urlToImage,
-                    title: res.data.articles[0].title,
-                    description: res.data.articles[0].description
-                }, {
-                    img: res.data.articles[1].urlToImage,
-                    title: res.data.articles[1].title,
-                    description: res.data.articles[1].description
-                }, {
-                    img: res.data.articles[2].urlToImage,
-                    title: res.data.articles[2].title,
-                    description: res.data.articles[2].description
-                }, {
-                    img: res.data.articles[3].urlToImage,
-                    title: res.data.articles[3].title,
-                    description: res.data.articles[3].description
-                }, {
-                    img: res.data.articles[4].urlToImage,
-                    title: res.data.articles[4].title,
-                    description: res.data.articles[4].description
-                }],
+                CurrentPrice: "",
+                PreviousClose: res.data.quote.previousClose,
+                DailyRange: "",
+                DailyVolume: "",
+                MarketCap: res.data.quote.marketCap,
+                Beta: res.data.stats.beta,
+                PE: "",
+                EPS: res.data.stats.consensusEPS,
+                Sector: res.data.quote.sector,
+                DailyPercentChange: "",
+                week52high: res.data.quote.week52High,
+                week52low: res.data.quote.week52Low,
             });
+            console.log(this.state)
         })
     }
 
     render() {
         return (
-            <div className="wholeCarousel">
-                {/* <pre>{JSON.stringify(this.state.articles["title"], null, 2)}</pre> */}
-                <Carousel>
-                    <Carousel.Item>
-                        <img width={900} height={500} alt="900x500" src={this.state.articles[0].img} />}
-                        <Carousel.Caption>
-                            <h3>{this.state.articles[0].title}</h3>
-                            <p>{this.state.articles[0].description}</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                    <img width={900} height={500} alt="900x500" src={this.state.articles[1].img} />}
-                        <Carousel.Caption>
-                        <h3>{this.state.articles[1].title}</h3>
-                            <p>{this.state.articles[1].description}</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                    <img width={900} height={500} alt="900x500" src={this.state.articles[2].img} />}
-                        <Carousel.Caption>
-                            <h3>{this.state.articles[2].title}</h3>
-                            <p>{this.state.articles[2].description}.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                    <img width={900} height={500} alt="900x500" src={this.state.articles[3].img} />}
-                        <Carousel.Caption>
-                            <h3>{this.state.articles[3].title}</h3>
-                            <p>{this.state.articles[3].description}.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                    <img width={900} height={500} alt="900x500" src={this.state.articles[4].img} />}
-                        <Carousel.Caption>
-                            <h3>{this.state.articles[4].title}</h3>
-                            <p>{this.state.articles[4].description}.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                </Carousel>
-            </div>
+           <div></div> 
         )
     }
 }

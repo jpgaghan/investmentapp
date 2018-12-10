@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./searchForm.css";
 import Charts from "../Chart/Chart.js";
-// import Financialdata from "../FinancialData/financialdata"
+import FinancialData from "../FinancialData/financialdata"
 
 class SearchForm extends Component {
     state = {
@@ -24,8 +24,8 @@ class SearchForm extends Component {
         event.preventDefault();
         this.setState({submitted: true})
         // this.searchHolding(this.state.ticker, this.state.chartRange);
-        console.log(this.state.submitted);
-        console.log(this.state.ticker);
+        // console.log(this.state.submitted);
+        // console.log(this.state.ticker);
     };
 
     render() {
@@ -72,7 +72,7 @@ class SearchForm extends Component {
                     className="btn btn-success">Search</button>
             </form>
             <Charts ticker={this.state.ticker} submitted={this.state.submitted}/>
-            {/* <Financialdata symbol={this.state.ticker}/> */}
+            <FinancialData ticker={this.state.ticker} submitted={this.state.submitted}/>
             </div>)
     }
 };
