@@ -38,7 +38,7 @@ class App extends Component {
       case "landing":
         return (
           <div>
-            <NavBar userEmail={this.state.userEmail} handleUserUnAuthed={this.handleUserUnAuthed} userid={this.state.userid} handleBecameAuthed={this.handleBecameAuthed} handlePage={this.handlePage} />
+            <NavBar state={this.state} userEmail={this.state.userEmail} handleUserUnAuthed={this.handleUserUnAuthed} userid={this.state.userid} handleBecameAuthed={this.handleBecameAuthed} handlePage={this.handlePage} />
 
             <div>
               <div>
@@ -46,7 +46,7 @@ class App extends Component {
                   <div>
                     <NewsCarousel />
 
-                    <SearchForm />
+                    <SearchForm uid={this.state.userid}/>
                     {/* <Charts /> */}
 
                   </div>
@@ -96,6 +96,27 @@ class App extends Component {
         return (
           <div>
             <NavBar userEmail={this.state.userEmail} handleUserUnAuthed={this.handleUserUnAuthed} userid={this.state.userid}  handleBecameAuthed={this.handleBecameAuthed} handlePage={this.handlePage} />
+            <div>
+              <div>
+                
+                  <div>
+                    <NewsCarousel />
+
+                    <SearchForm uid={this.state.userid}/>
+                    {/* <Charts /> */}
+
+                  </div>
+                
+              </div>
+            
+            </div>
+                {/* <Charts /> */}
+
+            <br></br>
+
+            <div className="WordLookupContainer">
+              <WordLookup />
+            </div>
             <div className="footerContainer">
               {/* <Footer /> */}
             </div>
