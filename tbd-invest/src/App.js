@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
+
 import './App.css';
 import LandingPage from './pages/LandingPage';
 import Watchlist from './pages/Watchlist'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import { FaUserCircle } from 'react-icons/fa';
+// import { BrowserRouter as Router, Route } from "react-router-dom";
+
 
 
 class App extends Component {
@@ -25,6 +30,7 @@ class App extends Component {
   handleBecameAuthed(user){
     const {uid, email} = user
     this.setState({userid:uid, userEmail:email});
+    
   }
   handleUserUnAuthed(){
     this.setState({userid: null, userEmail:null});  
@@ -55,6 +61,7 @@ class App extends Component {
                 />
               </Switch>
             </Router>
+
             <div className="footerContainer">
               <Footer />
             </div>

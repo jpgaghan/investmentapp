@@ -25,28 +25,36 @@ export const NavBar = ({ handlePage, handleBecameAuthed, userid, handleUserUnAut
           </NavItem>
           <NavItem eventKey={2} href="/">
             Home
+
             </NavItem>
 
-          <Login
-            handleUserUnAuthed={handleUserUnAuthed}
-            userid={userid}
-            handlePage={handlePage}
-            handleBecameAuthed={handleBecameAuthed}
-          />
-          <SignUp
-            handleUserUnAuthed={handleUserUnAuthed}
-            userid={userid}
-            handlePage={handlePage}
-            handleBecameAuthed={handleBecameAuthed}
-          />
+          <NavItem>
+            <Login
+              handleUserUnAuthed={handleUserUnAuthed}
+              userid={userid}
+              handlePage={handlePage}
+              handleBecameAuthed={handleBecameAuthed}
+            />
+          </NavItem>
+          <NavItem>
+            <SignUp
+              handleUserUnAuthed={handleUserUnAuthed}
+              userid={userid}
+              handlePage={handlePage}
+              handleBecameAuthed={handleBecameAuthed}
+            />
+          </NavItem>
 
           <NavItem className="username">
             {/* short circuit evaluation */}
             {(userEmail && userEmail.slice(0, userEmail.indexOf('@'))) || ''}
 
-            {/* <FaUserCircle /> */}
+
+            {/* <img src="https://cdn2.iconfinder.com/data/icons/budicon-user/16/32-user_-_single-512.png" alt="user"></img> */}
 
           </NavItem>
+
+
         </Nav>
       </Navbar.Collapse>
     </Navbar>
