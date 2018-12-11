@@ -47,7 +47,6 @@ export const NavBar = ({ handlePage, handleBecameAuthed, userid, handleUserUnAut
             {/* short circuit evaluation */}
             {(userEmail && userEmail.slice(0, userEmail.indexOf('@'))) || ''}
 
-
             {/* <img src="https://cdn2.iconfinder.com/data/icons/budicon-user/16/32-user_-_single-512.png" alt="user"></img> */}
 
           </NavItem>
