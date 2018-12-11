@@ -57,7 +57,6 @@ class App extends Component {
                 {/* <Charts /> */}
 
             <br></br>
-
             <div className="WordLookupContainer">
               <WordLookup />
             </div>
@@ -83,7 +82,11 @@ class App extends Component {
               <TickerCard />
             </div>
 
-\            <div className="footerContainer">
+            <div>
+              {/* <Charts /> */}
+            </div>
+
+            <div className="footerContainer">
               <Footer />
             </div>
           </div>

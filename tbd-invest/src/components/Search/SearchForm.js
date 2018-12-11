@@ -46,22 +46,26 @@ class SearchForm extends Component {
         return !this.state.submitted ?  (
             <div>
                 <form className="search">
-                    <h2>Stock Search</h2>
+                    <h2 className="searchTitle">Stock Search</h2>
                     <div className="form-group">
-                        <label htmlFor="ticker">Stock Symbol:</label>
-                        <input
-                            value={this.state.ticker}
-                            onChange={this.handleInputChange}
-                            name="ticker"
-                            className="form-control"
-                            placeholder="Symbol"
-                            id="ticker"
-                        />
+                        <label htmlFor="ticker">Enter Ticker:</label>
+                        <div>
+                            <input
+                                value={this.state.ticker}
+                                onChange={this.handleInputChange}
+                                name="ticker"
+                                className="form-control"
+                                placeholder="AAPL"
+                                id="ticker"
+                            />
+                            <button
+                                type="submit"
+                                onClick={this.handleFormSubmit}
+                                className="btn btn-success">Search
+                            </button>
+                        </div>
                     </div>
-                    <button
-                        type="submit"
-                        onClick={this.handleFormSubmit}
-                        className="btn btn-success">Search</button>
+                   
                 </form>
             
                    
