@@ -2,7 +2,7 @@ import axios from "axios";
 
 const baseUrl = "https://api.iextrading.com/1.0/stock/";
 const batch = "/batch?types=quote,news,chart&range=";
-
+const serverUrl = "http://localhost:3001"
 export default {
     chart: function(symbol, range) {
         console.log("call success");
@@ -12,14 +12,25 @@ export default {
     carou: () => {
         return axios.get("https://newsapi.org/v2/everything?domains=wsj.com&apiKey=eeecaf51d140496494590dc75247b963");
     },
+    
     financialData: (symbol) => {
         return axios.get(baseUrl + symbol + "/batch/?types=quote,chart,logo,stats,news&last=5")
     },
+
     saveWatchlist: function(ticker, uid) {
         return axios.post(
-            "/api/tickers",
+            serverUrl + "/api/tickers",
             {
                 ticker,
+                uid
+            }
+        );
+      },
+
+      pullWatchlist: function(uid) {
+        return axios.get(
+            "/api/tickers",
+            {
                 uid
             }
         );

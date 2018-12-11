@@ -28,6 +28,7 @@ class TickerCard extends Component {
         };
         this.getfinancialData=this.getfinancialData.bind(this)
     }
+    
     getfinancialData = () => {
         console.log("here")
         API.financialData(this.state.stock)
