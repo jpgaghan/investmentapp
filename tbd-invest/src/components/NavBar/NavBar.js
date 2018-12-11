@@ -9,7 +9,7 @@ import { FaUserCircle } from 'react-icons/fa';
 
 
 //login modal
-export const NavBar = ({ handlePage, handleBecameAuthed, userid, handleUserUnAuthed, userEmail }) => (
+export const NavBar = ({ handlePage, handleBecameAuthed, userid, handleUserUnAuthed, userEmail, history }) => (
   <div>
     <Navbar className="navStyle" inverse collapseOnSelect>
       <Navbar.Header>
@@ -21,9 +21,11 @@ export const NavBar = ({ handlePage, handleBecameAuthed, userid, handleUserUnAut
       <Navbar.Collapse className="navList">
         <Nav pullRight>
           <NavItem eventKey={1} href="/watchlist">
+          {/* <NavItem onClick={() => history.push('/watchlist')}> */}
             watchlist
           </NavItem>
           <NavItem eventKey={2} href="/">
+          {/* <NavItem onClick={() => history.push('/')}> */}
             Home
 
             </NavItem>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { Button } from "react-bootstrap";
 import { Panel } from "react-bootstrap";
 import API from "../../utils/API";
@@ -7,7 +7,7 @@ import API from "../../utils/API";
 // import { Grid } from "react-bootstrap";
 import "./TickerCard.css";
 
-class TickerCard extends React.Component {
+class TickerCard extends Component {
     constructor(props, context) {
         super(props, context);
 
