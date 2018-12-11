@@ -1,8 +1,10 @@
 import React from "react";
 import './Nav.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "../Login/index";
 import { Navbar, Nav, NavItem } from "react-bootstrap";
 import SignUp from '../SignUp/index';
+import Books from "../../pages/Watchlist"
 import { FaUserCircle } from 'react-icons/fa';
 
 
@@ -18,11 +20,11 @@ export const NavBar = ({ handlePage, handleBecameAuthed, userid, handleUserUnAut
       </Navbar.Header>
       <Navbar.Collapse className="navList">
         <Nav pullRight>
-          <NavItem eventKey={1} href="#">
-            About
+          <NavItem eventKey={1} href="/watchlist">
+            watchlist
           </NavItem>
-          <NavItem eventKey={2} href="#">
-            Contact
+          <NavItem eventKey={2} href="/">
+            Home
 
             </NavItem>
 
