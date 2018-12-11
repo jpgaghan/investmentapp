@@ -23,6 +23,17 @@
     display: flex;
 }
 
+.cardTitle {
+    text-transform: uppercase;
+}
+
+
+
+
+
+
+
+
 /* .expandBttn {
     display: flex;
     align-self: flex-end;

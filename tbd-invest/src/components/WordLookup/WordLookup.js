@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import WordLookup from "./WordLookup";
+import './WordLookup.css';
 
 
 class WordLookup extends Component {
@@ -11,7 +11,7 @@ class WordLookup extends Component {
           <form action="https://www.thefreedictionary.com/_/partner.aspx" method="get" target="_blank" name="dictionary" style={{display: 'inline', margin: 0}}>
             <table id="dictionarybox" cellSpacing={0} cellPadding={3} style={{border: '1px #336699 solid', fontFamily: '', width: '265px', backgroundColor: '#FFFFFF', color: '#003366'}}><tbody><tr>
                   <td bgcolor="#666666" style={{borderBottom: '1px #336699 solid'}}><img src="//img.tfd.com/Help.gif" width={25} height={25} /></td>
-                  <td bgcolor="#666666" style={{borderBottom: '1px #336699 solid'}} colSpan={2} nowrap="yes"><a style={{textDecoration: 'none', color: '#FFFFFF'}} href="https://www.thefreedictionary.com" rel="nofollow"><div style={{fontSize: '14pt'}}><b>Online Reference</b></div>
+                  <td bgcolor="#666666" style={{borderBottom: '1px #336699 solid'}} colSpan={2} nowrap="yes"><a style={{textDecoration: 'none', color: '#FFFFFF'}} href="https://www.thefreedictionary.com" rel="nofollow"><div style={{fontSize: '14pt'}}><b>Online Term Reference</b></div>
                       <div style={{fontSize: '10pt'}}>Feel Free to Look Up Any Financial Terms Here!</div></a></td></tr>
                 <tr><td align="center">Term:<br />
                     {/* <img id="dictionarybox_img_toggle" src="//img.tfd.com/toggle/b-down.gif" style={{cursor: 'pointer'}} onclick="var s=document.getElementById('dictionarybox_source').style;this.src='//img.tfd.com/toggle/b-'+(s.display?'up.gif':'down.gif');s.display=(s.display?'':'none')" /> */}
