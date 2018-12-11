@@ -11,5 +11,11 @@
 }
 
 .footerCon {
-    margin: 1% auto;
+    margin: 2% auto 1% auto;
+}
+
+@media only screen and (max-width: 768px) {
+    .footerCon {
+        margin: 5% auto 2% auto;
+    }
 }

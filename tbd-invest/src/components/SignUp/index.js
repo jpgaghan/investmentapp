@@ -3,7 +3,7 @@ import firebase from '../../firebase';
 import SigninComponent from './SignUpView';
 
 
-export default class SignUp extends React.PureComponent {
+export default class SignUp extends Component {
 
   constructor(props, context) {
    super(props, context);
@@ -14,6 +14,8 @@ export default class SignUp extends React.PureComponent {
    this.handleLogin = this.handleLogin.bind(this);
    this.handleLogout = this.handleLogout.bind(this);
    this.handleLogstatus = this.handleLogstatus.bind(this);
+  //  this.handleBecameAuthed = this.handleBecameAuthed.bind(this);
+  //  this.handleUserUnAuthed = this.handleUserUnAuthed.bind(this);
    this.state = {
     show: false,
     username: '',

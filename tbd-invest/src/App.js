@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
+
 import './App.css';
 import LandingPage from './pages/LandingPage';
 import Watchlist from './pages/Watchlist'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createHashHistory } from 'history'
 
-class App extends React.PureComponent {
+import { FaUserCircle } from 'react-icons/fa';
+// import { BrowserRouter as Router, Route } from "react-router-dom";
+
+
+
+class App extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
@@ -29,6 +35,7 @@ class App extends React.PureComponent {
   handleBecameAuthed(user){
     const {uid, email} = user
     this.setState({userid:uid, userEmail:email});
+    
   }
   handleUserUnAuthed(){
     this.setState({userid: null, userEmail:null});  
@@ -71,6 +78,7 @@ class App extends React.PureComponent {
                 
               </Switch>
             </Router>
+
             <div className="footerContainer">
               <Footer />
             </div>

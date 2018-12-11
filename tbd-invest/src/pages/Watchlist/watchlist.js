@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 
-class Watchlist extends React.PureComponent {
+class Watchlist extends Component {
   state = {
     books: []
   };

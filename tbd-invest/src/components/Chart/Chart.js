@@ -6,7 +6,7 @@ import { Button } from "react-bootstrap";
 
 
 
-class Charts extends React.PureComponent {
+class Charts extends Component {
     state = {
         ticker: "",
         chartRange: "1d",

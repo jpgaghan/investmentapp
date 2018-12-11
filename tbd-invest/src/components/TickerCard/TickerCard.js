@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { Button } from "react-bootstrap";
 import { Panel } from "react-bootstrap";
 import API from "../../utils/API";
@@ -7,7 +7,7 @@ import API from "../../utils/API";
 // import { Grid } from "react-bootstrap";
 import "./TickerCard.css";
 
-class TickerCard extends React.PureComponent {
+class TickerCard extends Component {
     constructor(props, context) {
         super(props, context);
 
@@ -24,7 +24,7 @@ class TickerCard extends React.PureComponent {
             EPS: "",
             Sector: "",
             DailyPercentChange: "",
-            news: [],
+            news: []
         };
         this.getfinancialData=this.getfinancialData.bind(this)
     }
@@ -35,7 +35,7 @@ class TickerCard extends React.PureComponent {
             console.log(res.data.chart.length-1)
             this.setState({
             CurrentPrice: res.data.quote.latestPrice,
-            PreviousClose: res.data.chart[res.data.chart.length-2].close,
+            PreviousClose: res.data.quote.previousClose,
             DailyRange: res.data.chart.length,
             DailyVolume: res.data.chart[res.data.chart.length-2].volume,
             MarketCap: res.data.quote.marketCap,
@@ -46,6 +46,7 @@ class TickerCard extends React.PureComponent {
             DailyPercentChange: res.data.chart[res.data.chart.length-2].changePercent,
             Exchange: res.data.quote.primaryExchange,
             CompanyName: res.data.quote.companyName,
+            news: res.data.news
             })
             this.setState({ open: !this.state.open })
             console.log(this.state)
