@@ -14,6 +14,8 @@ export default class SignUp extends Component {
    this.handleLogin = this.handleLogin.bind(this);
    this.handleLogout = this.handleLogout.bind(this);
    this.handleLogstatus = this.handleLogstatus.bind(this);
+  //  this.handleBecameAuthed = this.handleBecameAuthed.bind(this);
+  //  this.handleUserUnAuthed = this.handleUserUnAuthed.bind(this);
    this.state = {
     show: false,
     username: '',
