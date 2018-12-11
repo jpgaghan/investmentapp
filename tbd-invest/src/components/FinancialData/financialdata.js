@@ -4,7 +4,9 @@ import API from "../../utils/API";
 
 
 class FinancialData extends Component {
-    state = {
+    constructor(props, context) {
+    super(props, context);
+    this.state = {
         CurrentPrice: "",
         PreviousClose: "",
         DailyRange: "",
@@ -18,29 +20,33 @@ class FinancialData extends Component {
         week52high: "",
         week52low: "",
     };
+    this.componentDidMount=this.componentDidMount.bind(this);
+    this.getfinancialData=this.getfinancialData.bind(this);
+}
     componentDidMount() {
         if (this.props.submitted) {
           this.getFinancials();
         } 
     }
-    getFinancials = () => {
+    getfinancialData = () => {
+        console.log("here")
         API.financialData(this.props.ticker)
         .then(res => {
-            console.log(res.data)
+            console.log(res.data.chart.length-1)
             this.setState({
-                CurrentPrice: "",
-                PreviousClose: res.data.quote.previousClose,
-                DailyRange: "",
-                DailyVolume: "",
-                MarketCap: res.data.quote.marketCap,
-                Beta: res.data.stats.beta,
-                PE: "",
-                EPS: res.data.stats.consensusEPS,
-                Sector: res.data.quote.sector,
-                DailyPercentChange: "",
-                week52high: res.data.quote.week52High,
-                week52low: res.data.quote.week52Low,
-            });
+            CurrentPrice: res.data.quote.latestPrice,
+            PreviousClose: res.data.chart[res.data.chart.length-2].close,
+            DailyRange: res.data.chart.length,
+            DailyVolume: res.data.chart[res.data.chart.length-2].volume,
+            MarketCap: res.data.quote.marketCap,
+            Beta: res.data.stats.beta,
+            PE: res.data.quote.peRatio,
+            EPS: res.data.stats.consensusEPS,
+            Sector: res.data.quote.sector,
+            DailyPercentChange: res.data.chart[res.data.chart.length-2].changePercent,
+            Exchange: res.data.quote.primaryExchange,
+            CompanyName: res.data.quote.companyName,
+            })
             console.log(this.state)
         })
     }
