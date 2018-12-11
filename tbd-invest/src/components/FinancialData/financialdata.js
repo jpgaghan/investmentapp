@@ -17,6 +17,10 @@ class FinancialData extends Component {
         DailyPercentChange: "",
         week52high: "",
         week52low: "",
+        exchange: "",
+        companyName: "",
+        news: [],
+        logo: "",
     };
     componentDidMount() {
         if (this.props.submitted) {
@@ -28,18 +32,22 @@ class FinancialData extends Component {
         .then(res => {
             console.log(res.data)
             this.setState({
-                CurrentPrice: "",
+                CurrentPrice: res.data.quote.latestPrice,
                 PreviousClose: res.data.quote.previousClose,
-                DailyRange: "",
-                DailyVolume: "",
+                DailyRange: res.data.chart.length,
+                DailyVolume: res.data.chart[res.data.chart.length-2].volume,
                 MarketCap: res.data.quote.marketCap,
                 Beta: res.data.stats.beta,
-                PE: "",
+                PE: res.data.quote.peRatio,
                 EPS: res.data.stats.consensusEPS,
                 Sector: res.data.quote.sector,
-                DailyPercentChange: "",
+                DailyPercentChange: res.data.chart[res.data.chart.length-2].changePercent,
                 week52high: res.data.quote.week52High,
                 week52low: res.data.quote.week52Low,
+                exchange: res.data.quote.primaryExchange,
+                companyName: res.data.quote.companyName,
+                news: res.data.news,
+                logo: res.data.logo.url,
             });
             console.log(this.state)
         })
@@ -47,7 +55,9 @@ class FinancialData extends Component {
 
     render() {
         return (
-           <div></div> 
+           <div>
+               <img src={this.state.logo} alt="logo" />
+           </div> 
         )
     }
 }

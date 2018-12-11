@@ -23,7 +23,8 @@ class TickerCard extends React.Component {
             PE: "",
             EPS: "",
             Sector: "",
-            DailyPercentChange: ""
+            DailyPercentChange: "",
+            news: []
         };
         this.getfinancialData=this.getfinancialData.bind(this)
     }
@@ -34,7 +35,7 @@ class TickerCard extends React.Component {
             console.log(res.data.chart.length-1)
             this.setState({
             CurrentPrice: res.data.quote.latestPrice,
-            PreviousClose: res.data.chart[res.data.chart.length-2].close,
+            PreviousClose: res.data.quote.previousClose,
             DailyRange: res.data.chart.length,
             DailyVolume: res.data.chart[res.data.chart.length-2].volume,
             MarketCap: res.data.quote.marketCap,
@@ -45,6 +46,7 @@ class TickerCard extends React.Component {
             DailyPercentChange: res.data.chart[res.data.chart.length-2].changePercent,
             Exchange: res.data.quote.primaryExchange,
             CompanyName: res.data.quote.companyName,
+            news: res.data.news
             })
             this.setState({ open: !this.state.open })
             console.log(this.state)
