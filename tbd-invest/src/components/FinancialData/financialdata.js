@@ -32,17 +32,40 @@ class FinancialData extends Component {
           this.getfinancialData();
         } 
     }
+
+    abbreviateNumber = (value) => {
+        var newValue = value;
+        if (value >= 1000) {
+            var suffixes = ["", "k", "m", "b","t"];
+            var suffixNum = Math.floor( (""+value).length/3 );
+            // console.log(suffixNum);
+            var shortValue = '';
+            for (var precision = 2; precision >= 1; precision--) {
+                shortValue = parseFloat( (suffixNum !== 0 ? (value / Math.pow(1000,suffixNum) ) : value).toPrecision(precision));
+                var dotLessShortValue = (shortValue + '').replace(/[^a-zA-Z 0-9]+/g,'');
+                if (dotLessShortValue.length <= 3) { break; }
+            }
+            if (shortValue % 2 !== 0) {  
+                shortValue = shortValue.toFixed(3);
+            newValue = shortValue+suffixes[suffixNum];
+            }
+        }
+        // console.log(newValue);
+        return newValue;
+        
+    }
+
     getfinancialData = () => {
-        console.log("here")
+        // console.log("here")
         API.financialData(this.props.ticker)
         .then(res => {
-            console.log(res.data.chart.length-1)
+            // console.log(res.data.chart.length-1)
             this.setState({
                 CurrentPrice: res.data.quote.latestPrice,
                 PreviousClose: res.data.quote.previousClose,
                 DailyRange: res.data.chart.length,
                 DailyVolume: res.data.chart[res.data.chart.length-2].volume,
-                MarketCap: res.data.quote.marketCap,
+                MarketCap: this.abbreviateNumber(res.data.quote.marketCap),
                 Beta: res.data.stats.beta,
                 PE: res.data.quote.peRatio,
                 EPS: res.data.stats.consensusEPS,
@@ -55,9 +78,11 @@ class FinancialData extends Component {
                 news: res.data.news,
                 logo: res.data.logo.url,
             });
-            console.log(this.state)
+            // console.log(this.state)
         })
     }
+
+    
 
     render() {
         return (
