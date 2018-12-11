@@ -3,7 +3,7 @@ import API from "../../utils/API";
 
 
 
-class FinancialData extends Component {
+class FinancialData extends React.PureComponent {
     constructor(props, context) {
     super(props, context);
     this.state = {
@@ -25,7 +25,7 @@ class FinancialData extends Component {
 }
     componentDidMount() {
         if (this.props.submitted) {
-          this.getFinancials();
+          this.getfinancialData();
         } 
     }
     getfinancialData = () => {

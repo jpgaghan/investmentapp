@@ -7,7 +7,7 @@ import API from "../../utils/API";
 // import { Grid } from "react-bootstrap";
 import "./TickerCard.css";
 
-class TickerCard extends React.Component {
+class TickerCard extends React.PureComponent {
     constructor(props, context) {
         super(props, context);
 
@@ -23,7 +23,8 @@ class TickerCard extends React.Component {
             PE: "",
             EPS: "",
             Sector: "",
-            DailyPercentChange: ""
+            DailyPercentChange: "",
+            news: [],
         };
         this.getfinancialData=this.getfinancialData.bind(this)
     }

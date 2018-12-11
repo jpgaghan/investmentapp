@@ -5,9 +5,9 @@ import './App.css';
 import LandingPage from './pages/LandingPage';
 import Watchlist from './pages/Watchlist'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { createHashHistory } from 'history'
 
-
-class App extends Component {
+class App extends React.PureComponent {
   constructor(props, context) {
     super(props, context);
     this.state = {
@@ -15,10 +15,14 @@ class App extends Component {
       userid: null,
       userEmail:null,
     }
+    this.history = createHashHistory({
+      hashType: 'noslash' // Omit the leading slash
+    })
     this.handlePage = this.handlePage.bind(this);
     this.handleBecameAuthed = this.handleBecameAuthed.bind(this);
     this.handleUserUnAuthed = this.handleUserUnAuthed.bind(this);
   }
+  
   handlePage(e) {
     this.setState({ page: e.page })
   }
@@ -28,8 +32,18 @@ class App extends Component {
   }
   handleUserUnAuthed(){
     this.setState({userid: null, userEmail:null});  
+    localStorage.setItem('userid', null);
+    localStorage.setItem('logstatus', null);
+    localStorage.setItem('username', '');
+    localStorage.setItem('userEmail', '');
   }
   
+  componentDidMount() {
+    if (localStorage.getItem('userid') !== null) {
+      this.setState({userid: localStorage.getItem('userid')})
+      this.setState({userEmail: localStorage.getItem('userEmail')})
+    }
+  }
   render() {
     return (
       <div>
@@ -40,19 +54,21 @@ class App extends Component {
               userid={this.state.userid}
               handleBecameAuthed={this.handleBecameAuthed}
               handlePage={this.handlePage}
+              history={this.history}
             />
             <Router>
               <Switch>
                 <Route
                   exact
-                  path="/"
-                  render={(props) => <LandingPage {...this.state} {...props}/>}
-                />
-                <Route
-                  exact
                   path="/watchlist"
                   render={(props) => <Watchlist {...this.state} {...props}/>}
                 />
+                <Route
+                  exact
+                  path="/"
+                  render={(props) => <LandingPage {...this.state} {...props}/>}
+                />
+                
               </Switch>
             </Router>
             <div className="footerContainer">

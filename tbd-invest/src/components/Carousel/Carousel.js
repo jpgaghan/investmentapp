@@ -4,7 +4,7 @@ import API from "../../utils/API";
 import { Carousel } from "react-bootstrap";
 
 
-class NewsCarousel extends Component {
+class NewsCarousel extends React.PureComponent {
     state = {
         results: [],
         articles: [{

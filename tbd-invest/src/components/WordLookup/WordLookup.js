@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import WordLookup from "./WordLookup";
 
 
-class WordLookup extends Component {
+class WordLookup extends React.PureComponent {
     render() {
       return (
         <div>

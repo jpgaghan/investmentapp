@@ -5,7 +5,7 @@ import WatchlistComponent from './watchlist'
 // import router from "../../routes/api/tickers";
 
 
-export default class Watchlist extends Component {
+export default class Watchlist extends React.PureComponent {
 
   // symbol = {this.context.state.symbol}
  render() {
