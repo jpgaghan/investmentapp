@@ -4,10 +4,9 @@ import './App.css';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import NewsCarousel from './components/Carousel';
-
 import SearchForm from "./components/Search";
-
 import WordLookup from './components/WordLookup';
+import { FaUserCircle } from 'react-icons/fa';
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 
 
@@ -29,6 +28,7 @@ class App extends Component {
   handleBecameAuthed(user){
     const {uid, email} = user
     this.setState({userid:uid, userEmail:email});
+    
   }
   handleUserUnAuthed(){
     this.setState({userid: null, userEmail:null});  
@@ -95,7 +95,9 @@ class App extends Component {
       case "main":
         return (
           <div>
+
             <NavBar userEmail={this.state.userEmail} handleUserUnAuthed={this.handleUserUnAuthed} userid={this.state.userid}  handleBecameAuthed={this.handleBecameAuthed} handlePage={this.handlePage} />
+          
             <div>
               <div>
                 
