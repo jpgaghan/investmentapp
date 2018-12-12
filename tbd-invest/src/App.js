@@ -9,8 +9,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createHashHistory } from 'history'
 
 import { FaUserCircle } from 'react-icons/fa';
+import Indicies from './components/Indicies/Indicies';
 // import { BrowserRouter as Router, Route } from "react-router-dom";
-
 
 
 
@@ -65,7 +65,10 @@ class App extends Component {
               handlePage={this.handlePage}
               history={this.history}
             />
+            <Indicies />
+            
             <Router>
+              
               <Switch>
                 <Route
                   exact
@@ -80,6 +83,8 @@ class App extends Component {
                 
               </Switch>
             </Router>
+
+           
 
             <div className="footerContainer">
               <Footer />

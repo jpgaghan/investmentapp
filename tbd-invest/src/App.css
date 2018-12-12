@@ -6,6 +6,10 @@ body {
   background-image: url(../src/photos/slate.jpg);
 }
 
+.container {
+  display: flex;
+
+}
 
 .alignRight {
   display: flex;
@@ -39,3 +43,4 @@ body {
     transform: rotate(360deg);
   }
 }
+

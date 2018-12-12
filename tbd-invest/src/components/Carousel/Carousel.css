@@ -22,6 +22,10 @@ body {
     left: 10%;
     right: 10%;
     padding-bottom: 7% !important;
+    filter: drop-shadow( 3px 3px 10px #000000);
+}
+a {
+    color: #dad8d8;
 }
 h3 {
     font-weight: 700;

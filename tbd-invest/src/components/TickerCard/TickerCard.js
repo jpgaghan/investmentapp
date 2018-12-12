@@ -26,6 +26,7 @@ class TickerCard extends Component {
             Sector: "",
             DailyPercentChange: "",
             news: [],
+            logo: "",
         };
     }
 
@@ -72,7 +73,8 @@ class TickerCard extends Component {
             Exchange: res.data.quote.primaryExchange,
             CompanyName: res.data.quote.companyName,
             news: res.data.news,
-            open:false
+            open:false,
+            logo: res.data.logo.url
             })
           this.setState({tickerdata:tickerdataarray})
       })
@@ -140,122 +142,6 @@ class TickerCard extends Component {
                   )}
                   </div>
                       );
-
-                    // case true:
-
-                    // return(
-                    //     <div>
-                    //         <div className="card">
-                                
-                    //             <div className="divFlex">
-                    //                 <div className="cardTitle">
-
-                    //                     <div xs={12} md={8}>
-                    //                         <h4 className="card-title">{this.state.stock}</h4>
-                    //                         <h6 className="card-subtitle mb-2 text-muted">{this.state.Exchange}</h6>
-
-                    //                         <div className="alignRight">
-                    //                             <Button className="expandBttn" onClick={()=>{this.getfinancialData()}}>+</Button>
-                    //                         </div>
-                    //                     </div>
-
-                                        
-                    //                 </div>
-                                    
-                    //                 <div>
-                                        
-                    //                     <div xs={12} md={8}>
-                    //                         <div>
-                    //                             <h6 className="card-subtitle mb-2 text-muted">{this.state.CompanyName}</h6>
-                    //                             <h6 className="card-subtitle mb-2 text-muted">{this.state.Sector}</h6>
-                    //                         </div>
-                    //                     </div>
-
-                    //                     <div>
-                                        
-                    //                     </div>
-                    //                 </div>
-
-                    //                 <div>
-                    //                     <Panel className="expandedCard" id="collapsible-panel-TickerCard-1" expanded={this.state.open}>
-                    //                         <Panel.Collapse>
-                    //                             <Panel.Body>
-                    //                                 Anim pariatur cliche reprehenderit, enim eiusmod high life
-                    //                                 accusamus terry richardson ad squid. Nihil anim keffiyeh
-                    //                                 helvetica, craft beer labore wes anderson cred nesciunt sapiente
-                    //                                 ea proident.
-                    //                             </Panel.Body>
-                    //                         </Panel.Collapse>
-                    //                     </Panel>
-                    //                 </div>
-
-                    //             </div>
-
-                    //         </div>
-
-                    //     </div>
-                    // );
-                    //     break;
-                
-                    // default:
-
-                    // return(
-                    //     <div>
-                    //         <div className="card">
-                                
-                    //             <div className="divFlex">
-                    //                 <div className="cardTitle">
-
-                    //                     <div xs={12} md={8}>
-                    //                         <h4 className="card-title">{this.state.stock}</h4>
-                    //                         <h6 className="card-subtitle mb-2 text-muted">{this.state.Exchange}</h6>
-                    //                         <div className="alignRight">
-                    //                             <Button className="expandBttn" onClick={()=>{this.getfinancialData()}}>+</Button>
-                    //                         </div>
-                    //                     </div>
-
-                                        
-                    //                 </div>
-                                    
-                    //                 <div>
-                                        
-                    //                     <div xs={12} md={8}>
-                    //                         <div>
-                    //                             <h6 className="card-subtitle mb-2 text-muted">{this.state.CompanyName}</h6>
-                    //                             <h6 className="card-subtitle mb-2 text-muted">{this.state.Sector}</h6>
-                    //                         </div>
-                    //                     </div>
-
-                    //                     <div>
-                                        
-                    //                     </div>
-                    //                 </div>
-
-                    //                 <div>
-                    //                     <Panel className="expandedCard" id="collapsible-panel-TickerCard-1" expanded={this.state.open}>
-                    //                         <Panel.Collapse>
-                    //                             <Panel.Body>
-                    //                                 {/* financial api data goes here */}
-                    //                                 Anim pariatur cliche reprehenderit, enim eiusmod high life
-                    //                                 accusamus terry richardsedrtytrertgfdertfcdfvcxdrtgbvcfrtyhbon ad squid. Nihil anim keffiyeh
-                    //                                 helvetica, craft beer labore wes anderson cred nesciunt sapiente
-                    //                                 ea proident.
-                    //                             </Panel.Body>
-                    //                         </Panel.Collapse>
-                    //                     </Panel>
-                    //                 </div>
-
-                    //             </div>
-
-                    //         </div>
-
-                    //     </div>
-                    // );
-                    //     break;
-                
-            
-
-            
     
     
 }}
