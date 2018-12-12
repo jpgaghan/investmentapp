@@ -1,6 +1,6 @@
 import React from 'react';
 import './SignUpView.css';
-import { Modal, Button, Col, FormGroup, Checkbox, FormControl, Form, ControlLabel } from "react-bootstrap";
+import { Modal, NavItem, Button, Col, FormGroup, Checkbox, FormControl, Form, ControlLabel } from "react-bootstrap";
 
 
 const SigninComponent = ({
@@ -18,16 +18,14 @@ const SigninComponent = ({
  }) => {
    return (
      <li className="signin-component" >
-       <Button
-         bsStyle="primary"
-         bsSize="large"
-        //  onClick={() => handleHide({ show: true })}
+       <NavItem className="signUpBtn"
+       
          onClick={() => !userid ? handleHide({ show: true }) : handleLogout()}
 
        >
        {userid ? 'Logout' : 'Sign Up'}
-         Sign Up
-       </Button>
+
+       </NavItem>
        
        {
          <Modal
@@ -38,7 +36,7 @@ const SigninComponent = ({
        >
          <Modal.Header closeButton>
            <Modal.Title id="contained-modal-title">
-             Login
+             Sign Up
            </Modal.Title>
          </Modal.Header>
          <Modal.Body>
@@ -78,7 +76,7 @@ const SigninComponent = ({
            </Form>
          </Modal.Body>
          <Modal.Footer>
-           <Button onClick={handleHide}>Close</Button>
+           <Button onClick={handleLogin}>Close</Button>
          </Modal.Footer>
        </Modal>
        }

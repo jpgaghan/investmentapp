@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import './Carousel.css';
 import API from "../../utils/API";
-import { Carousel } from "react-bootstrap";
-import NewsCarousel from './NewsCarousel';
+
 
 
 class FinancialData extends Component {
-    state = {
+    constructor(props, context) {
+    super(props, context);
+    this.state = {
         CurrentPrice: "",
         PreviousClose: "",
         DailyRange: "",
@@ -16,88 +16,92 @@ class FinancialData extends Component {
         PE: "",
         EPS: "",
         Sector: "",
-        DailyPercentChange: ""
+        DailyPercentChange: "",
+        week52high: "",
+        week52low: "",
+        exchange: "",
+        companyName: "",
+        news: [],
+        logo: "",
     };
+    this.componentDidMount=this.componentDidMount.bind(this);
+    this.getfinancialData=this.getfinancialData.bind(this);
+}
     componentDidMount() {
-        this.getNews();
+        if (this.props.submitted) {
+          this.getfinancialData();
+        } 
     }
-    getNews = () => {
-        API.carou()
+
+    abbreviateNumber = (value) => {
+        var newValue = value;
+        if (value >= 1000) {
+            var suffixes = ["", "k", "m", "b","t"];
+            var suffixNum = Math.floor( (""+value).length/3 );
+            // console.log(suffixNum);
+            var shortValue = '';
+            for (var precision = 2; precision >= 1; precision--) {
+                shortValue = parseFloat( (suffixNum !== 0 ? (value / Math.pow(1000,suffixNum) ) : value).toPrecision(precision));
+                var dotLessShortValue = (shortValue + '').replace(/[^a-zA-Z 0-9]+/g,'');
+                if (dotLessShortValue.length <= 3) { break; }
+            }
+            if (shortValue % 2 !== 0) {  
+                shortValue = shortValue.toFixed(3);
+            newValue = shortValue+suffixes[suffixNum];
+            }
+        }
+        // console.log(newValue);
+        return newValue;
+        
+    }
+
+    getfinancialData = () => {
+        // console.log("here")
+        API.financialData(this.props.ticker)
         .then(res => {
+            // console.log(res.data.chart.length-1)
             this.setState({
-                results: res.data.articles,
-                articles: [{
-                    img: res.data.articles[0].urlToImage,
-                    title: res.data.articles[0].title,
-                    description: res.data.articles[0].description
-                }, {
-                    img: res.data.articles[1].urlToImage,
-                    title: res.data.articles[1].title,
-                    description: res.data.articles[1].description
-                }, {
-                    img: res.data.articles[2].urlToImage,
-                    title: res.data.articles[2].title,
-                    description: res.data.articles[2].description
-                }, {
-                    img: res.data.articles[3].urlToImage,
-                    title: res.data.articles[3].title,
-                    description: res.data.articles[3].description
-                }, {
-                    img: res.data.articles[4].urlToImage,
-                    title: res.data.articles[4].title,
-                    description: res.data.articles[4].description
-                }],
+                CurrentPrice: res.data.quote.latestPrice,
+                PreviousClose: res.data.quote.previousClose,
+                DailyRange: res.data.chart.length,
+                DailyVolume: res.data.chart[res.data.chart.length-2].volume,
+                MarketCap: this.abbreviateNumber(res.data.quote.marketCap),
+                Beta: res.data.stats.beta,
+                PE: res.data.quote.peRatio,
+                EPS: res.data.stats.consensusEPS,
+                Sector: res.data.quote.sector,
+                DailyPercentChange: res.data.chart[res.data.chart.length-2].changePercent,
+                week52high: res.data.quote.week52High,
+                week52low: res.data.quote.week52Low,
+                exchange: res.data.quote.primaryExchange,
+                companyName: res.data.quote.companyName,
+                news: res.data.news,
+                logo: res.data.logo.url,
             });
+            // console.log(this.state)
         })
     }
 
+    
+
     render() {
         return (
-            <div className="wholeCarousel">
-                {/* <pre>{JSON.stringify(this.state.articles["title"], null, 2)}</pre> */}
-                <Carousel>
-                    <Carousel.Item>
-                        <img width={900} height={500} alt="900x500" src={this.state.articles[0].img} />}
-                        <Carousel.Caption>
-                            <h3>{this.state.articles[0].title}</h3>
-                            <p>{this.state.articles[0].description}</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                    <img width={900} height={500} alt="900x500" src={this.state.articles[1].img} />}
-                        <Carousel.Caption>
-                        <h3>{this.state.articles[1].title}</h3>
-                            <p>{this.state.articles[1].description}</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                    <img width={900} height={500} alt="900x500" src={this.state.articles[2].img} />}
-                        <Carousel.Caption>
-                            <h3>{this.state.articles[2].title}</h3>
-                            <p>{this.state.articles[2].description}.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                    <img width={900} height={500} alt="900x500" src={this.state.articles[3].img} />}
-                        <Carousel.Caption>
-                            <h3>{this.state.articles[3].title}</h3>
-                            <p>{this.state.articles[3].description}.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                    <img width={900} height={500} alt="900x500" src={this.state.articles[4].img} />}
-                        <Carousel.Caption>
-                            <h3>{this.state.articles[4].title}</h3>
-                            <p>{this.state.articles[4].description}.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                </Carousel>
-            </div>
+           <div>
+               <img src={this.state.logo} alt="logo" />
+               <ul>{this.state.news.map(element => {
+                   return(
+                   <li>
+                       <a href={element.url}>{element.headline}</a>
+                   </li>
+                   )
+               })};
+               </ul>
+           </div> 
         )
     }
 }
 
-export default NewsCarousel;
+export default FinancialData;
 
 
 

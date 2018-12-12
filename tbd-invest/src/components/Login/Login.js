@@ -1,6 +1,6 @@
 import React from 'react';
 import './Login.css';
-import { Modal, Button, Col, FormGroup, Checkbox, FormControl, Form, ControlLabel } from "react-bootstrap";
+import { Modal, NavItem, Button, Col, FormGroup, Checkbox, FormControl, Form, ControlLabel } from "react-bootstrap";
 
 
  const LoginComponent = ({
@@ -19,13 +19,13 @@ import { Modal, Button, Col, FormGroup, Checkbox, FormControl, Form, ControlLabe
     console.log('user logged in status', userid);
     return (
       <li className="login-component" >
-        <Button
-          bsStyle="primary"
-          bsSize="large"
+        <NavItem className="logInBtn"
+          // bsStyle="primary"
+          // bsSize="large"
           onClick={() => !userid ? handleHide({ show: true }) : handleLogout()}
         >
           {userid ? 'Logout' : 'Login'}
-        </Button>
+        </NavItem>
         
         {
           <Modal
