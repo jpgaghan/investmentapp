@@ -1,10 +1,6 @@
 import React, { Component } from "react";
-import { Button } from "react-bootstrap";
-import { Panel } from "react-bootstrap";
+import { Button , Panel, Table, Glyphicon } from "react-bootstrap";
 import API from "../../utils/API";
-// import { Row } from "react-bootstrap";
-// import { Col } from "react-bootstrap";
-// import { Grid } from "react-bootstrap";
 import "./TickerCard.css";
 
 class TickerCard extends Component {
@@ -31,7 +27,7 @@ class TickerCard extends Component {
     }
     
     getfinancialData = () => {
-        console.log("here")
+
         API.financialData(this.state.stock)
         .then(res => {
             console.log(res.data.chart.length-1)
@@ -51,9 +47,13 @@ class TickerCard extends Component {
             news: res.data.news,
             logo: res.data.logo.url
             })
-            this.setState({ open: !this.state.open })
+            // this.setState({ open: !this.state.open })
             console.log(this.state)
         })
+    }
+
+    componentDidMount() {
+        this.getfinancialData()
     }
     
     render(props) {
@@ -65,50 +65,34 @@ class TickerCard extends Component {
                     return(
                         <div>
                             <div className="card">
+
+                                <Table hover >
+                                    <tbody>
+
+                                        <tr>
+                                            <td><h4>{this.state.stock}</h4></td>
+                                            <td><h4>{this.state.CurrentPrice}</h4></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{this.state.Exchange}</td>
+                                            <td>{this.state.DailyPercentChange}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{this.state.CompanyName}</td>
+                                            <td>{this.state.DailyPercentChange}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{this.state.Sector}</td>
+                                            <td> <a className="expandBttn" onClick={() => this.setState({ open: !this.state.open })}><Glyphicon glyph="resize-full"/></a></td>
+                                        </tr>
+
+                                    </tbody>
+                                </Table>
                                 
-                                <div className="divFlex">
-                                    <div className="cardTitle">
-
-                                        <div xs={12} md={8}>
-                                            <h4 className="card-title">{this.state.stock}</h4>
-                                            <h6 className="card-subtitle mb-2 text-muted">{this.state.Exchange}</h6>
-                                            <div className="alignRight">
-                                                <Button className="expandBttn" onClick={()=>{this.getfinancialData()}}>+</Button>
-                                                {/* () => this.setState({ open: !this.state.open }) */}
-                                            </div>
-                                        </div>
-
-                                        
-                                    </div>
-                                    
-                                    <div>
-                                        
-                                        <div xs={12} md={8}>
-                                            <div>
-                                                <h6 className="card-subtitle mb-2 text-muted">{this.state.CompanyName}</h6>
-                                                <h6 className="card-subtitle mb-2 text-muted">{this.state.Sector}</h6>
-                                            </div>
-                                        </div>
-
-                                        <div>
-                                        
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <Panel className="expandedCard" id="collapsible-panel-TickerCard-1" expanded={this.state.open}>
-                                            <Panel.Collapse>
-                                                <Panel.Body>
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                                    accusamus terry richardson ad squid. Nihil anim keffiyeh
-                                                    helvetica, craft beer labore wes anderson cred nesciunt sapiente
-                                                    ea proident.
-                                                </Panel.Body>
-                                            </Panel.Collapse>
-                                        </Panel>
-                                    </div>
-
-                                </div>
+                               
 
                             </div>
 
@@ -125,20 +109,24 @@ class TickerCard extends Component {
                                     <div className="cardTitle">
 
                                         <div xs={12} md={8}>
+                                            <h1>case true</h1>
                                             <h4 className="card-title">{this.state.stock}</h4>
                                             <h6 className="card-subtitle mb-2 text-muted">{this.state.Exchange}</h6>
 
                                             <div className="alignRight">
-                                                <Button className="expandBttn" onClick={()=>{this.getfinancialData()}}>+</Button>
+                                                {/* <Button className="expandBttn" onClick={()=>{this.getfinancialData()}}>+</Button> */}
+                                            </div>
+
+                                            <div className="col">
+                                                <button className="expandBttn" onClick={() => this.setState({ open: !this.state.open })}>+</button>
                                             </div>
                                         </div>
 
-                                        
                                     </div>
                                     
                                     <div>
                                         
-                                        <div xs={12} md={8}>
+                                        <div>
                                             <div>
                                                 <h6 className="card-subtitle mb-2 text-muted">{this.state.CompanyName}</h6>
                                                 <h6 className="card-subtitle mb-2 text-muted">{this.state.Sector}</h6>
