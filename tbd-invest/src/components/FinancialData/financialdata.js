@@ -78,7 +78,7 @@ class FinancialData extends Component {
                 news: res.data.news,
                 logo: res.data.logo.url,
             });
-            // console.log(this.state)
+            console.log(this.state)
         })
     }
 
