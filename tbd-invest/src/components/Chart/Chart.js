@@ -118,7 +118,7 @@ class Charts extends Component {
                 >Year Chart</Button>
                 <AreaChart
                     axes
-                    areaColors={["white"]}
+                    areaColors={["gray"]}
                     xType={"time"}
                     margin={{ top: 30, right: 30, bottom: 70, left: 50 }}
                     width={1050}
