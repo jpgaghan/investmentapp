@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import { Button , Panel, Table, Glyphicon, Collapse} from "react-bootstrap";
 import Charts from "../Chart/Chart.js";
-// import { Row } from "react-bootstrap";
-// import { Col } from "react-bootstrap";
-// import { Grid } from "react-bootstrap";
 import "./TickerCard.css";
 import numeral from "numeral";
 

@@ -118,10 +118,10 @@ class Charts extends Component {
                 >Year Chart</Button>
                 <AreaChart
                     axes
-                    areaColors={["gray"]}
+                    areaColors={["black"]}
                     xType={"time"}
-                    margin={{ top: 30, right: 30, bottom: 70, left: 50 }}
-                    width={1050}
+                    margin={{ top: 30, right: 10, bottom: 70, left: 50 }}
+                    width={925}
                     height={250}
                     datePattern={this.state.dataPattern}
                     tickTimeDisplayFormat={this.state.tickFormat}
