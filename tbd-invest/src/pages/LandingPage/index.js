@@ -22,6 +22,7 @@ const LandingPage = ({userid}) => (
   
       <div className="tickerContainer">
     <TickerCard />
+    {/* <TickerCard />
     <TickerCard />
     <TickerCard />
     <TickerCard />
@@ -37,8 +38,7 @@ const LandingPage = ({userid}) => (
     <TickerCard />
     <TickerCard />
     <TickerCard />
-    <TickerCard />
-    <TickerCard />
+    <TickerCard /> */}
   </div>
     </div>
   );
