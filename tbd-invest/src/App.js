@@ -45,7 +45,7 @@ class App extends Component {
                   <div className="alignRight" xs={6} m={6}>
                     <NewsCarousel />
                    
-                    {/* <Charts /> */}
+                    <Charts />
                   </div>
                 
               </div>
