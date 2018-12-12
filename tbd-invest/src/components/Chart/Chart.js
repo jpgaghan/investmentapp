@@ -61,7 +61,7 @@ class Charts extends Component {
                         ticker: this.props.ticker
                     })
                     this.chartDisplayD();
-                    console.log(res.data.chart);
+                    // console.log(res.data.chart);
                 })
                 .catch(err => console.log(err))
         };
@@ -80,6 +80,7 @@ class Charts extends Component {
             })
             .catch(err => console.log(err))
     };
+    
 
     render() {
         return (

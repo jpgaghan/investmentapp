@@ -50,7 +50,7 @@ class FinancialData extends Component {
             newValue = shortValue+suffixes[suffixNum];
             }
         }
-        // console.log(newValue);
+        console.log(newValue);
         return newValue;
         
     }
