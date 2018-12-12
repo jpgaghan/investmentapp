@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import TickerCard from "./components/TickerCard";
-import './App.css';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
-import NewsCarousel from './components/Carousel';
-import SearchForm from "./components/Search";
-import WordLookup from './components/WordLookup';
+
+import './App.css';
+import LandingPage from './pages/LandingPage';
+import Watchlist from './pages/Watchlist'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import { FaUserCircle } from 'react-icons/fa';
 // import { BrowserRouter as Router, Route } from "react-router-dom";
+
 
 
 class App extends Component {
@@ -33,102 +35,39 @@ class App extends Component {
   handleUserUnAuthed(){
     this.setState({userid: null, userEmail:null});  
   }
+  
   render() {
-    switch (this.state.page) {
-      case "landing":
-        return (
-          <div>
-            <NavBar state={this.state} userEmail={this.state.userEmail} handleUserUnAuthed={this.handleUserUnAuthed} userid={this.state.userid} handleBecameAuthed={this.handleBecameAuthed} handlePage={this.handlePage} />
-
-            <div>
-              <div>
-                
-                  <div>
-                    <NewsCarousel />
-
-                    <SearchForm uid={this.state.userid}/>
-                    {/* <Charts /> */}
-
-                  </div>
-                
-              </div>
-            
-            </div>
-                {/* <Charts /> */}
-
-            <br></br>
-          
-
-            <div className="tickerContainer">
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-              <TickerCard />
-            </div>
-
-            <div className="WordLookupContainer">
-              <WordLookup />
-            </div>
-            
-            <div>
-              {/* <Charts /> */}
-            </div>
+    return (
+      <div>
+            <NavBar
+              state={this.state}
+              userEmail={this.state.userEmail}
+              handleUserUnAuthed={this.handleUserUnAuthed} 
+              userid={this.state.userid}
+              handleBecameAuthed={this.handleBecameAuthed}
+              handlePage={this.handlePage}
+            />
+            <Router>
+              <Switch>
+                <Route
+                  exact
+                  path="/"
+                  render={(props) => <LandingPage {...this.state} {...props}/>}
+                />
+                <Route
+                  exact
+                  path="/watchlist"
+                  render={(props) => <Watchlist {...this.state} {...props}/>}
+                />
+              </Switch>
+            </Router>
 
             <div className="footerContainer">
               <Footer />
             </div>
           </div>
-        );
-      case "loggedin":
-      case "main":
-        return (
-          <div>
-
-            <NavBar userEmail={this.state.userEmail} handleUserUnAuthed={this.handleUserUnAuthed} userid={this.state.userid}  handleBecameAuthed={this.handleBecameAuthed} handlePage={this.handlePage} />
-          
-            <div>
-              <div>
-                
-                  <div>
-                    <NewsCarousel />
-
-                    <SearchForm uid={this.state.userid}/>
-                    {/* <Charts /> */}
-
-                  </div>
-                
-              </div>
-            
-            </div>
-                {/* <Charts /> */}
-
-            <br></br>
-
-            <div className="WordLookupContainer">
-              <WordLookup />
-            </div>
-            <div className="footerContainer">
-              {/* <Footer /> */}
-            </div>
-          </div>
-        );
-      default:
-        break;
-    }
+    )
+  
   }
 }
 

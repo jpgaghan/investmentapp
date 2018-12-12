@@ -27,6 +27,11 @@
     text-transform: uppercase;
 }
 
+.expandBttn {
+    padding: 7px 20px;
+    font-size: 22px;
+    border-radius: 0;
+}
 
 
 

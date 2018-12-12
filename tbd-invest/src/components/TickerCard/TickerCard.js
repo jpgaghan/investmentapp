@@ -23,61 +23,67 @@ class TickerCard extends React.Component {
             PE: "",
             EPS: "",
             Sector: "",
-            DailyPercentChange: ""
+            DailyPercentChange: "",
+            news: []
         };
-        this.getfinancialData=this.getfinancialData.bind(this)
+        this.getfinancialData = this.getfinancialData.bind(this)
     }
     getfinancialData = () => {
         console.log("here")
         API.financialData(this.state.stock)
-        .then(res => {
-            console.log(res.data.chart.length-1)
-            this.setState({
-            CurrentPrice: res.data.quote.latestPrice,
-            PreviousClose: res.data.chart[res.data.chart.length-2].close,
-            DailyRange: res.data.chart.length,
-            DailyVolume: res.data.chart[res.data.chart.length-2].volume,
-            MarketCap: res.data.quote.marketCap,
-            Beta: res.data.stats.beta,
-            PE: res.data.quote.peRatio,
-            EPS: res.data.stats.consensusEPS,
-            Sector: res.data.quote.sector,
-            DailyPercentChange: res.data.chart[res.data.chart.length-2].changePercent,
-            Exchange: res.data.quote.primaryExchange,
-            CompanyName: res.data.quote.companyName,
+            .then(res => {
+                console.log(res.data.chart.length - 1)
+                this.setState({
+                    CurrentPrice: res.data.quote.latestPrice,
+                    PreviousClose: res.data.quote.previousClose,
+                    DailyRange: res.data.chart.length,
+                    DailyVolume: res.data.chart[res.data.chart.length - 2].volume,
+                    MarketCap: res.data.quote.marketCap,
+                    Beta: res.data.stats.beta,
+                    PE: res.data.quote.peRatio,
+                    EPS: res.data.stats.consensusEPS,
+                    Sector: res.data.quote.sector,
+                    DailyPercentChange: res.data.chart[res.data.chart.length - 2].changePercent,
+                    Exchange: res.data.quote.primaryExchange,
+                    CompanyName: res.data.quote.companyName,
+                    news: res.data.news
+                })
+                this.setState({ open: !this.state.open })
+                console.log(this.state)
             })
-            this.setState({ open: !this.state.open })
-            console.log(this.state)
-        })
     }
-    
+
     render(props) {
 
-            {
-                switch (this.state.open) {
-                    case false:
-                        
-                    return(
+        {
+            switch (this.state.open) {
+                case false:
+
+                    return (
                         <div>
                             <div className="card">
-                                
+
                                 <div className="divFlex">
+
+                                    <div className="alignRight">
+                                        <Button className="expandBttn" onClick={() => { this.getfinancialData() }}>+</Button>
+                                        {/* () => this.setState({ open: !this.state.open }) */}
+                                    </div>
+
                                     <div className="cardTitle">
 
                                         <div xs={12} md={8}>
+
                                             <h4 className="card-title">{this.state.stock}</h4>
                                             <h6 className="card-subtitle mb-2 text-muted">{this.state.Exchange}</h6>
-                                            <div className="alignRight">
-                                                <Button className="expandBttn" onClick={()=>{this.getfinancialData()}}>+</Button>
-                                                {/* () => this.setState({ open: !this.state.open }) */}
-                                            </div>
+
                                         </div>
 
-                                        
+
                                     </div>
-                                    
+
                                     <div>
-                                        
+
                                         <div xs={12} md={8}>
                                             <div>
                                                 <h6 className="card-subtitle mb-2 text-muted">{this.state.CompanyName}</h6>
@@ -86,7 +92,7 @@ class TickerCard extends React.Component {
                                         </div>
 
                                         <div>
-                                        
+
                                         </div>
                                     </div>
 
@@ -110,29 +116,30 @@ class TickerCard extends React.Component {
                         </div>
                     );
 
-                    case true:
+                case true:
 
-                    return(
+                    return (
                         <div>
                             <div className="card">
-                                
+
                                 <div className="divFlex">
+
+                                    <div className="alignRight">
+                                        <Button className="expandBttn" onClick={() => { this.getfinancialData() }}>+</Button>
+                                    </div>
+
                                     <div className="cardTitle">
 
                                         <div xs={12} md={8}>
                                             <h4 className="card-title">{this.state.stock}</h4>
                                             <h6 className="card-subtitle mb-2 text-muted">{this.state.Exchange}</h6>
-
-                                            <div className="alignRight">
-                                                <Button className="expandBttn" onClick={()=>{this.getfinancialData()}}>+</Button>
-                                            </div>
                                         </div>
 
-                                        
+
                                     </div>
-                                    
+
                                     <div>
-                                        
+
                                         <div xs={12} md={8}>
                                             <div>
                                                 <h6 className="card-subtitle mb-2 text-muted">{this.state.CompanyName}</h6>
@@ -141,7 +148,7 @@ class TickerCard extends React.Component {
                                         </div>
 
                                         <div>
-                                        
+
                                         </div>
                                     </div>
 
@@ -164,14 +171,14 @@ class TickerCard extends React.Component {
 
                         </div>
                     );
-                        break;
-                
-                    default:
+                    break;
 
-                    return(
+                default:
+
+                    return (
                         <div>
                             <div className="card">
-                                
+
                                 <div className="divFlex">
                                     <div className="cardTitle">
 
@@ -179,15 +186,15 @@ class TickerCard extends React.Component {
                                             <h4 className="card-title">{this.state.stock}</h4>
                                             <h6 className="card-subtitle mb-2 text-muted">{this.state.Exchange}</h6>
                                             <div className="alignRight">
-                                                <Button className="expandBttn" onClick={()=>{this.getfinancialData()}}>+</Button>
+                                                <Button className="expandBttn" onClick={() => { this.getfinancialData() }}>+</Button>
                                             </div>
                                         </div>
 
-                                        
+
                                     </div>
-                                    
+
                                     <div>
-                                        
+
                                         <div xs={12} md={8}>
                                             <div>
                                                 <h6 className="card-subtitle mb-2 text-muted">{this.state.CompanyName}</h6>
@@ -196,7 +203,7 @@ class TickerCard extends React.Component {
                                         </div>
 
                                         <div>
-                                        
+
                                         </div>
                                     </div>
 
@@ -220,12 +227,12 @@ class TickerCard extends React.Component {
 
                         </div>
                     );
-                        break;
-                }
+                    break;
             }
+        }
 
-            
-    
+
+
     }
 }
 
