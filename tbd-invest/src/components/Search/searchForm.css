@@ -6,6 +6,7 @@ form.search {
     margin-left: 10px;
     color: white;
     font-size: 18px;
+    padding: 30px;
   }
   
 form.search button[type="submit"] {

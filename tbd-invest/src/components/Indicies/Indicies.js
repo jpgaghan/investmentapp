@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from 'axios';
+
 
 import API from "../../utils/API";
 import './Indicies.css';
@@ -19,7 +19,7 @@ class Indicies extends Component {
         .then(res => {
             const {data} = res;
             const supportedStockMarkets = ["XNYS",
-            "XBOS","XPHL"];
+            "XBOS","XPHL", "XASE", "IEXG"];
             const filteredData = data.filter(stockMarketData => supportedStockMarkets.indexOf(stockMarketData.mic) > -1);
             this.setState({data: filteredData, dataLoaded:true});
         })
