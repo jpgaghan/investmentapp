@@ -27,13 +27,15 @@ class SearchForm extends Component {
             submitted: false
         })
     };
+
     savetoWatchlist = event => {
         event.preventDefault();
         console.log(this.state.ticker, this.props.uid)
         // API.
         API.saveWatchlist(this.state.ticker, this.props.uid).then(res => {console.log(res)})
         console.log("here")
-    }
+    };
+    
     handleFormSubmit = event => {
         event.preventDefault();
         this.setState({submitted: true})

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { Button } from "react-bootstrap";
 import { Panel } from "react-bootstrap";
 import API from "../../utils/API";
@@ -7,7 +7,7 @@ import API from "../../utils/API";
 // import { Grid } from "react-bootstrap";
 import "./TickerCard.css";
 
-class TickerCard extends React.Component {
+class TickerCard extends Component {
     constructor(props, context) {
         super(props, context);
 
@@ -24,10 +24,12 @@ class TickerCard extends React.Component {
             EPS: "",
             Sector: "",
             DailyPercentChange: "",
-            news: []
+            news: [],
+            logo: "",
         };
         this.getfinancialData=this.getfinancialData.bind(this)
     }
+    
     getfinancialData = () => {
         console.log("here")
         API.financialData(this.state.stock)
@@ -46,7 +48,8 @@ class TickerCard extends React.Component {
             DailyPercentChange: res.data.chart[res.data.chart.length-2].changePercent,
             Exchange: res.data.quote.primaryExchange,
             CompanyName: res.data.quote.companyName,
-            news: res.data.news
+            news: res.data.news,
+            logo: res.data.logo.url
             })
             this.setState({ open: !this.state.open })
             console.log(this.state)

@@ -1,0 +1,7 @@
+.main-indicies-container {
+    background:white;
+    width:100%;
+    color:black;
+    display:flex;
+    justify-content: space-around;
+}
