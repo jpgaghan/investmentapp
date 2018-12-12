@@ -1,0 +1,30 @@
+form.search {
+    /* overflow: auto; */
+    margin: 10px auto !important;
+    margin-bottom: 10px;
+    width: 60%;
+    margin-left: 10px;
+    color: white;
+    font-size: 18px;
+  }
+  
+form.search button[type="submit"] {
+   margin: 10px auto;
+
+  }
+
+.form-group {
+  text-align: center;
+}
+
+.searchTitle {
+  margin: auto;
+  text-align: center;
+}
+
+.form-control {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  text-transform: uppercase;
+}
