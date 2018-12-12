@@ -4,12 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "../Login/index";
 import { Navbar, Nav, NavItem } from "react-bootstrap";
 import SignUp from '../SignUp/index';
-<<<<<<< HEAD
-// import { FaUserCircle } from 'react-icons/fa';
-=======
 import Books from "../../pages/Watchlist"
 import { FaUserCircle } from 'react-icons/fa';
->>>>>>> cf3cd43871ff01acc89b02e201c4f1e76319da85
 
 
 //login modal
@@ -54,18 +50,10 @@ export const NavBar = ({ handlePage, handleBecameAuthed, userid, handleUserUnAut
           <NavItem className="username">
             {/* short circuit evaluation */}
             {(userEmail && userEmail.slice(0, userEmail.indexOf('@'))) || ''}
-<<<<<<< HEAD
-          
-            {/* <FaUserCircle /> */}
-=======
 
-<<<<<<< HEAD
             <FaUserCircle />
->>>>>>> fa968490c79cc5bfbc54ebbf7a0f721b602dfaa8
-=======
 
             {/* <img src="https://cdn2.iconfinder.com/data/icons/budicon-user/16/32-user_-_single-512.png" alt="user"></img> */}
->>>>>>> cf3cd43871ff01acc89b02e201c4f1e76319da85
 
           </NavItem>
 

@@ -6,6 +6,10 @@ body {
   background-image: url(../src/photos/slate.jpg);
 }
 
+.container {
+  display: flex;
+
+}
 
 .alignRight {
   display: flex;
@@ -40,6 +44,3 @@ body {
   }
 }
 
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-  /* Styles */
-  }
