@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import { Button , Panel, Table, Glyphicon, Collapse} from "react-bootstrap";
+import Charts from "../Chart/Chart.js";
 // import { Row } from "react-bootstrap";
 // import { Col } from "react-bootstrap";
 // import { Grid } from "react-bootstrap";
@@ -13,7 +14,7 @@ class TickerCard extends Component {
         this.state = {
             tickers: ["aapl", "msft", "googl", "amzn", "tsla", "rht"],
             tickerdata:[],
-            stock: "aapl",
+            ticker: "",
             open: false,
             CurrentPrice: "",
             PreviousClose: "",
@@ -57,9 +58,10 @@ class TickerCard extends Component {
         this.setState({[`open${i}`]:false})
       API.financialData(ticker)
       .then(res => {
-          console.log(res)
+          console.log(ticker)
           const tickerdataarray = this.state.tickerdata
           tickerdataarray.push({
+            ticker,
             CurrentPrice: res.data.quote.latestPrice,
             PreviousClose: res.data.quote.previousClose,
             DailyRange: res.data.chart.length,
@@ -120,7 +122,10 @@ class TickerCard extends Component {
                        </tr>
                        <Panel className="expandedCard" id="collapsible-panel-TickerCard-1" expanded={this.state[`open${i}`]}>
                        <Panel.Collapse>
+                            
+
                            <Panel.Body>
+                                <Charts ticker={ticker.ticker} submitted={true}/>
                                Anim pariatur cliche reprehenderit, enim eiusmod high life
                                accusamus terry richardson ad squid. Nihil anim keffiyeh
                                helvetica, craft beer labore wes anderson cred nesciunt sapiente
