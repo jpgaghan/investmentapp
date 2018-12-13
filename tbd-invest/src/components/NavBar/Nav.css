@@ -11,6 +11,9 @@
     border-radius: 0;
     font-size: 22px;
 }
+.username {
+    padding-right: 10px;
+}
 
 .btn {
     padding: 7px 20px;
