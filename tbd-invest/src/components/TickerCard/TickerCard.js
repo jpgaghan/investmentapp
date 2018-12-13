@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import { Button , Panel, Table, Glyphicon, Collapse} from "react-bootstrap";
 import Charts from "../Chart/Chart.js";
-// import { Row } from "react-bootstrap";
-// import { Col } from "react-bootstrap";
-// import { Grid } from "react-bootstrap";
 import "./TickerCard.css";
 
 class TickerCard extends Component {
@@ -121,8 +118,6 @@ class TickerCard extends Component {
                        </tr>
                        <Panel className="expandedCard" id="collapsible-panel-TickerCard-1" expanded={this.state[`open${i}`]}>
                        <Panel.Collapse>
-                            
-
                            <Panel.Body>
                                 <Charts ticker={ticker.ticker} submitted={true}/>
                                Anim pariatur cliche reprehenderit, enim eiusmod high life
@@ -131,7 +126,7 @@ class TickerCard extends Component {
                                ea proident.
                            </Panel.Body>
                        </Panel.Collapse>
-                   </Panel>
+                    </Panel>
                    </tbody>
                </Table>
                
