@@ -122,9 +122,8 @@ class Charts extends Component {
 
                 </div>
                 <div className="graphButtons">
-                    <Button
-                        bsStyle="primary"
-                        bsSize="xsmall"
+                    <Button className='custom-button'
+                      
                         onClick={(symbol, chartRange) => {
                             symbol = this.state.ticker;
                             chartRange = "1d";
@@ -132,9 +131,7 @@ class Charts extends Component {
                             this.searchHolding(symbol, chartRange);
                         }}
                     >Daily Chart</Button>
-                    <Button
-                        bsStyle="primary"
-                        bsSize="xsmall"
+                    <Button className='custom-button'
                         onClick={(symbol, chartRange) => {
                             symbol = this.state.ticker;
                             chartRange = "1m";
@@ -142,9 +139,7 @@ class Charts extends Component {
                             this.searchHolding(symbol, chartRange);
                         }}
                     >30-Day Chart</Button>
-                    <Button
-                        bsStyle="primary"
-                        bsSize="xsmall"
+                    <Button className='custom-button'
                         onClick={(symbol, chartRange) => {
                             symbol = this.state.ticker;
                             chartRange = "1y";
