@@ -30,8 +30,9 @@ class WordSearch extends Component {
 
     getDefinition = event => {
         API.scrapefinancialTerms().then(res => {
-          let definitions = res[1];
-          let terms = res[0];
+            console.log(res)
+          let definitions = res.data[1];
+          let terms = res.data[0];
           console.log(terms)
           let termIndex = terms.indexOf(this.state.term);
           console.log(termIndex)
@@ -65,13 +66,13 @@ class WordSearch extends Component {
                                 onChange={this.handleInputChange}
                                 name="term"
                                 className="form-control"
-                                placeholder="Baby Bond"
+                                placeholder="i.e. : Dividends"
                                 id="term"
                             />
                             <button
                                 type="submit"
                                 onClick={this.handleFormSubmit}
-                                className="btn btn-success">Search
+                                className="custom-button">Search
                             </button>
                         </div>
                     </div>
@@ -97,7 +98,7 @@ class WordSearch extends Component {
                     <button
                         type="submit"
                         onClick={this.handleFormSubmit}
-                        className="btn btn-success">Search
+                        className="custom-button">Search
                     </button>
                 </form>
                 <Panel>

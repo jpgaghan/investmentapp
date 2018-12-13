@@ -4,18 +4,42 @@ import TickerCard from "../../components/TickerCard";
 import SearchForm from "../../components/Search";
 import WordLookup from '../../components/WordLookup';
 
-const LandingPage = ({userid}) => (
+const LandingPage = ({ userid }) => (
+  <div>
     <div>
       <div>
         <div>
-          <div>
-            <NewsCarousel />
-            <SearchForm uid={userid}/>
-            {/* <Charts /> */}
-          </div>
+          <NewsCarousel />
+          <SearchForm uid={userid} />
+          {/* <Charts /> */}
+        </div>
       </div>
     </div>
-        {/* <Charts /> */}
+    {/* <Charts /> */}
+
+
+    <div className="tickerContainer">
+      <TickerCard />
+      <TickerCard />
+      <TickerCard />
+      <TickerCard />
+      <TickerCard />
+      <TickerCard />
+      <TickerCard />
+      <TickerCard />
+      <TickerCard />
+      <TickerCard />
+      <TickerCard />
+      <TickerCard />
+      <TickerCard />
+      <TickerCard />
+      <TickerCard />
+      <TickerCard />
+      <TickerCard />
+      <TickerCard />
+    </div>
+
+
     <div className="WordLookupContainer">
       <WordLookup />
     </div>
@@ -40,7 +64,7 @@ const LandingPage = ({userid}) => (
     <TickerCard />
     <TickerCard /> */}
   </div>
-    </div>
-  );
+</div>
+);
 
-  export default LandingPage;
+export default LandingPage;

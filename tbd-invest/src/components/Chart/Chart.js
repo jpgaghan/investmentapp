@@ -35,7 +35,6 @@ class Charts extends Component {
             // console.log(dateM);
             var formatTime = d3.timeFormat("%d-%m-%y");
             var da = formatTime(new Date(dateM));
-            // console.log(da);
             dataPointsA.push({
                 x: da, y: parseFloat(element.close)
             });
@@ -120,9 +119,9 @@ class Charts extends Component {
                 />
                 </div>
                 <div className="graphButtons">
-                <Button
-                    bsStyle="primary"
-                    bsSize="xsmall"
+                <Button bsClass='custom-button'
+                    // bsStyle="primary"
+                    // bsSize="small"
                     onClick={(symbol, chartRange) => {
                         symbol = this.state.ticker;
                         chartRange = "1d";
@@ -130,9 +129,9 @@ class Charts extends Component {
                         this.searchHolding(symbol, chartRange);
                     }}
                 >Daily Chart</Button>
-                <Button
-                    bsStyle="primary"
-                    bsSize="xsmall"
+                <Button bsClass='custom-button'
+                    // bsStyle="primary"
+                    // bsSize="small"
                     onClick={(symbol, chartRange) => {
                         symbol = this.state.ticker;
                         chartRange = "1m";
@@ -140,9 +139,9 @@ class Charts extends Component {
                         this.searchHolding(symbol, chartRange);
                     }}
                 >30-Day Chart</Button>
-                <Button
-                    bsStyle="primary"
-                    bsSize="xsmall"
+                <Button bsClass='custom-button'
+                    // bsStyle="primary"
+                    // bsSize="small"
                     onClick={(symbol, chartRange) => {
                         symbol = this.state.ticker;
                         chartRange = "1y";

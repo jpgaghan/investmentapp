@@ -8,4 +8,7 @@ router.route("/")
   .put(Controller.update)
   .delete(Controller.remove);
 
+router.route("/terms")
+  .get(Controller.getTerms);
+  
 module.exports = router;

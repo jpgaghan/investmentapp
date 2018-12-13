@@ -57,13 +57,13 @@ class SearchForm extends Component {
                                 onChange={this.handleInputChange}
                                 name="ticker"
                                 className="form-control"
-                                placeholder="Ticker Symbol"
+                                placeholder="AAPL"
                                 id="ticker"
                             />
-                            <button
+                            <button className='custom-button'
                                 type="submit"
                                 onClick={this.handleFormSubmit}
-                                className="btn btn-success">Search
+                                >Search
                             </button>
                         </div>
                     </div>
@@ -86,10 +86,10 @@ class SearchForm extends Component {
                             id="ticker"
                         />
                     </div>
-                    <button
+                    <button className='custom-button'
                         type="submit"
                         onClick={this.handleFormSubmit}
-                        className="btn btn-success">Search
+                        >Search
                     </button>
                 </form>
                 <Charts ticker={this.state.ticker} submitted={this.state.submitted}/>
