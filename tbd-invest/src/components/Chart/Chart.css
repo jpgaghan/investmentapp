@@ -9,6 +9,9 @@ svg {
     text-align: center;
 }
 
+.fullChart {
+    max-width: 100%;
+}
 .custom-button {
     background-color: #C1F0FA;
     color: #898B8B;
