@@ -1,3 +1,14 @@
+svg {
+    margin: auto;
+    display: block;
+}
+
+.graphButtons {
+    margin: auto;
+    display: block;
+    text-align: center;
+}
+
 .fullChart {
     max-width: 100%;
 }

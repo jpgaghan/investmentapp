@@ -21,6 +21,10 @@ class Charts extends Component {
             windowWidth: initialWidth - 100
         };
     };
+};
+
+
+  
 
     chartDisplay = () => {
         var dataPointsA = [];
@@ -153,6 +157,6 @@ class Charts extends Component {
             </div>
         );
     }
-}
+
 
 export default Charts;
