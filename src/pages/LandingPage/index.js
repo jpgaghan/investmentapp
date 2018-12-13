@@ -18,27 +18,6 @@ const LandingPage = ({ userid }) => (
     {/* <Charts /> */}
 
 
-    <div className="tickerContainer">
-      <TickerCard />
-      <TickerCard />
-      <TickerCard />
-      <TickerCard />
-      <TickerCard />
-      <TickerCard />
-      <TickerCard />
-      <TickerCard />
-      <TickerCard />
-      <TickerCard />
-      <TickerCard />
-      <TickerCard />
-      <TickerCard />
-      <TickerCard />
-      <TickerCard />
-      <TickerCard />
-      <TickerCard />
-      <TickerCard />
-    </div>
-
 
     <div className="WordLookupContainer">
       <WordLookup />
@@ -46,23 +25,6 @@ const LandingPage = ({ userid }) => (
   
       <div className="tickerContainer">
     <TickerCard />
-    {/* <TickerCard />
-    <TickerCard />
-    <TickerCard />
-    <TickerCard />
-    <TickerCard />
-    <TickerCard />
-    <TickerCard />
-    <TickerCard />
-    <TickerCard />
-    <TickerCard />
-    <TickerCard />
-    <TickerCard />
-    <TickerCard />
-    <TickerCard />
-    <TickerCard />
-    <TickerCard />
-    <TickerCard /> */}
   </div>
 </div>
 );
