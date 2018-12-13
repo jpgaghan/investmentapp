@@ -103,17 +103,17 @@ class TickerCard extends Component {
 
                                             <tr>
                                                 <td><h4 className="tickerSymbol">{ticker.ticker}</h4></td>
-                                                <td className="rightData"><h4>{ticker.CurrentPrice}</h4></td>
+                                                <td className="rightData"><h4>{"$ " + ticker.CurrentPrice}</h4></td>
                                             </tr>
 
                                             <tr>
                                                 <td>{ticker.Exchange}</td>
-                                                <td className="rightData">{ticker.DailyPercentChange}</td>
+                                                <td className="rightData">{ticker.DailyPercentChange + " %"}</td>
                                             </tr>
 
                                             <tr>
                                                 <td>{ticker.CompanyName}</td>
-                                                <td className="rightData">{ticker.DailyChange}</td>
+                                                <td className="rightData">{ "$ " + ticker.DailyChange}</td>
                                             </tr>
 
                                             <tr>
