@@ -20,11 +20,11 @@ app.use(function(req, res, next) {
 
 app.use(routes);
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
-mongoose.connect(MONGODB_URI);
+// mongoose.connect(MONGODB_URI);
 
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/investmentapp");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/investmentapp");
 
 app.listen(PORT, function() {
     console.log(`🌎 ==> Server now on port ${PORT}!`);

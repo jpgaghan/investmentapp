@@ -4,8 +4,9 @@ form.search {
     margin-bottom: 10px;
     width: 60%;
     margin-left: 10px;
-    color: white;
+    /* color: white; */
     font-size: 18px;
+    padding: 30px;
   }
   
 form.search button[type="submit"] {
@@ -27,4 +28,18 @@ form.search button[type="submit"] {
   width: 50%;
   text-align: center;
   text-transform: uppercase;
+}
+
+.custom-button {
+  background-color: #C1F0FA;
+  color: #898B8B;
+  padding: 18px;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 10px;
+  border-radius: 8px;
+
+}
+.custom-button:hover {
+  background-color: yellow;
 }

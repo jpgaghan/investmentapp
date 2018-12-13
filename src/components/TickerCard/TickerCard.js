@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import { Button, Panel, Table, Glyphicon, Collapse } from "react-bootstrap";
 import Charts from "../Chart/Chart.js";
-import "./TickerCard.css";
 import numeral from "numeral";
+// import { Row } from "react-bootstrap";
+// import { Col } from "react-bootstrap";
+// import { Grid } from "react-bootstrap";
+import "./TickerCard.css";
 
 class TickerCard extends Component {
     constructor(props, context) {
@@ -36,6 +39,7 @@ class TickerCard extends Component {
     }
 
     createTickers = uid => {
+        // API.scrapefinancialTerms().then(res => {console.log(res)});
         console.log(window.location.href)
         if (window.location.href === "http://localhost:3000/watchlist") {
             API.pullWatchlist(uid).then(res => {
@@ -51,38 +55,38 @@ class TickerCard extends Component {
     };
 
     getfinancialData = () => {
-        const tickerdataarray = []
-        //   console.log(this.state.tickers)
-        this.state.tickers.forEach((ticker, i) => {
-            this.setState({ [`open${i}`]: false })
-            API.financialData(ticker)
-                .then(res => {
-                    console.log(ticker)
-                    const tickerdataarray = this.state.tickerdata
-                    tickerdataarray.push({
-                        ticker,
-                        CurrentPrice: res.data.quote.latestPrice,
-                        PreviousClose: res.data.quote.previousClose,
-                        DailyRange: res.data.chart.length,
-                        DailyVolume: numeral(res.data.chart[res.data.chart.length - 2].volume).format("0.000a"),
-                        MarketCap: numeral(res.data.quote.marketCap).format("0.000a"),
-                        Beta: res.data.stats.beta,
-                        PE: res.data.quote.peRatio,
-                        EPS: res.data.stats.consensusEPS,
-                        Sector: res.data.quote.sector,
-                        DailyPercentChange: res.data.chart[res.data.chart.length - 2].changePercent,
-                        DailyChange: res.data.quote.change,
-                        Exchange: res.data.quote.primaryExchange,
-                        CompanyName: res.data.quote.companyName,
-                        news: res.data.news,
-                        open: false,
-                        logo: res.data.logo.url
-                    })
-                    this.setState({ tickerdata: tickerdataarray })
-                })
-        })
-
-    }
+      const tickerdataarray = []
+    //   console.log(this.state.tickers)
+      this.state.tickers.forEach((ticker, i) => {
+        this.setState({[`open${i}`]:false})
+      API.financialData(ticker)
+      .then(res => {
+          console.log(ticker)
+          const tickerdataarray = this.state.tickerdata
+          tickerdataarray.push({
+            ticker,
+            CurrentPrice: numeral(res.data.quote.latestPrice).format("$0,0.00"),
+            PreviousClose: res.data.quote.previousClose,
+            DailyRange: res.data.chart.length,
+            DailyVolume: numeral(res.data.chart[res.data.chart.length-2].volume).format("0.000a"),
+            MarketCap: numeral(res.data.quote.marketCap).format("0.000a"),
+            Beta: res.data.stats.beta,
+            PE: res.data.quote.peRatio,
+            EPS: res.data.stats.consensusEPS,
+            Sector: res.data.quote.sector,
+            DailyPercentChange: res.data.chart[res.data.chart.length-2].changePercent,
+            DailyChange: numeral(res.data.quote.change).format("$0,0.00"),
+            Exchange: res.data.quote.primaryExchange,
+            CompanyName: res.data.quote.companyName,
+            news: res.data.news,
+            open:false,
+            logo: res.data.logo.url
+            })
+          this.setState({tickerdata:tickerdataarray})
+      })
+    })
+    
+  }
     handleopenState = () => {
         this.setState({ open: !this.state.open })
         console.log(this.state)
@@ -92,7 +96,7 @@ class TickerCard extends Component {
         return (
             <div>
                 {this.state.tickerdata.length ? (
-                    <div>
+                    <div className="tickerContainer">
                         {this.state.tickerdata.map((ticker, i) => (
 
                             <div>
@@ -108,7 +112,7 @@ class TickerCard extends Component {
 
                                             <tr>
                                                 <td>{ticker.Exchange}</td>
-                                                <td className="rightData">{ticker.DailyPercentChange}</td>
+                                                <td className="rightData">{ticker.DailyPercentChange + " %"}</td>
                                             </tr>
 
                                             <tr>

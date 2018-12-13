@@ -66,13 +66,13 @@ class WordSearch extends Component {
                                 onChange={this.handleInputChange}
                                 name="term"
                                 className="form-control"
-                                placeholder="Baby Bond"
+                                placeholder="i.e. : Dividends"
                                 id="term"
                             />
                             <button
                                 type="submit"
                                 onClick={this.handleFormSubmit}
-                                className="btn btn-success">Search
+                                className="custom-button">Search
                             </button>
                         </div>
                     </div>
@@ -98,7 +98,7 @@ class WordSearch extends Component {
                     <button
                         type="submit"
                         onClick={this.handleFormSubmit}
-                        className="btn btn-success">Search
+                        className="custom-button">Search
                     </button>
                 </form>
                 <Panel>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./searchForm.css";
+import { Form, Button } from "react-bootstrap";
 import Watchlist from "../WatchlistBtn/index";
 import Charts from "../Chart/Chart.js";
 import FinancialData from "../FinancialData/financialdata"
@@ -18,8 +19,11 @@ class SearchForm extends Component {
     
 
     handleInputChange = event => {
+
         const name = event.target.name;
         const value = event.target.value;
+        event.preventDefault();
+
         this.setState({
             [name]: value
         });
@@ -51,7 +55,7 @@ class SearchForm extends Component {
                     <h2 className="searchTitle">Stock Search</h2>
                     <div className="form-group">
                         <label htmlFor="ticker">Enter Ticker:</label>
-                        <div>
+                        <Form inline>
                             <input
                                 value={this.state.ticker}
                                 onChange={this.handleInputChange}
@@ -60,12 +64,12 @@ class SearchForm extends Component {
                                 placeholder="AAPL"
                                 id="ticker"
                             />
-                            <button
+                            <button className='custom-button'
                                 type="submit"
                                 onClick={this.handleFormSubmit}
-                                className="btn btn-success">Search
+                                >Search
                             </button>
-                        </div>
+                        </Form>
                     </div>
                    
                 </form>
@@ -73,7 +77,7 @@ class SearchForm extends Component {
                    
             </div>
         ) : (<div>
-                <form className="search">
+                <Form className="search">
                     <h2>Stock Search</h2>
                     <div className="form-group">
                         <label htmlFor="ticker">Stock Symbol:</label>
@@ -86,12 +90,12 @@ class SearchForm extends Component {
                             id="ticker"
                         />
                     </div>
-                    <button
+                    <button className='custom-button'
                         type="submit"
                         onClick={this.handleFormSubmit}
-                        className="btn btn-success">Search
+                        >Search
                     </button>
-                </form>
+                </Form>
                 <Charts ticker={this.state.ticker} submitted={this.state.submitted}/>
                 <FinancialData ticker={this.state.ticker} submitted={this.state.submitted}/>
                 <Watchlist

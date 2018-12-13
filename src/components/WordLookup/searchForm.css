@@ -28,3 +28,18 @@ form.search button[type="submit"] {
   text-align: center;
   text-transform: uppercase;
 }
+
+.custom-button {
+  background-color: #C1F0FA;
+  color: #898B8B;
+  padding: 18px;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 10px;
+  border-radius: 8px;
+
+}
+.custom-button:hover {
+  background-color: #E8E8E8;
+  color: black;
+}
