@@ -119,8 +119,6 @@ class TickerCard extends Component {
                        </tr>
                        <Panel className="expandedCard" id="collapsible-panel-TickerCard-1" expanded={this.state[`open${i}`]}>
                        <Panel.Collapse>
-                            
-
                            <Panel.Body>
                                 <Charts ticker={ticker.ticker} submitted={true}/>
                                Anim pariatur cliche reprehenderit, enim eiusmod high life
@@ -129,7 +127,7 @@ class TickerCard extends Component {
                                ea proident.
                            </Panel.Body>
                        </Panel.Collapse>
-                   </Panel>
+                    </Panel>
                    </tbody>
                </Table>
                
