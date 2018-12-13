@@ -1,0 +1,11 @@
+#dictionarybox {
+    margin: 0 auto;
+}
+
+tr {
+    text-align: center;
+}
+.panelDefinition {
+    width: 94%;
+    margin: 0 auto 20px auto
+}
