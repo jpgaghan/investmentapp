@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import { Button, Panel, Table, Glyphicon, Collapse } from "react-bootstrap";
 import Charts from "../Chart/Chart.js";
-import "./TickerCard.css";
 import numeral from "numeral";
+// import { Row } from "react-bootstrap";
+// import { Col } from "react-bootstrap";
+// import { Grid } from "react-bootstrap";
+import "./TickerCard.css";
 
 class TickerCard extends Component {
     constructor(props, context) {
@@ -36,6 +39,7 @@ class TickerCard extends Component {
     }
 
     createTickers = uid => {
+        // API.scrapefinancialTerms().then(res => {console.log(res)});
         console.log(window.location.href)
         if (window.location.href === "http://localhost:3000/watchlist") {
             API.pullWatchlist(uid).then(res => {
