@@ -101,7 +101,7 @@ class WordSearch extends Component {
                         className="custom-button">Search
                     </button>
                 </form>
-                <Panel>
+                <Panel className="panel-term">
                   <Panel.Body>
                     <p>{this.state.term}: {this.state.definition}</p>
                   </Panel.Body>

@@ -69,7 +69,7 @@ class TickerCard extends Component {
           const tickerdataarray = this.state.tickerdata
           tickerdataarray.push({
             ticker,
-            CurrentPrice: numeral(res.data.quote.latestPrice).format("$0,0.00"),
+            CurrentPrice: numeral(res.data.quote.latestPrice).format("0.00"),
             PreviousClose: res.data.quote.previousClose,
             DailyRange: res.data.chart.length,
             DailyVolume: numeral(res.data.chart[res.data.chart.length-2].volume).format("0.000a"),
@@ -79,7 +79,7 @@ class TickerCard extends Component {
             EPS: res.data.stats.consensusEPS,
             Sector: res.data.quote.sector,
             DailyPercentChange: res.data.chart[res.data.chart.length-2].changePercent,
-            DailyChange: numeral(res.data.quote.change).format("$0,0.00"),
+            DailyChange: numeral(res.data.quote.change).format("0.00"),
             Exchange: res.data.quote.primaryExchange,
             CompanyName: res.data.quote.companyName,
             news: res.data.news,
@@ -111,7 +111,7 @@ class TickerCard extends Component {
 
                                             <tr>
                                                 <td><h4 className="tickerSymbol">{ticker.ticker}</h4></td>
-                                                <td className="rightData"><h4>{ticker.CurrentPrice}</h4></td>
+                                                <td className="rightData"><h4>{"$ " + ticker.CurrentPrice}</h4></td>
                                             </tr>
 
                                             <tr>
@@ -121,7 +121,7 @@ class TickerCard extends Component {
 
                                             <tr>
                                                 <td>{ticker.CompanyName}</td>
-                                                <td className="rightData">{ticker.DailyChange}</td>
+                                                <td className="rightData">{ "$ " + ticker.DailyChange}</td>
                                             </tr>
 
                                             <tr>

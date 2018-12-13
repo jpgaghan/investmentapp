@@ -12,6 +12,11 @@
 
 .footerCon {
     margin: 2% auto 1% auto;
+    display: block !important;
+}
+.footerContainer {
+    margin-top: 20px;
+    display: block;
 }
 
 @media only screen and (max-width: 768px) {
