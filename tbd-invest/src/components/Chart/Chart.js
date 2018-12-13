@@ -3,19 +3,29 @@ import API from "../../utils/API";
 import * as d3 from "d3";
 import { AreaChart } from "react-easy-chart";
 import { Button } from "react-bootstrap";
-
+import "./Chart.css";
 
 
 class Charts extends Component {
-    state = {
+    constructor(props) {
+        const initialWidth = window.innerWidth > 0 ? window.innerWidth : 500;
+        super(props);
+    this.state = {
         ticker: "",
         chartRange: "1d",
         results: [],
         dataPoints: [],
         dataPattern: "",
-        tickFormat: ""
+        tickFormat: "",
+        showToolTip: false,
+        windowWidth: initialWidth - 100
     };
+};
 
+
+  
+
+  
 
     chartDisplay = () => {
         var dataPointsA = [];
@@ -53,6 +63,7 @@ class Charts extends Component {
         this.setState({ dataPoints: dataPointsD });
     }
     componentDidMount() {
+        window.addEventListener('resize', this.handleResize);
         if (this.props.submitted) {
             API.chart(this.props.ticker, this.state.chartRange)
                 .then(res => {
@@ -66,6 +77,14 @@ class Charts extends Component {
                 .catch(err => console.log(err))
         };
     };
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.handleResize);
+      }
+    
+      handleResize = () => {
+        this.setState({windowWidth: window.innerWidth - 100});
+      }
 
     searchHolding(symbol, range) {
         API.chart(symbol, range)
@@ -85,9 +104,25 @@ class Charts extends Component {
     render() {
         return (
             <div>
+            <div className="fullChart">
+                <AreaChart
+                    axes
+                    areaColors={["lightblue"]}
+                    xType={"time"}
+                    margin={{ top: 30, right: 10, bottom: 50, left: 50 }}
+                    width={this.state.windowWidth}
+                    height={this.state.windowWidth / 2}
+                    datePattern={this.state.dataPattern}
+                    tickTimeDisplayFormat={this.state.tickFormat}
+                    data={[
+                        this.state.dataPoints
+                    ]}
+                />
+                </div>
+                <div className="graphButtons">
                 <Button
                     bsStyle="primary"
-                    bsSize="small"
+                    bsSize="xsmall"
                     onClick={(symbol, chartRange) => {
                         symbol = this.state.ticker;
                         chartRange = "1d";
@@ -97,7 +132,7 @@ class Charts extends Component {
                 >Daily Chart</Button>
                 <Button
                     bsStyle="primary"
-                    bsSize="small"
+                    bsSize="xsmall"
                     onClick={(symbol, chartRange) => {
                         symbol = this.state.ticker;
                         chartRange = "1m";
@@ -107,28 +142,15 @@ class Charts extends Component {
                 >30-Day Chart</Button>
                 <Button
                     bsStyle="primary"
-                    bsSize="small"
+                    bsSize="xsmall"
                     onClick={(symbol, chartRange) => {
                         symbol = this.state.ticker;
                         chartRange = "1y";
                         this.setState({ chartRange: "1y" });
                         this.searchHolding(symbol, chartRange);
                     }}
-
                 >Year Chart</Button>
-                <AreaChart
-                    axes
-                    areaColors={["black"]}
-                    xType={"time"}
-                    margin={{ top: 30, right: 10, bottom: 70, left: 50 }}
-                    width={925}
-                    height={250}
-                    datePattern={this.state.dataPattern}
-                    tickTimeDisplayFormat={this.state.tickFormat}
-                    data={[
-                        this.state.dataPoints
-                    ]}
-                />
+                </div>
             </div>
         );
     }

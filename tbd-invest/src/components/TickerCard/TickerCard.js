@@ -59,7 +59,7 @@ class TickerCard extends Component {
           const tickerdataarray = this.state.tickerdata
           tickerdataarray.push({
             ticker,
-            CurrentPrice: res.data.quote.latestPrice,
+            CurrentPrice: numeral(res.data.quote.latestPrice).format("$0,0.00"),
             PreviousClose: res.data.quote.previousClose,
             DailyRange: res.data.chart.length,
             DailyVolume: numeral(res.data.chart[res.data.chart.length-2].volume).format("0.000a"),

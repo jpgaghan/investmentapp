@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import numeral from "numeral";
+import { Table } from "react-bootstrap";
+import "./financialData.css"
 
 
 class FinancialData extends Component {
@@ -67,8 +69,23 @@ class FinancialData extends Component {
 
     render() {
         return (
-           <div>
-               <img src={this.state.logo} alt="logo" />
+        <div className="finCard">
+        <Table >
+            <tbody>
+                <tr>
+                <td>
+                <h2>
+                {this.state.companyName}
+                </h2>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                </td>
+                <td>
+               <img src={this.state.logo} alt="logo"/>
+               </td>
+               <td>
                <ul>{this.state.news.map(element => {
                    return(
                    <li>
@@ -77,7 +94,11 @@ class FinancialData extends Component {
                    )
                })};
                </ul>
-           </div> 
+               </td>
+           </tr>
+           </tbody>
+        </Table> 
+        </div>
         )
     }
 }
