@@ -121,8 +121,8 @@ class Charts extends Component {
                     areaColors={["black"]}
                     xType={"time"}
                     margin={{ top: 30, right: 10, bottom: 70, left: 50 }}
-                    width={925}
-                    height={250}
+                    width={300}
+                    height={300}
                     datePattern={this.state.dataPattern}
                     tickTimeDisplayFormat={this.state.tickFormat}
                     data={[

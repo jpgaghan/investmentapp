@@ -1,3 +1,7 @@
+.thisIsTickerCard {
+    
+}
+
 .tickerContainer {
     display: flex;
     flex-wrap: wrap;
@@ -10,8 +14,8 @@
 
 .card {
     display: block;
-    max-width: 1000px;   
-    min-width: 220px; 
+    max-width: 100%;   
+    min-width: 295px; 
     /* width: 30%; */
     background-color: aliceblue;
 
@@ -20,6 +24,10 @@
     border-radius: 5px;
     margin: 1px;
     padding: 0px 5px;
+}
+
+.expandedCard {
+    overflow: auto;
 }
 
 .cardTitle {
@@ -61,10 +69,10 @@
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     .card {
-        display: flex;
+        display: block;
         /* max-width: 1000px;   
         min-width: 220px;  */
-        width: 100%;
+        width: 300px;
         background-color: aliceblue;
     
         margin: auto;
