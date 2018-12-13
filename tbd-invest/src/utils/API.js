@@ -1,6 +1,7 @@
 import axios from "axios";
-const generateUrl = type => `https://api.iextrading.com/1.0/${type}/`;
+import cheerio from "cheerio";
 
+const generateUrl = type => `https://api.iextrading.com/1.0/${type}/`;
 const stockUrl =generateUrl('stock');
 const stockDataUrl = generateUrl('market');
 const batch = "/batch?types=quote,news,chart&range=";
@@ -41,5 +42,27 @@ export default {
                 uid
             }
         );
-      }
+      },
+      
+      scrapefinancialTerms: function() {
+         return axios.get("https://www.zacks.com/help/glossary/index.php?fbclid=IwAR12gFtr8rS2Rw-AWUuMgGTzgoLI5qwnGNiq_vroGUWRhebzhsP-SFSf0rc").then((response) => {
+            let $ = cheerio.load(response.data);
+            const terms = [];
+            const definitions = [];
+            $("section.glossary_content").each(function(i, element) {
+                let term = $(element).children("h1").children("a").text();
+                term = term.toUpperCase();
+                let definition = $(element).children("p").text();
+                terms.push(
+                    term
+                  );
+                definitions.push(
+                    definition
+                )
+            })
+            const returnarray = [terms,definitions];
+            this.response = (returnarray)
+            return this.response;
+        })
+    }
 };

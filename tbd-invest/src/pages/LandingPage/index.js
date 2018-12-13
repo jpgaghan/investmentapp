@@ -43,8 +43,28 @@ const LandingPage = ({ userid }) => (
     <div className="WordLookupContainer">
       <WordLookup />
     </div>
-
+  
+      <div className="tickerContainer">
+    <TickerCard />
+    {/* <TickerCard />
+    <TickerCard />
+    <TickerCard />
+    <TickerCard />
+    <TickerCard />
+    <TickerCard />
+    <TickerCard />
+    <TickerCard />
+    <TickerCard />
+    <TickerCard />
+    <TickerCard />
+    <TickerCard />
+    <TickerCard />
+    <TickerCard />
+    <TickerCard />
+    <TickerCard />
+    <TickerCard /> */}
   </div>
+</div>
 );
 
 export default LandingPage;

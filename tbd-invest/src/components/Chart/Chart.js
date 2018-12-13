@@ -61,7 +61,7 @@ class Charts extends Component {
                         ticker: this.props.ticker
                     })
                     this.chartDisplayD();
-                    console.log(res.data.chart);
+                    // console.log(res.data.chart);
                 })
                 .catch(err => console.log(err))
         };
@@ -80,6 +80,7 @@ class Charts extends Component {
             })
             .catch(err => console.log(err))
     };
+    
 
     render() {
         return (
@@ -117,10 +118,10 @@ class Charts extends Component {
                 >Year Chart</Button>
                 <AreaChart
                     axes
-                    areaColors={["white"]}
+                    areaColors={["black"]}
                     xType={"time"}
-                    margin={{ top: 30, right: 30, bottom: 70, left: 50 }}
-                    width={1050}
+                    margin={{ top: 30, right: 10, bottom: 70, left: 50 }}
+                    width={925}
                     height={250}
                     datePattern={this.state.dataPattern}
                     tickTimeDisplayFormat={this.state.tickFormat}
