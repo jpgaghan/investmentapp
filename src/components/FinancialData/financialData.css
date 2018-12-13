@@ -1,11 +1,35 @@
-.finCard {
+finCard {
     display: block;
+    /* margin: auto; */
+    /* border: 1px solid black; */
+
+}
+.fin-container {
     margin: auto;
-    border: 1px solid black;
-    border-radius: 5px;
+    border-radius: 15px;
+    background-color: aliceblue;
+    width: 75%;
+    margin-top: 60px;
     background-color: aliceblue;
 }
 
-#companyName {
-    text-align: center;
+.companyName {
+text-align: center;
 }
+
+.logo {
+    width: 200px;
+    height: 200px;
+    border-radius: 35px;
+}
+
+.news {
+    color: #696969;
+    font-size: 20px;
+}
+
+.latestNews {
+    color: #696969;
+    font-size: 22px;
+}
+
