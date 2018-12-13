@@ -26,6 +26,7 @@ class TickerCard extends Component {
             EPS: "",
             Sector: "",
             DailyPercentChange: "",
+            DailyChange: "",
             news: [],
             logo: "",
         };
@@ -66,13 +67,14 @@ class TickerCard extends Component {
                         CurrentPrice: res.data.quote.latestPrice,
                         PreviousClose: res.data.quote.previousClose,
                         DailyRange: res.data.chart.length,
-                        DailyVolume: res.data.chart[res.data.chart.length - 2].volume,
-                        MarketCap: res.data.quote.marketCap,
+                        DailyVolume: numeral(res.data.chart[res.data.chart.length - 2].volume).format("0.000a"),
+                        MarketCap: numeral(res.data.quote.marketCap).format("0.000a"),
                         Beta: res.data.stats.beta,
                         PE: res.data.quote.peRatio,
                         EPS: res.data.stats.consensusEPS,
                         Sector: res.data.quote.sector,
                         DailyPercentChange: res.data.chart[res.data.chart.length - 2].changePercent,
+                        DailyChange: res.data.quote.change,
                         Exchange: res.data.quote.primaryExchange,
                         CompanyName: res.data.quote.companyName,
                         news: res.data.news,
@@ -91,10 +93,9 @@ class TickerCard extends Component {
 
     render(props) {
         return (
-
-            <div className="thisIsTickerCard">
+            <div>
                 {this.state.tickerdata.length ? (
-                    <div className="tickerContainer">
+                    <div>
                         {this.state.tickerdata.map((ticker, i) => (
 
                             <div>
@@ -104,45 +105,51 @@ class TickerCard extends Component {
                                         <tbody>
 
                                             <tr>
-                                                <td><h4>{ticker.CompanyName}</h4></td>
-                                                <td><h4>{ticker.CurrentPrice}</h4></td>
+                                                <td><h4 className="tickerSymbol">{ticker.ticker}</h4></td>
+                                                <td className="rightData"><h4>{ticker.CurrentPrice}</h4></td>
                                             </tr>
 
                                             <tr>
                                                 <td>{ticker.Exchange}</td>
-                                                <td>{ticker.DailyPercentChange}</td>
+                                                <td className="rightData">{ticker.DailyPercentChange}</td>
                                             </tr>
 
                                             <tr>
                                                 <td>{ticker.CompanyName}</td>
-                                                <td>{ticker.DailyPercentChange}</td>
+                                                <td className="rightData">{ticker.DailyChange}</td>
                                             </tr>
 
                                             <tr>
                                                 <td>{ticker.Sector}</td>
-                                                <td> <a className="expandBttn" onClick={() => { this.setState({ [`open${i}`]: !this.state[`open${i}`] }) }}><Glyphicon glyph="resize-full" /></a></td>
+                                                <td className="rightData"><a className="expandBttn" onClick={() => { this.setState({ [`open${i}`]: !this.state[`open${i}`] }) }}><Glyphicon glyph="resize-full" /></a></td>
                                             </tr>
+
                                         </tbody>
-
                                     </Table>
-
                                     <Panel className="expandedCard" id="collapsible-panel-TickerCard-1" expanded={this.state[`open${i}`]}>
                                         <Panel.Collapse>
-
-
                                             <Panel.Body>
                                                 <Charts ticker={ticker.ticker} submitted={true} />
-
-                                            </Panel.Body>
+                                                Anim pariatur cliche reprehenderit, enim eiusmod high life
+                                                accusamus terry richardson ad squid. Nihil anim keffiyeh
+                                                helvetica, craft beer labore wes anderson cred nesciunt sapiente
+                                                ea proident.
+                           </Panel.Body>
                                         </Panel.Collapse>
                                     </Panel>
+
+
+
+
+
                                 </div>
                             </div>
                         ))}
                     </div>
                 ) : (
                         <h3>No Results to Display</h3>
-                    )}
+                    )
+                }
             </div>
         );
 
