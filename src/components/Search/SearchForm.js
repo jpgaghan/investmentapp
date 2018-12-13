@@ -39,7 +39,9 @@ class SearchForm extends Component {
         event.preventDefault();
         console.log(this.state.ticker, this.props.uid)
         // API.
-        API.saveWatchlist(this.state.ticker, this.props.uid).then(res => {console.log(res)})
+        if (this.props.uid !== null) {
+            API.saveWatchlist(this.state.ticker, this.props.uid).then(res => {console.log(res)})
+        }
         console.log("here")
     };
     
