@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./Carousel.css";
 import API from "../../utils/API";
 import { Carousel } from "react-bootstrap";
+import Indicies from "../Indicies/Indicies";
+
 
 
 class NewsCarousel extends Component {
@@ -126,7 +128,10 @@ class NewsCarousel extends Component {
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
+                <Indicies />
+                
             </div>
+  
         )
     }
 }

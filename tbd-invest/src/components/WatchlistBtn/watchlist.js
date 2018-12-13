@@ -1,5 +1,7 @@
 import React from 'react';
 import { Modal, Button, Col, FormGroup, Checkbox, FormControl, Form, ControlLabel } from "react-bootstrap";
+import './watchlist.css';
+
 
 
 const WatchlistComponent = ({savetoWatchlist, ticker, uid}) => (
@@ -7,7 +9,7 @@ const WatchlistComponent = ({savetoWatchlist, ticker, uid}) => (
     <button
       type="submit"
       onClick={savetoWatchlist}
-      className="btn btn-success">Save to Watchlist
+      className="custom-button">Save to Watchlist
     </button>
   </div>
  );

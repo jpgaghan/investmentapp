@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import * as d3 from "d3";
 import { AreaChart } from "react-easy-chart";
 import { Button } from "react-bootstrap";
+import './Chart.css';
 
 
 
@@ -25,7 +26,6 @@ class Charts extends Component {
             // console.log(dateM);
             var formatTime = d3.timeFormat("%d-%m-%y");
             var da = formatTime(new Date(dateM));
-            // console.log(da);
             dataPointsA.push({
                 x: da, y: parseFloat(element.close)
             });
@@ -85,9 +85,9 @@ class Charts extends Component {
     render() {
         return (
             <div>
-                <Button
-                    bsStyle="primary"
-                    bsSize="small"
+                <Button bsClass='custom-button'
+                    // bsStyle="primary"
+                    // bsSize="small"
                     onClick={(symbol, chartRange) => {
                         symbol = this.state.ticker;
                         chartRange = "1d";
@@ -95,9 +95,9 @@ class Charts extends Component {
                         this.searchHolding(symbol, chartRange);
                     }}
                 >Daily Chart</Button>
-                <Button
-                    bsStyle="primary"
-                    bsSize="small"
+                <Button bsClass='custom-button'
+                    // bsStyle="primary"
+                    // bsSize="small"
                     onClick={(symbol, chartRange) => {
                         symbol = this.state.ticker;
                         chartRange = "1m";
@@ -105,9 +105,9 @@ class Charts extends Component {
                         this.searchHolding(symbol, chartRange);
                     }}
                 >30-Day Chart</Button>
-                <Button
-                    bsStyle="primary"
-                    bsSize="small"
+                <Button bsClass='custom-button'
+                    // bsStyle="primary"
+                    // bsSize="small"
                     onClick={(symbol, chartRange) => {
                         symbol = this.state.ticker;
                         chartRange = "1y";
@@ -118,7 +118,7 @@ class Charts extends Component {
                 >Year Chart</Button>
                 <AreaChart
                     axes
-                    areaColors={["black"]}
+                    areaColors={["#C1F0FA"]}
                     xType={"time"}
                     margin={{ top: 30, right: 10, bottom: 70, left: 50 }}
                     width={925}

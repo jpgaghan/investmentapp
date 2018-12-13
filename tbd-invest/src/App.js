@@ -65,7 +65,7 @@ class App extends Component {
               handlePage={this.handlePage}
               history={this.history}
             />
-            <Indicies />
+            {/* <Indicies /> */}
             
             <Router>
               
