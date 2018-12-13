@@ -30,8 +30,9 @@ class WordSearch extends Component {
 
     getDefinition = event => {
         API.scrapefinancialTerms().then(res => {
-          let definitions = res[1];
-          let terms = res[0];
+            console.log(res)
+          let definitions = res.data[1];
+          let terms = res.data[0];
           console.log(terms)
           let termIndex = terms.indexOf(this.state.term);
           console.log(termIndex)

@@ -11,6 +11,7 @@
     border-radius: 0;
     font-size: 22px;
 }
+
 .username {
     padding-right: 10px;
 }
@@ -31,14 +32,21 @@
     right: 0;
     position: absolute;
     margin-right: 10px;
+
  }
- .navbar-toggle {
+
+.navbar-toggle {
+
     justify-content: flex-end;
     float: right;
     right: 0;
     position: absolute;
     margin-right: 10px;
+
  }
+
+
+
 /* .collpaseNav{
     float: right;
     text-align: right;
