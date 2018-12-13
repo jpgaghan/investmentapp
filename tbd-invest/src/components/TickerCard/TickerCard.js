@@ -37,6 +37,7 @@ class TickerCard extends Component {
     }
   
     createTickers = uid => {
+        // API.scrapefinancialTerms().then(res => {console.log(res)});
         console.log(window.location.href)
         if(window.location.href === "http://localhost:3000/watchlist") {
             API.pullWatchlist(uid).then(res => 
@@ -89,9 +90,10 @@ class TickerCard extends Component {
     
     render(props) {
         return(
-        <div className="tickerContainer">
+
+        <div >
         {this.state.tickerdata.length ? (
-            <div>
+            <div className="tickerContainer">
              {this.state.tickerdata.map((ticker, i) => (
            
            <div>
@@ -132,11 +134,8 @@ class TickerCard extends Component {
                    </Panel>
                    
                </Table>
-               
-              
-
-           </div>
-   </div>
+            </div>
+        </div>
                     ))}
                     </div>
                   ) : (

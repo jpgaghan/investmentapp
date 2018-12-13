@@ -48,7 +48,7 @@ class SearchForm extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
         this.setState({submitted: true})
-        
+
         // this.searchHolding(this.state.ticker, this.state.chartRange);
         // console.log(this.state.submitted);
         // console.log(this.state.ticker);
@@ -70,11 +70,12 @@ class SearchForm extends Component {
                                 placeholder="AAPL"
                                 id="ticker"
                             />
-                            <Button
+                            <button
+                                bsSize="small"
                                 type="submit"
                                 onClick={this.handleFormSubmit}
                                 className="btn btn-success">Search
-                            </Button>
+                            </button>
                         </Form>
                     </div>
                    

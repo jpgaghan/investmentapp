@@ -9,7 +9,7 @@
 }
 
 .card {
-    display: flex;
+    display: block;
     max-width: 1000px;   
     min-width: 220px; 
     /* width: 30%; */
