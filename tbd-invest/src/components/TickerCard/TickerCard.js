@@ -90,7 +90,7 @@ class TickerCard extends Component {
     
     render(props) {
         return(
-        <div>
+        <div className="tickerContainer">
         {this.state.tickerdata.length ? (
             <div>
              {this.state.tickerdata.map((ticker, i) => (
@@ -120,20 +120,18 @@ class TickerCard extends Component {
                            <td>{ticker.Sector}</td>
                            <td> <a className="expandBttn" onClick={() => {this.setState({ [`open${i}`]: !this.state[`open${i}`] })}}><Glyphicon glyph="resize-full"/></a></td>
                        </tr>
+                    </tbody>
                        <Panel className="expandedCard" id="collapsible-panel-TickerCard-1" expanded={this.state[`open${i}`]}>
                        <Panel.Collapse>
                             
 
                            <Panel.Body>
                                 <Charts ticker={ticker.ticker} submitted={true}/>
-                               Anim pariatur cliche reprehenderit, enim eiusmod high life
-                               accusamus terry richardson ad squid. Nihil anim keffiyeh
-                               helvetica, craft beer labore wes anderson cred nesciunt sapiente
-                               ea proident.
+                               
                            </Panel.Body>
                        </Panel.Collapse>
                    </Panel>
-                   </tbody>
+                   
                </Table>
                
               
