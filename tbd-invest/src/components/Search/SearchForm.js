@@ -64,11 +64,15 @@ class SearchForm extends Component {
                                 placeholder="AAPL"
                                 id="ticker"
                             />
+<<<<<<< HEAD
                             <button
                                 bsSize="small"
+=======
+                            <button className='custom-button'
+>>>>>>> 2d12c2ee57802a3f2c95bdf9cd66eb499571e490
                                 type="submit"
                                 onClick={this.handleFormSubmit}
-                                className="btn btn-success">Search
+                                >Search
                             </button>
                         </Form>
                     </div>
@@ -91,12 +95,21 @@ class SearchForm extends Component {
                             id="ticker"
                         />
                     </div>
+<<<<<<< HEAD
                     <Button
                         type="submit"
                         onClick={this.handleFormSubmit}
                         className="btn btn-success">Search
                     </Button>
                 </Form>
+=======
+                    <button className='custom-button'
+                        type="submit"
+                        onClick={this.handleFormSubmit}
+                        >Search
+                    </button>
+                </form>
+>>>>>>> 2d12c2ee57802a3f2c95bdf9cd66eb499571e490
                 <Charts ticker={this.state.ticker} submitted={this.state.submitted}/>
                 <FinancialData ticker={this.state.ticker} submitted={this.state.submitted}/>
                 <Watchlist

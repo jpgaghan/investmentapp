@@ -30,7 +30,6 @@ class Charts extends Component {
             // console.log(dateM);
             var formatTime = d3.timeFormat("%d-%m-%y");
             var da = formatTime(new Date(dateM));
-            // console.log(da);
             dataPointsA.push({
                 x: da, y: parseFloat(element.close)
             });

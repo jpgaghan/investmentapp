@@ -1,3 +1,21 @@
+<<<<<<< HEAD
 .fullChart {
     max-width: 100%;
+=======
+.custom-button {
+    background-color: #C1F0FA;
+    color: #898B8B;
+    padding: 18px;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 4px 2px #303030;
+
+
+}
+.custom-button:hover {
+    background-color: #E8E8E8;
+    color: black;
+>>>>>>> 2d12c2ee57802a3f2c95bdf9cd66eb499571e490
 }
