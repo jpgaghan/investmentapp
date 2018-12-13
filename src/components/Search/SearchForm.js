@@ -57,7 +57,7 @@ class SearchForm extends Component {
                                 onChange={this.handleInputChange}
                                 name="ticker"
                                 className="form-control"
-                                placeholder="Ticker Symbol"
+                                placeholder="AAPL"
                                 id="ticker"
                             />
                             <button
