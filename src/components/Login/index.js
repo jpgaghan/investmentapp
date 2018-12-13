@@ -41,7 +41,7 @@ export default class Login extends Component {
   }
 
   componentDidMount() {
-    if (localStorage.getItem('logstatus') === true) {
+    if (localStorage.getItem('userid')) {
       this.setState({username: localStorage.getItem('username'),
                     logstatus: localStorage.getItem("logstatus")
       })

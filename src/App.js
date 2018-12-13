@@ -40,14 +40,14 @@ class App extends Component {
   }
   handleUserUnAuthed(){
     this.setState({userid: null, userEmail:null});  
-    localStorage.setItem('userid', null);
-    localStorage.setItem('logstatus', null);
-    localStorage.setItem('username', '');
-    localStorage.setItem('userEmail', '');
+    localStorage.removeItem('userid');
+    localStorage.removeItem('logstatus');
+    localStorage.removeItem('username');
+    localStorage.removeItem('userEmail');
   }
   
   componentWillMount() {
-    if (localStorage.getItem('userid') !== null) {
+    if (localStorage.getItem('userid')) {
       this.setState({userid: localStorage.getItem('userid')})
       this.setState({userEmail: localStorage.getItem('userEmail')})
     }
