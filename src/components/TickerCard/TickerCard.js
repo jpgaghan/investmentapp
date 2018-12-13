@@ -35,6 +35,7 @@ class TickerCard extends Component {
 
 
     componentDidMount() {
+        console.log(this.state.tickers, this.state.tickerdata)
         this.createTickers(this.props.userid);
     }
 
@@ -43,6 +44,7 @@ class TickerCard extends Component {
         console.log(window.location.href)
         if (window.location.href === "http://localhost:3000/watchlist") {
             API.pullWatchlist(uid).then(res => {
+                console.log(res)
                 const tickerarray = []
                 res.data.forEach(index => { tickerarray.push(index.ticker) });
                 this.setState({ tickers: tickerarray })

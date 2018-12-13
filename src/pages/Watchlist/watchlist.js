@@ -4,13 +4,9 @@ import { List, ListItem, Link, DeleteBtn, FormGroup, Checkbox, FormControl, Form
 import TickerCard from "../../components/TickerCard";
 
 class Watchlist extends Component {
-  // constructor(props, context) {
-  //   super(props, context);
-  //   this.state = {
-  //     tickers: [],
-  //     tickerdata:[]
-  //   };
-  // }
+  constructor(props, context) {
+    super(props, context);
+  }
 
   // componentDidMount() {
   //   this.createTickers(this.props.userid); 
@@ -58,7 +54,7 @@ class Watchlist extends Component {
   render() {
     return (
 
- <TickerCard />
+ <TickerCard userid={this.props.userid}/>
 
     );
 
