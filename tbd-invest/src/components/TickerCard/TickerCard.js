@@ -71,6 +71,7 @@ class TickerCard extends Component {
             EPS: res.data.stats.consensusEPS,
             Sector: res.data.quote.sector,
             DailyPercentChange: res.data.chart[res.data.chart.length-2].changePercent,
+            DailyChange: numeral(res.data.quote.change).format("$0,0.00"),
             Exchange: res.data.quote.primaryExchange,
             CompanyName: res.data.quote.companyName,
             news: res.data.news,
@@ -107,7 +108,7 @@ class TickerCard extends Component {
 
                                             <tr>
                                                 <td>{ticker.Exchange}</td>
-                                                <td className="rightData">{ticker.DailyPercentChange}</td>
+                                                <td className="rightData">{ticker.DailyPercentChange + " %"}</td>
                                             </tr>
 
                                             <tr>
