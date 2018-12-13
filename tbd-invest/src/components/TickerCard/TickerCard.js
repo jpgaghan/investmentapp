@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import { Button , Panel, Table, Glyphicon, Collapse} from "react-bootstrap";
 import Charts from "../Chart/Chart.js";
 import "./TickerCard.css";
+import numeral from "numeral";
 
 class TickerCard extends Component {
     constructor(props, context) {
@@ -61,8 +62,8 @@ class TickerCard extends Component {
             CurrentPrice: res.data.quote.latestPrice,
             PreviousClose: res.data.quote.previousClose,
             DailyRange: res.data.chart.length,
-            DailyVolume: res.data.chart[res.data.chart.length-2].volume,
-            MarketCap: res.data.quote.marketCap,
+            DailyVolume: numeral(res.data.chart[res.data.chart.length-2].volume).format("0.000a"),
+            MarketCap: numeral(res.data.quote.marketCap).format("0.000a"),
             Beta: res.data.stats.beta,
             PE: res.data.quote.peRatio,
             EPS: res.data.stats.consensusEPS,
