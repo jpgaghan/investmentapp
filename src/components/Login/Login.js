@@ -14,7 +14,8 @@ import { Modal, NavItem, Button, Col, FormGroup, Checkbox, FormControl, Form, Co
    handlepasswordChange,
    username,
    password,
-   userid
+   userid,
+   logstatus
   }) => {
     console.log('user logged in status', userid);
     return (
@@ -24,7 +25,7 @@ import { Modal, NavItem, Button, Col, FormGroup, Checkbox, FormControl, Form, Co
           // bsSize="large"
           onClick={() => !userid ? handleHide({ show: true }) : handleLogout()}
         >
-          {userid ? 'Logout' : 'Login'}
+          {logstatus ? 'Logout' : 'Login'}
         </NavItem>
         
         {

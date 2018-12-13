@@ -5,12 +5,17 @@ const db = require("../models");
 // Defining methods for the booksController
 module.exports = {
   findAll: function (req, res) {
-    db.Watchlist
-      .find(req.uid)
-      // .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
+    console.log(req.uid)
+    if(req.uid) {
+      db.Watchlist
+        .find(req.uid)
+        // .sort({ date: -1 })
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+   }
+   else {
+   res.sendStatus(500).json({error: 'It looks like a proper uid was not provided'})
+   }},
   findById: function (req, res) {
     db.InterestRate
       .findById(req.params.id)

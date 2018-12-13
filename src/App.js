@@ -46,7 +46,7 @@ class App extends Component {
     localStorage.setItem('userEmail', '');
   }
   
-  componentDidMount() {
+  componentWillMount() {
     if (localStorage.getItem('userid') !== null) {
       this.setState({userid: localStorage.getItem('userid')})
       this.setState({userEmail: localStorage.getItem('userEmail')})
