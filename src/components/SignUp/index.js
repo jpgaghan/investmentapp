@@ -14,8 +14,6 @@ export default class SignUp extends Component {
    this.handleLogin = this.handleLogin.bind(this);
    this.handleLogout = this.handleLogout.bind(this);
    this.handleLogstatus = this.handleLogstatus.bind(this);
-  //  this.handleBecameAuthed = this.handleBecameAuthed.bind(this);
-  //  this.handleUserUnAuthed = this.handleUserUnAuthed.bind(this);
    this.state = {
     show: false,
     username: '',
@@ -41,11 +39,12 @@ export default class SignUp extends Component {
   }
   
   componentDidMount() {
-    if (localStorage.getItem('logstatus') === true) {
+    if (localStorage.getItem('userid')) {
       this.setState({username: localStorage.getItem('username'),
                     logstatus: localStorage.getItem("logstatus"),
       })
     }
+    console.log(this.props.userid)
   }
 
  handleLogin(){

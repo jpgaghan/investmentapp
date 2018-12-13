@@ -36,9 +36,10 @@ export default {
       },
 
       pullWatchlist: function(uid) {
+          console.log(uid)
         return axios.get(
             "/api/tickers",
-            {
+                {
                 uid
             }
         );

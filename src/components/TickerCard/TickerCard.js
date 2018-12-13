@@ -42,7 +42,9 @@ class TickerCard extends Component {
     createTickers = uid => {
         // API.scrapefinancialTerms().then(res => {console.log(res)});
         console.log(window.location.href)
+
         if (window.location.href === "http://localhost:3000/watchlist") {
+            console.log(uid)
             API.pullWatchlist(uid).then(res => {
                 console.log(res)
                 const tickerarray = []
