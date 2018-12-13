@@ -27,14 +27,12 @@ class SearchForm extends Component {
         this.setState({
             [name]: value
         });
-        if( this.state.ticker === ""){
-          event.preventDefault();
-
-            this.setState({
-                submitted: false
-            })
-        }
         
+        if (this.state.ticker === "") {
+        this.setState({
+            submitted: false
+        })
+      }
     };
 
     savetoWatchlist = event => {
@@ -48,10 +46,6 @@ class SearchForm extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
         this.setState({submitted: true})
-
-        // this.searchHolding(this.state.ticker, this.state.chartRange);
-        // console.log(this.state.submitted);
-        // console.log(this.state.ticker);
     };
 
     render() {
@@ -67,7 +61,7 @@ class SearchForm extends Component {
                                 onChange={this.handleInputChange}
                                 name="ticker"
                                 className="form-control"
-                                placeholder="AAPL"
+                                placeholder="Ticker Symbol"
                                 id="ticker"
                             />
                             <button
