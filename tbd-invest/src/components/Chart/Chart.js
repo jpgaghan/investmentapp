@@ -3,19 +3,24 @@ import API from "../../utils/API";
 import * as d3 from "d3";
 import { AreaChart } from "react-easy-chart";
 import { Button } from "react-bootstrap";
-
-
+import ContainerDimensions from 'react-container-dimensions';
+import "./Chart.css";
 
 class Charts extends Component {
-    state = {
-        ticker: "",
-        chartRange: "1d",
-        results: [],
-        dataPoints: [],
-        dataPattern: "",
-        tickFormat: ""
+    constructor(props) {
+        const initialWidth = window.innerWidth > 0 ? window.innerWidth : 500;
+        super(props);
+        this.state = {
+            ticker: "",
+            chartRange: "1d",
+            results: [],
+            dataPoints: [],
+            dataPattern: "",
+            tickFormat: "",
+            showToolTip: false,
+            windowWidth: initialWidth - 100
+        };
     };
-
 
     chartDisplay = () => {
         var dataPointsA = [];
@@ -53,6 +58,7 @@ class Charts extends Component {
         this.setState({ dataPoints: dataPointsD });
     }
     componentDidMount() {
+        window.addEventListener('resize', this.handleResize);
         if (this.props.submitted) {
             API.chart(this.props.ticker, this.state.chartRange)
                 .then(res => {
@@ -67,6 +73,14 @@ class Charts extends Component {
         };
     };
 
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.handleResize);
+    }
+
+    handleResize = () => {
+        this.setState({ windowWidth: window.innerWidth - 100 });
+    }
+
     searchHolding(symbol, range) {
         API.chart(symbol, range)
             .then(res => {
@@ -80,55 +94,63 @@ class Charts extends Component {
             })
             .catch(err => console.log(err))
     };
-    
+
 
     render() {
         return (
             <div>
-                <Button
-                    bsStyle="primary"
-                    bsSize="small"
-                    onClick={(symbol, chartRange) => {
-                        symbol = this.state.ticker;
-                        chartRange = "1d";
-                        this.setState({ chartRange: "1d" });
-                        this.searchHolding(symbol, chartRange);
-                    }}
-                >Daily Chart</Button>
-                <Button
-                    bsStyle="primary"
-                    bsSize="small"
-                    onClick={(symbol, chartRange) => {
-                        symbol = this.state.ticker;
-                        chartRange = "1m";
-                        this.setState({ chartRange: "1m" });
-                        this.searchHolding(symbol, chartRange);
-                    }}
-                >30-Day Chart</Button>
-                <Button
-                    bsStyle="primary"
-                    bsSize="small"
-                    onClick={(symbol, chartRange) => {
-                        symbol = this.state.ticker;
-                        chartRange = "1y";
-                        this.setState({ chartRange: "1y" });
-                        this.searchHolding(symbol, chartRange);
-                    }}
+                <div className="fullChart">
+                    <ContainerDimensions>
+                        {({ width }) =>
+                            <AreaChart
+                                axes
+                                areaColors={["lightblue"]}
+                                xType={"time"}
+                                margin={{ top: 30, right: 10, bottom: 50, left: 50 }}
+                                width={width}
+                                height={width / 2}
+                                datePattern={this.state.dataPattern}
+                                tickTimeDisplayFormat={this.state.tickFormat}
+                                data={[
+                                    this.state.dataPoints
+                                ]}
+                            />
+                        }
+                    </ContainerDimensions>
 
-                >Year Chart</Button>
-                <AreaChart
-                    axes
-                    areaColors={["black"]}
-                    xType={"time"}
-                    margin={{ top: 30, right: 10, bottom: 70, left: 50 }}
-                    width={300}
-                    height={300}
-                    datePattern={this.state.dataPattern}
-                    tickTimeDisplayFormat={this.state.tickFormat}
-                    data={[
-                        this.state.dataPoints
-                    ]}
-                />
+                </div>
+                <div className="graphButtons">
+                    <Button
+                        bsStyle="primary"
+                        bsSize="xsmall"
+                        onClick={(symbol, chartRange) => {
+                            symbol = this.state.ticker;
+                            chartRange = "1d";
+                            this.setState({ chartRange: "1d" });
+                            this.searchHolding(symbol, chartRange);
+                        }}
+                    >Daily Chart</Button>
+                    <Button
+                        bsStyle="primary"
+                        bsSize="xsmall"
+                        onClick={(symbol, chartRange) => {
+                            symbol = this.state.ticker;
+                            chartRange = "1m";
+                            this.setState({ chartRange: "1m" });
+                            this.searchHolding(symbol, chartRange);
+                        }}
+                    >30-Day Chart</Button>
+                    <Button
+                        bsStyle="primary"
+                        bsSize="xsmall"
+                        onClick={(symbol, chartRange) => {
+                            symbol = this.state.ticker;
+                            chartRange = "1y";
+                            this.setState({ chartRange: "1y" });
+                            this.searchHolding(symbol, chartRange);
+                        }}
+                    >Year Chart</Button>
+                </div>
             </div>
         );
     }
