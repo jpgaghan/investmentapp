@@ -24,6 +24,7 @@ class TickerCard extends Component {
             EPS: "",
             Sector: "",
             DailyPercentChange: "",
+            DailyChange: "",
             news: [],
             logo: "",
         };
@@ -69,6 +70,7 @@ class TickerCard extends Component {
             EPS: res.data.stats.consensusEPS,
             Sector: res.data.quote.sector,
             DailyPercentChange: res.data.chart[res.data.chart.length-2].changePercent,
+            DailyChange: res.data.quote.change,
             Exchange: res.data.quote.primaryExchange,
             CompanyName: res.data.quote.companyName,
             news: res.data.news,
@@ -99,25 +101,28 @@ class TickerCard extends Component {
                    <tbody>
 
                        <tr>
-                           <td><h4>{ticker.CompanyName}</h4></td>
-                           <td><h4>{ticker.CurrentPrice}</h4></td>
+                           <td><h4 className="tickerSymbol">{ticker.ticker}</h4></td>
+                           <td className="rightData"><h4>{ticker.CurrentPrice}</h4></td>
                        </tr>
 
                        <tr>
                            <td>{ticker.Exchange}</td>
-                           <td>{ticker.DailyPercentChange}</td>
+                           <td className="rightData">{ticker.DailyPercentChange}</td>
                        </tr>
 
                        <tr>
                            <td>{ticker.CompanyName}</td>
-                           <td>{ticker.DailyPercentChange}</td>
+                           <td className="rightData">{ticker.DailyChange}</td>
                        </tr>
 
                        <tr>
                            <td>{ticker.Sector}</td>
-                           <td> <a className="expandBttn" onClick={() => {this.setState({ [`open${i}`]: !this.state[`open${i}`] })}}><Glyphicon glyph="resize-full"/></a></td>
+                           <td className="rightData"><a className="expandBttn" onClick={() => {this.setState({ [`open${i}`]: !this.state[`open${i}`] })}}><Glyphicon  glyph="resize-full"/></a></td>
                        </tr>
-                       <Panel className="expandedCard" id="collapsible-panel-TickerCard-1" expanded={this.state[`open${i}`]}>
+                       
+                   </tbody>
+               </Table>
+               <Panel className="expandedCard" id="collapsible-panel-TickerCard-1" expanded={this.state[`open${i}`]}>
                        <Panel.Collapse>
                             
 
@@ -130,9 +135,6 @@ class TickerCard extends Component {
                            </Panel.Body>
                        </Panel.Collapse>
                    </Panel>
-                   </tbody>
-               </Table>
-               
               
 
            </div>
