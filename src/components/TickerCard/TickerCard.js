@@ -8,7 +8,7 @@ import numeral from "numeral";
 // import { Grid } from "react-bootstrap";
 import "./TickerCard.css";
 import WatchlistRemoveComponent from "../WathlistRmBtn/index"
-import Indicies from "../Indicies/Indicies";
+// import Indicies from "../Indicies/Indicies";
 class TickerCard extends Component {
     constructor(props, context) {
         super(props, context);
@@ -113,7 +113,7 @@ class TickerCard extends Component {
         return (
 
             <div>
-                  <Indicies />
+                  {/* <Indicies /> */}
                 {this.state.tickerdata.length ? (
                     <div className="tickerContainer">
                         {this.state.tickerdata.map((ticker, i) => (
