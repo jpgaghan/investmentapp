@@ -10,7 +10,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, 'build')))
+    console.log('############################');
+    console.dir(process.env);
+    console.log(__dirname);
+    console.log('############################');
+    app.use(express.static(path.join(__dirname, './build')))
 }
 
 app.use(function(req, res, next) {
