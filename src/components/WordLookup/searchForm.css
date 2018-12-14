@@ -9,7 +9,7 @@ form.search {
   }
   
 form.search button[type="submit"] {
-   margin: 10px auto;
+   margin: 10px 13px;
 
   }
 
@@ -32,7 +32,7 @@ form.search button[type="submit"] {
 .custom-button {
   background-color: #C1F0FA;
   color: #898B8B;
-  padding: 18px;
+  padding: 5px;
   font-weight: bold;
   font-size: 20px;
   margin: 10px;
@@ -42,4 +42,8 @@ form.search button[type="submit"] {
 .custom-button:hover {
   background-color: #E8E8E8;
   color: black;
+}
+
+#term {
+  display: inline-block;
 }

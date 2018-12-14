@@ -1,20 +1,20 @@
-import React, { Component } from "react";
-import { Carousel } from "react-bootstrap";
+// import React, { Component } from "react";
+// import { Carousel } from "react-bootstrap";
 
 
 
-import API from "../../utils/API";
-import './Indicies.css';
+// import API from "../../utils/API";
+// import './Indicies.css';
 
-class Indicies extends Component {
-    constructor(props) {
-        super(props);
+// class Indicies extends Component {
+//     constructor(props) {
+//         super(props);
 
-        this.state = {
-            dataLoaded:false,
-            data:[],
-        }
-    }
+//         this.state = {
+//             dataLoaded:false,
+//             data:[],
+//         }
+//     }
 
     componentDidMount(){
         API.getStockData()
@@ -27,9 +27,6 @@ class Indicies extends Component {
         })
         .catch(err=> console.log(err));
     }
-
-    render(){
-     const {data, dataLoaded} = this.state;   
 
      return dataLoaded ? (<div className="tickerContainer">{data.map((stockmarketItem, i) => {
          return (
@@ -45,4 +42,5 @@ class Indicies extends Component {
     }
 }
 
-export default Indicies;
+
+// export default Indicies;
