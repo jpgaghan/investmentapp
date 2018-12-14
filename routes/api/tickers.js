@@ -10,5 +10,7 @@ router.route("/")
 
 router.route("/terms")
   .get(Controller.getTerms);
-  
+
+router.route("/:uid")
+  .get(Controller.findAll)
 module.exports = router;

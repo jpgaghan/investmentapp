@@ -36,13 +36,11 @@ export default {
       },
 
       pullWatchlist: function(uid) {
-        return axios.get(
-            "/api/tickers",
-            {
-                uid
-            }
-        );
-      },
+        console.log(uid)
+      return axios.get(
+          `/api/tickers/${uid}`
+      );
+    },
       
       scrapefinancialTerms: function() {
         return axios.get(

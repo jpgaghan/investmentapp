@@ -4,18 +4,19 @@ const axios = require ("axios");
 const db = require("../models");
 // Defining methods for the booksController
 module.exports = {
-  findAll: function (req, res) {
-    console.log(req.uid)
-    if(req.uid) {
-      db.Watchlist
-        .find(req.uid)
+  findAll: function(req, res) {
+    console.log(req.params.uid)
+    if (req.params.uid) {
+      db.Watchlist.find({uid: req.params.uid})
         // .sort({ date: -1 })
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
-   }
-   else {
-   res.sendStatus(500).json({error: 'It looks like a proper uid was not provided'})
-   }},
+    } else {
+      res
+        .sendStatus(500)
+        .json({ error: "It looks like a proper uid was not provided" });
+    }
+  },
   findById: function (req, res) {
     db.InterestRate
       .findById(req.params.id)
@@ -23,7 +24,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function (req, res) {
-    console.log(req)
+    console.log(req.body)
     db.Watchlist
       .create(req.body)
       .then(dbModel => res.json(dbModel))
@@ -38,7 +39,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   remove: function (req, res) {
-    db.Book
+    db.Watchlist
       .findById({
         _id: req.params.id
       })
