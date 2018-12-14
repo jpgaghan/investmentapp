@@ -13,4 +13,5 @@ router.route("/terms")
 
 router.route("/:uid")
   .get(Controller.findAll)
+  .delete(Controller.remove)
 module.exports = router;
