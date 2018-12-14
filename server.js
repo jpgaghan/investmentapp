@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === "production") {
     console.dir(process.env);
     console.log(__dirname);
     console.log('############################');
-    app.use(express.static(path.join(__dirname, './build')))
+    app.use(express.static(path.join(__dirname, '../build')))
 }
 
 app.use(function(req, res, next) {
