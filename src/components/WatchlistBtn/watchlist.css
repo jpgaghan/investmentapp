@@ -1,0 +1,14 @@
+.custom-BTN {
+    background-color: white;
+    color: black;
+    padding: 10px !important;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 10px;
+    border-radius: 8px;
+}
+
+.custom-BTN:hover {
+    background-color: #383838;
+    color: white;
+}
