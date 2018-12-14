@@ -14,7 +14,7 @@ export const NavBar = ({ handlePage, handleBecameAuthed, userid, handleUserUnAut
     <Navbar className="navStyle" inverse collapseOnSelect>
       <Navbar.Header>
         <Navbar.Brand>
-          <a className="brandName" href="#brand">TBD App</a>
+          <a className="brandName" href="#brand">InvestEd</a>
         </Navbar.Brand>
         <Navbar.Toggle />
       </Navbar.Header>
