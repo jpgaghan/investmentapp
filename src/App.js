@@ -70,15 +70,17 @@ class App extends Component {
             <Router>
               
               <Switch>
-                <Route
-                  exact
-                  path="/watchlist"
-                  render={(props) => <Watchlist {...this.state} {...props}/>}
-                />
+                
                 <Route
                   exact
                   path="/"
                   render={(props) => <LandingPage {...this.state} {...props}/>}
+                />
+
+                <Route
+                  exact
+                  path="/watchlist"
+                  render={(props) => <Watchlist {...this.state} {...props}/>}
                 />
                 
               </Switch>
