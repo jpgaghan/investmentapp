@@ -1,19 +1,18 @@
 import React, { Component } from "react";
 import "./searchForm.css";
 import { Form, Button } from "react-bootstrap";
-import Watchlist from "../WatchlistBtn/index";
 import Charts from "../Chart/Chart.js";
 import FinancialData from "../FinancialData/financialdata"
-import API from "../../utils/API"
+// import API from "../../utils/API"
 class SearchForm extends Component {
     constructor(props, context) {
     super(props, context);
     this.state = {
         ticker: "",
-        submitted: false
+        submitted: false,
+        userid: this.props.uid,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.savetoWatchlist = this.savetoWatchlist.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
     
@@ -35,15 +34,6 @@ class SearchForm extends Component {
       }
     };
 
-    savetoWatchlist = event => {
-        event.preventDefault();
-        console.log(this.state.ticker, this.props.uid)
-        // API.
-        if (this.props.uid !== null) {
-            API.saveWatchlist(this.state.ticker, this.props.uid).then(res => {console.log(res)})
-        }
-        console.log("here")
-    };
     
     handleFormSubmit = event => {
         event.preventDefault();
@@ -101,12 +91,8 @@ class SearchForm extends Component {
                     </div>
                 </Form>
                 <Charts ticker={this.state.ticker} submitted={this.state.submitted}/>
-                <FinancialData ticker={this.state.ticker} submitted={this.state.submitted}/>
-                <Watchlist
-                    ticker={this.state.ticker}
-                    savetoWatchlist = {this.savetoWatchlist}
-                    uid={this.props.userid}
-                />
+                <FinancialData ticker={this.state.ticker} submitted={this.state.submitted}
+                userid={this.state.userid}/>
             </div>)
     }
 };

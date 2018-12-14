@@ -55,7 +55,9 @@ class Charts extends Component {
             var formatTime = d3.timeFormat("%Y-%m-%d %H:%M");
             var dm = formatTime(new Date(date));
             dataPointsD.push({ x: dm, y: parseFloat(element.marketClose) });
+            // console.log(element.marketClose);
         });
+        
         this.setState({ dataPattern: "%Y-%m-%d %H:%M" });
         this.setState({ tickFormat: "%I:%M %p" });
         this.setState({ dataPoints: dataPointsD });
