@@ -71,22 +71,24 @@ class SearchForm extends Component {
         ) : (<div>
                 <Form className="search">
                     <h2>Stock Search</h2>
-                    <div className="form-group">
-                        <label htmlFor="ticker">Stock Symbol:</label>
-                        <input
-                            value={this.state.ticker}
-                            onChange={this.handleInputChange}
-                            name="ticker"
-                            className="form-control"
-                            placeholder="Symbol"
-                            id="ticker"
-                        />
+                    <div className="stockSearchField">
+                        <div className="form-group">
+                            <label htmlFor="ticker">Stock Symbol:</label>
+                            <input
+                                value={this.state.ticker}
+                                onChange={this.handleInputChange}
+                                name="ticker"
+                                className="form-control"
+                                placeholder="Symbol"
+                                id="ticker"
+                            />
+                        </div>
+                        <button className='custom-button'
+                            type="submit"
+                            onClick={this.handleFormSubmit}
+                            >Search
+                        </button>
                     </div>
-                    <button className='custom-button'
-                        type="submit"
-                        onClick={this.handleFormSubmit}
-                        >Search
-                    </button>
                 </Form>
                 <Charts ticker={this.state.ticker} submitted={this.state.submitted}/>
                 <FinancialData ticker={this.state.ticker} submitted={this.state.submitted}
