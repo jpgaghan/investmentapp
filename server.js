@@ -4,12 +4,18 @@ const routes = require("./routes");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
+const path = require('path');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
+    console.log('############################');
+    console.dir(process.env);
+    console.log(__dirname);
+    console.log('############################');
+    app.use(express.static("build"))
+    // app.use(express.static(path.join(__dirname, '../build')))
 }
 
 app.use(function(req, res, next) {
