@@ -1,6 +1,5 @@
 const cheerio = require( "cheerio");
 const axios = require ("axios");
-
 const db = require("../models");
 // Defining methods for the booksController
 module.exports = {
@@ -9,7 +8,9 @@ module.exports = {
     if (req.params.uid) {
       db.Watchlist.find({uid: req.params.uid})
         // .sort({ date: -1 })
-        .then(dbModel => res.json(dbModel))
+        .then(dbModel => {
+          (res.json(dbModel))
+        })
         .catch(err => res.status(422).json(err));
     } else {
       res
@@ -41,7 +42,7 @@ module.exports = {
   remove: function (req, res) {
     db.Watchlist
       .findById({
-        _id: req.params.id
+        _id: req.params.uid
       })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))

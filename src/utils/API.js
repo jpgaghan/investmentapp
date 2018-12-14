@@ -34,12 +34,15 @@ export default {
             }
         );
       },
-
+      removeWatchlist: function(uid) {
+          return axios.delete(
+              `/api/tickers/${uid}`
+          )
+      },
       pullWatchlist: function(uid) {
-        console.log(uid)
-      return axios.get(
-          `/api/tickers/${uid}`
-      );
+        return axios.get(
+            `/api/tickers/${uid}`
+        );
     },
       
       scrapefinancialTerms: function() {

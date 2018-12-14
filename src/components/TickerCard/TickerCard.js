@@ -7,7 +7,7 @@ import numeral from "numeral";
 // import { Col } from "react-bootstrap";
 // import { Grid } from "react-bootstrap";
 import "./TickerCard.css";
-
+import WatchlistRemoveComponent from "../WathlistRmBtn/index"
 class TickerCard extends Component {
     constructor(props, context) {
         super(props, context);
@@ -45,15 +45,18 @@ class TickerCard extends Component {
 
         if (window.location.href === "http://localhost:3000/watchlist") {
             console.log(uid)
+            this.setState({page:true})
             API.pullWatchlist(uid).then(res => {
                 console.log(res)
                 const tickerarray = []
-                res.data.forEach(index => { tickerarray.push(index.ticker) });
+                res.data.forEach((index, i) => { tickerarray.push(index.ticker);
+                                                this.setState({[`item${i}`]:index._id}) });
                 this.setState({ tickers: tickerarray })
                 this.getfinancialData()
             }
             )
         } else if (window.location.href === "http://localhost:3000/") {
+            this.setState({page:false})
             this.getfinancialData()
         }
     };
@@ -61,8 +64,10 @@ class TickerCard extends Component {
     getfinancialData = () => {
       const tickerdataarray = []
     //   console.log(this.state.tickers)
+    console.log(this.state.tickers)
       this.state.tickers.forEach((ticker, i) => {
         this.setState({[`open${i}`]:false})
+        
       API.financialData(ticker)
       .then(res => {
           console.log(ticker)
@@ -90,6 +95,9 @@ class TickerCard extends Component {
       })
     })
     
+  }
+  removefromWatchlist = (data) => {
+        API.removeWatchlist(data.id).then(res => {console.log(res)})
   }
     handleopenState = () => {
         this.setState({ open: !this.state.open })
@@ -139,12 +147,18 @@ class TickerCard extends Component {
                                                 accusamus terry richardson ad squid. Nihil anim keffiyeh
                                                 helvetica, craft beer labore wes anderson cred nesciunt sapiente
                                                 ea proident.
-                           </Panel.Body>
+                                            </Panel.Body>
                                         </Panel.Collapse>
                                     </Panel>
-
-
-
+                                {
+                                    this.state.page && (
+                                        <div>
+                                            <WatchlistRemoveComponent
+                                                removefromWatchlist = {this.removefromWatchlist}
+                                                id = {this.state[`item${i}`]}
+                                            />
+                                        </div>) || <span></span>
+                                }
 
 
                                 </div>
