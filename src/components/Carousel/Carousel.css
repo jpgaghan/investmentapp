@@ -1,0 +1,54 @@
+html {
+    background-color: grey;
+}
+body {
+    background-color: grey;
+}
+
+
+
+/* Carousel */
+.wholeCarousel {
+    width: 900px;
+    margin: auto;
+}
+.carousel-inner {
+    height: 470px;
+}
+.carousel-indicators {
+    bottom: 5px !important;
+}
+.carousel-caption {
+    left: 10%;
+    right: 10%;
+    padding-bottom: 7% !important;
+    filter: drop-shadow( 3px 3px 10px #000000);
+}
+a {
+    color: #dad8d8;
+}
+h3 {
+    font-weight: 700;
+}
+p {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 900px) {
+    .wholeCarousel {
+        width: 90%;
+    }
+    .carousel-inner {
+        height: auto;
+    }
+    .carousel-caption {
+        padding-bottom: 3% !important
+    }
+}

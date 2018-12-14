@@ -1,0 +1,41 @@
+form.search {
+    /* overflow: auto; */
+    margin: 10px auto !important;
+    width: 60%;
+    font-size: 18px;
+    padding: 30px;
+  }
+  
+form.search button[type="submit"] {
+   margin: 10px 13px;
+  }
+
+.form-group {
+  text-align: center;
+}
+
+.searchTitle {
+  margin: auto;
+  text-align: center;
+}
+
+.form-control {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.custom-button {
+  background-color: #C1F0FA;
+  color: #898B8B;
+  padding: 5px !important;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 10px;
+  border-radius: 8px;
+
+}
+.custom-button:hover {
+  background-color: yellow;
+}

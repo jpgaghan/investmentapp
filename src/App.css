@@ -1,0 +1,46 @@
+html {
+  background-image: url(../src/photos/slate.jpg);
+
+}
+body {
+  background-image: url(../src/photos/slate.jpg);
+}
+
+.container {
+  display: flex;
+
+}
+
+.alignRight {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.alignLeft {
+  justify-content: flex-start;
+}
+
+.tickerContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  max-width: 900px;
+
+  margin: auto;
+}
+
+.footerContainer {
+  position: relative;
+  bottom: 0%;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
