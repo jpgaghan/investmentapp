@@ -1,4 +1,4 @@
-.main-indicies-container {
+/* .main-indicies-container {
     background: #DCDCDC;
     width:100%;
     color:black;
@@ -6,4 +6,29 @@
     display:flex;
     justify-content: space-around;
     padding: 50px;
+} */
+
+.tickerContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 900px;
+    margin: auto;
+}
+
+
+.stockmarketItem {
+    padding-top: 15px;
+    text-align: center;
+    font-size: 19px;
+    display: block;
+    max-width: 100%;   
+    min-width: 400px;
+    background-color: lightgrey;
+    /* background-color: aliceblue; */
+    height: 120px;
+    margin: auto;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    margin: 1px;
 }

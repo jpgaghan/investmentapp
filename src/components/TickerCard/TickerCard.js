@@ -8,6 +8,7 @@ import numeral from "numeral";
 // import { Grid } from "react-bootstrap";
 import "./TickerCard.css";
 import WatchlistRemoveComponent from "../WathlistRmBtn/index"
+import Indicies from "../Indicies/Indicies";
 class TickerCard extends Component {
     constructor(props, context) {
         super(props, context);
@@ -30,6 +31,8 @@ class TickerCard extends Component {
             DailyChange: "",
             news: [],
             logo: "",
+            week52high: "",
+            week52low: "",
         };
     }
 
@@ -79,7 +82,7 @@ class TickerCard extends Component {
             DailyRange: res.data.chart.length,
             DailyVolume: numeral(res.data.chart[res.data.chart.length-2].volume).format("0.000a"),
             MarketCap: numeral(res.data.quote.marketCap).format("0.000a"),
-            Beta: res.data.stats.beta,
+            Beta: numeral(res.data.stats.beta).format("0.00"),
             PE: res.data.quote.peRatio,
             EPS: numeral(res.data.stats.ttmEPS).format("0.00"),
             Sector: res.data.quote.sector,
@@ -87,6 +90,8 @@ class TickerCard extends Component {
             DailyChange: numeral(res.data.quote.change).format("0.00"),
             Exchange: res.data.quote.primaryExchange,
             CompanyName: res.data.quote.companyName,
+            week52high: res.data.quote.week52High,
+            week52low: res.data.quote.week52Low,
             news: res.data.news,
             open:false,
             logo: res.data.logo.url
@@ -106,7 +111,9 @@ class TickerCard extends Component {
 
     render(props) {
         return (
+
             <div>
+                  <Indicies />
                 {this.state.tickerdata.length ? (
                     <div className="tickerContainer">
                         {this.state.tickerdata.map((ticker, i) => (
@@ -143,10 +150,55 @@ class TickerCard extends Component {
                                         <Panel.Collapse>
                                             <Panel.Body>
                                                 <Charts ticker={ticker.ticker} submitted={true} />
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                                accusamus terry richardson ad squid. Nihil anim keffiyeh
-                                                helvetica, craft beer labore wes anderson cred nesciunt sapiente
-                                                ea proident.
+                                                
+                                                <Table >
+                                                <tbody>
+      <tr class="dataChart">
+        <td>
+          <strong>{"Current Price: $"}</strong>{ ticker.CurrentPrice}
+        </td>
+        <td>
+          <strong>{"Market Cap: "}</strong>{ticker.MarketCap}
+        </td>
+        <td>
+          <strong>{"BETA: "}</strong>{ticker.Beta}
+        </td>
+      </tr>
+      <tr class="dataChart">
+      <td>
+          <strong>{"P/E: "}</strong>{ticker.PE}
+        </td>
+        <td>
+          <strong>{"EPS: "}</strong>{ticker.EPS}
+        </td>
+        <td>
+          <strong>{"52 Week High: $"}</strong>{ ticker.week52high}
+        </td>
+      </tr>
+      <tr class="dataChart">
+      <td>
+          <strong>{"Daily Percent Change: "}</strong>{ ticker.DailyPercentChange + "%"}
+        </td>
+        <td>
+          <strong>{"Daily Change: $"}</strong>{ ticker.DailyChange}
+        </td>
+        <td>
+          <strong>{"52 Week Low: $"}</strong>{ ticker.week52low}
+        </td>
+      </tr>
+      <tr class="dataChart">
+      <td>
+          <strong>{"Daily Volume: "}</strong>{ ticker.DailyVolume}
+        </td>
+        <td>
+          <strong>{"Sector: "}</strong>{ ticker.Sector}
+        </td>
+        <td>
+          <strong>{"Exchange: "}</strong>{ ticker.Exchange}
+        </td>
+      </tr>
+      </tbody>
+    </Table> 
                                             </Panel.Body>
                                         </Panel.Collapse>
                                     </Panel>
