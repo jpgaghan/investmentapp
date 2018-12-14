@@ -81,7 +81,7 @@ class TickerCard extends Component {
             MarketCap: numeral(res.data.quote.marketCap).format("0.000a"),
             Beta: res.data.stats.beta,
             PE: res.data.quote.peRatio,
-            EPS: res.data.stats.consensusEPS,
+            EPS: numeral(res.data.stats.ttmEPS).format("0.00"),
             Sector: res.data.quote.sector,
             DailyPercentChange: res.data.chart[res.data.chart.length-2].changePercent,
             DailyChange: numeral(res.data.quote.change).format("0.00"),
