@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Carousel.css";
 import API from "../../utils/API";
 import { Carousel } from "react-bootstrap";
-import Indicies from "../Indicies/Indicies";
+// import Indicies from "../Indicies/Indicies";
 
 
 

@@ -1,17 +1,13 @@
 form.search {
     /* overflow: auto; */
     margin: 10px auto !important;
-    margin-bottom: 10px;
     width: 60%;
-    margin-left: 10px;
-    /* color: white; */
     font-size: 18px;
     padding: 30px;
   }
   
 form.search button[type="submit"] {
-   margin: 10px auto;
-
+   margin: 10px 13px;
   }
 
 .form-group {
@@ -33,7 +29,7 @@ form.search button[type="submit"] {
 .custom-button {
   background-color: #C1F0FA;
   color: #898B8B;
-  padding: 18px;
+  padding: 5px !important;
   font-weight: bold;
   font-size: 20px;
   margin: 10px;

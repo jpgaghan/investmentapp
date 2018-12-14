@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createHashHistory } from 'history'
 
 import { FaUserCircle } from 'react-icons/fa';
-import Indicies from './components/Indicies/Indicies';
+// import Indicies from './components/Indicies/Indicies';
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 
 

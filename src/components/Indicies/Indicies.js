@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Carousel } from "react-bootstrap";
 
 
-
 import API from "../../utils/API";
 import './Indicies.css';
 
@@ -28,9 +27,8 @@ class Indicies extends Component {
         .catch(err=> console.log(err));
     }
 
-    render(){
-     const {data, dataLoaded} = this.state;   
-
+    render() {
+    const {data, dataLoaded} = this.state;   
      return dataLoaded ? (<div className="tickerContainer">{data.map((stockmarketItem, i) => {
          return (
 
@@ -42,7 +40,8 @@ class Indicies extends Component {
              </div>
          )
      })}</div>) : null;
-    }
+    };
 }
+
 
 export default Indicies;
