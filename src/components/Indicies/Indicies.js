@@ -21,7 +21,7 @@ class Indicies extends Component {
         .then(res => {
             const {data} = res;
             const supportedStockMarkets = ["XNYS",
-            "XBOS","XPHL", "XASE", "IEXG"];
+            "XBOS","XPHL", "IEXG"];
             const filteredData = data.filter(stockMarketData => supportedStockMarkets.indexOf(stockMarketData.mic) > -1);
             this.setState({data: filteredData, dataLoaded:true});
         })
@@ -35,18 +35,11 @@ class Indicies extends Component {
          return (
 
 
-            // <div key={i} className={`stockmarketItem stockmarketItem-${i + 1}`}>
-            <div className="index1">
-             <p>{stockmarketItem.venueName}</p>
+            <div key={i} className={`stockmarketItem stockmarketItem-${i + 1}`}>
+             <div>{stockmarketItem.venueName}</div>
+             <div>Volume: {(stockmarketItem.volume).toLocaleString('en')}</div>
+             <div>Market: {`${(stockmarketItem.marketPercent * 100).toFixed(2)}%`}</div>
              </div>
-                 <div className="index2">
-             <p>{(stockmarketItem.volume).toLocaleString('en')}</p>
-             </div>
-             <div className="index3">
-             <p>{`${(stockmarketItem.marketPercent * 100).toFixed(2)}%`}</p>
-             </div>
-             
-            
          )
      })}</div>) : null;
     }
