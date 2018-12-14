@@ -3,7 +3,7 @@ form.search {
     margin: 10px auto !important;
     width: 60%;
     font-size: 18px;
-    padding: 30px;
+    padding: 5px;
   }
   
 form.search button[type="submit"] {

@@ -13,7 +13,7 @@ class TickerCard extends Component {
         super(props, context);
 
         this.state = {
-            tickers: ["aapl", "msft", "googl", "amzn", "tsla", "rht"],
+            tickers: ["aapl", "msft", "goog", "amzn", "tsla", "rht"],
             tickerdata: [],
             ticker: "",
             open: false,
