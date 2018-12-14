@@ -1,5 +1,6 @@
-/* /index.html 200
 /
 /watchlist
 /api/tickers/
 /api/tickers/terms
+/api/tickers/:uid
+/* /index.html 200

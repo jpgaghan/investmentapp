@@ -7,7 +7,6 @@ const batch = "/batch?types=quote,news,chart&range=";
 const serverUrl = "http://localhost:3001"
 export default {
     chart: function(symbol, range) {
-        console.log("call success");
         return axios.get(stockUrl + symbol + batch + range);
     },
 
