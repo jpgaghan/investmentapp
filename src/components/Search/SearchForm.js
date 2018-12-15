@@ -9,8 +9,10 @@ class SearchForm extends Component {
     super(props, context);
     this.state = {
         ticker: "",
+        // ticker2: "",
         submitted: false,
         userid: this.props.uid,
+        // buttonClicked: false,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -18,26 +20,30 @@ class SearchForm extends Component {
     
 
     handleInputChange = event => {
-
         const name = event.target.name;
         const value = event.target.value;
         event.preventDefault();
-
+        console.log(this.state.submitted);
         this.setState({
             [name]: value
         });
         
-        if (this.state.ticker === "") {
         this.setState({
             submitted: false
         })
-      }
+
+        // if (this.state.ticker2 !== "") {
+        //     this.setState({ buttonClicked: true})
+        // }
+      
     };
 
     
     handleFormSubmit = event => {
         event.preventDefault();
-        this.setState({submitted: true})
+        this.setState({ ticker2: this.state.ticker })
+        this.setState({ submitted: true })
+        // console.log(this.state.ticker2);
     };
 
     render() {
@@ -95,7 +101,7 @@ class SearchForm extends Component {
                 </div>
                 <FinancialData ticker={this.state.ticker} submitted={this.state.submitted}
                 userid={this.state.userid}/>
-            </div>)
+            </div>) 
     }
 };
 
