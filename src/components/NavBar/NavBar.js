@@ -10,6 +10,7 @@ import { FaUserCircle } from 'react-icons/fa';
 
 //login modal
 export const NavBar = ({ handlePage, handleBecameAuthed, userid, handleUserUnAuthed, userEmail, history }) => (
+  // 
   <div>
     <Navbar className="navStyle" inverse collapseOnSelect>
       <Navbar.Header>
@@ -20,15 +21,13 @@ export const NavBar = ({ handlePage, handleBecameAuthed, userid, handleUserUnAut
       </Navbar.Header>
       <Navbar.Collapse className="navList">
         <Nav pullRight>
+        
           <NavItem eventKey={2} href="/">
-            {/* <NavItem onClick={() => history.push('/')}> */}
             Home
-            </NavItem>
-          <NavItem eventKey={1} href="/watchlist">
-            {/* <NavItem onClick={() => history.push('/watchlist')}> */}
-            Watchlist
           </NavItem>
-
+              <NavItem eventKey={1} href="/watchlist">
+                Watchlist
+          </NavItem>
 
           <NavItem>
             <Login
@@ -38,6 +37,7 @@ export const NavBar = ({ handlePage, handleBecameAuthed, userid, handleUserUnAut
               handleBecameAuthed={handleBecameAuthed}
             />
           </NavItem>
+
           <NavItem>
             <SignUp
               handleUserUnAuthed={handleUserUnAuthed}
@@ -49,20 +49,17 @@ export const NavBar = ({ handlePage, handleBecameAuthed, userid, handleUserUnAut
 
           <NavItem>
             <div className="username">
-          
-            {/* short circuit evaluation */}
-            {(userEmail && userEmail.slice(0, userEmail.indexOf('@'))) || ''}
-            {/* <FaUserCircle /> */}
+
+              {/* short circuit evaluation */}
+              {(userEmail && userEmail.slice(0, userEmail.indexOf('@'))) || ''}
+              {/* <FaUserCircle /> */}
             </div>
-
-
           </NavItem>
 
-
         </Nav>
+
+
       </Navbar.Collapse>
     </Navbar>
   </div>
-
 );
-
