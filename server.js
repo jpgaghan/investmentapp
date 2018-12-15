@@ -31,7 +31,9 @@ app.use(routes);
 // mongoose.connect(MONGODB_URI);
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/investmentapp");
-
+app.get('/*', function(req, res) {
+    res.sendFile('/app/public/index.html');
+  })
 app.listen(PORT, function() {
     console.log(`🌎 ==> Server now on port ${PORT}!`);
 });
