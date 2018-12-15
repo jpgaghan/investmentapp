@@ -9,7 +9,7 @@ const WatchlistComponent = ({savetoWatchlist, ticker, uid}) => (
     <button
       type="submit"
       onClick={savetoWatchlist}
-      className="custom-button watchButton">Save to Watchlist
+      className="watchButton">Save to Watchlist
     </button>
   </div>
  );

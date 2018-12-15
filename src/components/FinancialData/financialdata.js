@@ -63,8 +63,6 @@ class FinancialData extends Component {
         news: res.data.news,
         logo: res.data.logo.url,
       });
-      console.log(res.data);
-      console.log(this.state)
     })
   }
 
@@ -75,7 +73,6 @@ class FinancialData extends Component {
     if (this.state.userid !== null) {
         API.saveWatchlist(this.props.ticker, this.state.userid).then(res => {console.log(res)})
     }
-    console.log("here")
 };
 
   render() {

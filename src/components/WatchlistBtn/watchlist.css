@@ -1,6 +1,9 @@
-.custom-button {
+
+.watchButton {
+    margin: 10px auto !important;
+    display: block;
     background-color: white;
-    color: black;
+    color: #404040;
     padding: 10px !important;
     font-weight: bold;
     font-size: 20px;
@@ -8,11 +11,7 @@
     border-radius: 8px;
 }
 
-.custom-button:hover {
-    background-color: #383838;
+.watchButton:hover {
+    background-color: #606060;
     color: white;
-}
-.watchButton {
-    margin: 10px auto !important;
-    display: block;
 }
