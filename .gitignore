@@ -10,10 +10,10 @@ node_modules
 
 # production
 /build
-# /app/src/*
-# /app/public/*
-# /app/build/static/css/*.map
-# /app/build/static/js/*.map
+/app/src/*
+/app/public/*
+/app/build/static/css/*.map
+/app/build/static/js/*.map
 
 # misc
 .DS_Store
