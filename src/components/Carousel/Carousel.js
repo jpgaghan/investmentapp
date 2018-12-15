@@ -6,6 +6,7 @@ import { Carousel } from "react-bootstrap";
 
 
 
+
 class NewsCarousel extends Component {
     state = {
         results: [],
