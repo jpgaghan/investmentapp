@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === "production") {
     console.dir(process.env);
     console.log(__dirname);
     console.log('############################');
-    app.use(express.static("build"))
+    app.use(express.static("../build"))
     // app.use(express.static(path.join(__dirname, '../build')))
 }
 
@@ -34,4 +34,4 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/investmentapp")
 
 app.listen(PORT, function() {
     console.log(`🌎 ==> Server now on port ${PORT}!`);
-  });
+});
