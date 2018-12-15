@@ -24,38 +24,35 @@
 .container {
     padding-left: 0;
     padding-right: 0;
+    display: block !important;
 }
 
 .navbar-right {
-    justify-content: flex-end;
+    /* justify-content: flex-end;
     float: right;
     right: 0;
-    position: absolute;
+    position: absolute; */
     margin-right: 10px;
 
  }
 
 .navbar-toggle {
-
     justify-content: flex-end;
     float: right;
     right: 0;
     position: absolute;
     margin-right: 10px;
-
  }
 
-
-
-/* .collpaseNav{
+.navList{
     float: right;
     text-align: right;
     margin-bottom: 5px;
-    padding: 32px;
-    background-color: rgb(51, 51, 51);
+    background-color: #222;
     opacity: 0.9;
     border: 2px black solid;
-    } */
+    margin-top: 4px;
+    } 
 @media only screen and (max-width: 768px) {
     .container {
         padding: 0 5px;
@@ -70,5 +67,5 @@
         opacity: 0;
     }
 
-}
+} 
 
