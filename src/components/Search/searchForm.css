@@ -39,3 +39,10 @@ form.search button[type="submit"] {
 .custom-button:hover {
   background-color: yellow;
 }
+
+.finChart {
+  text-align: center;
+  margin: auto;
+  margin-bottom: 10px;
+  max-width: 80%;
+}

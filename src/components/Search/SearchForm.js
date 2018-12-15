@@ -90,7 +90,9 @@ class SearchForm extends Component {
                         </button>
                     </div>
                 </Form>
+                <div className="finChart">
                 <Charts ticker={this.state.ticker} submitted={this.state.submitted}/>
+                </div>
                 <FinancialData ticker={this.state.ticker} submitted={this.state.submitted}
                 userid={this.state.userid}/>
             </div>)

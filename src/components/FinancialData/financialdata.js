@@ -4,6 +4,7 @@ import numeral from "numeral";
 import { Table } from "react-bootstrap";
 import "./financialData.css"
 import Watchlist from "../WatchlistBtn/index";
+import ShareCalc from "../ShareCalc/shareCalc.js"
 
 class FinancialData extends Component {
   constructor(props, context) {
@@ -54,8 +55,8 @@ class FinancialData extends Component {
         PE: res.data.quote.peRatio,
         EPS: numeral(res.data.stats.ttmEPS).format("0.00"),
         Sector: res.data.quote.sector,
-        DailyPercentChange: res.data.chart[res.data.chart.length-2].changePercent,
-        DailyChange: res.data.quote.change,
+        DailyPercentChange: numeral(res.data.chart[res.data.chart.length-1].changePercent).format("0.00"),
+        DailyChange: numeral(res.data.quote.change).format("0.00"),
         week52high: res.data.quote.week52High,
         week52low: res.data.quote.week52Low,
         exchange: res.data.quote.primaryExchange,
@@ -95,6 +96,11 @@ class FinancialData extends Component {
             ticker={this.props.ticker}
             savetoWatchlist = {this.savetoWatchlist}
             uid={this.state.userid}
+          />
+        </td>
+        <td>
+          <ShareCalc
+            CurrentPrice = {this.state.CurrentPrice}
           />
         </td>
         </tr>
