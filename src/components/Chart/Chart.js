@@ -21,11 +21,7 @@ class Charts extends Component {
             windowWidth: initialWidth - 100
         };
     };
-
-
-
   
-
     chartDisplay = () => {
         var dataPointsA = [];
         // console.log(this.state.results);
@@ -59,7 +55,7 @@ class Charts extends Component {
         });
         
         this.setState({ dataPattern: "%Y-%m-%d %H:%M" });
-        this.setState({ tickFormat: "%I:%M %p" });
+        this.setState({ tickFormat: "%I:%M" });
         this.setState({ dataPoints: dataPointsD });
     }
     componentDidMount() {
@@ -110,6 +106,7 @@ class Charts extends Component {
                                 axes
                                 areaColors={["lightblue"]}
                                 xType={"time"}
+                                axisLabels={{x: "Date/Time", y: "Share Price" }}
                                 margin={{ top: 30, right: 10, bottom: 50, left: 50 }}
                                 width={width}
                                 height={width / 2}
