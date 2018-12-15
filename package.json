@@ -34,7 +34,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "node server.js",
-    "build": "cd app && npm run build",
+    "build": "cp -R src app && cd app && npm run build",
     "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
