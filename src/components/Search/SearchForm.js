@@ -72,27 +72,31 @@ class SearchForm extends Component {
             </div>
         ) : (<div>
             <Form className="search">
-                <h2>Stock Search</h2>
+                <h2 className="stockSearch">Stock Search</h2>
                 <div className="stockSearchField">
-                    <div className="form-group">
+                    <div className="form-group form-group-after">
                         <label htmlFor="ticker">Stock Symbol:</label>
-                        <input
-                            value={this.state.ticker}
-                            onChange={this.handleInputChange}
-                            name="ticker"
-                            className="form-control"
-                            placeholder="Symbol"
-                            id="ticker"
-                        />
+                        <div className="tickerSearchBoxButton">
+                            <input
+                                value={this.state.ticker}
+                                onChange={this.handleInputChange}
+                                name="ticker"
+                                className="form-control tickerInputBox"
+                                placeholder="Symbol"
+                                id="ticker"
+                            />
+                            <button className='custom-button'
+                                type="submit"
+                                onClick={this.handleFormSubmit}
+                                >Search
+                            </button>
+                        </div>
                     </div>
-                    <button className='custom-button'
-                        type="submit"
-                        onClick={this.handleFormSubmit}
-                    >Search
-                        </button>
                 </div>
             </Form>
-            <Charts ticker={this.state.ticker} submitted={this.state.submitted} />
+            <div className="finChart">
+                <Charts ticker={this.state.ticker} submitted={this.state.submitted} />
+            </div>
             <FinancialData ticker={this.state.ticker} submitted={this.state.submitted}
                 userid={this.state.userid} />
         </div>)

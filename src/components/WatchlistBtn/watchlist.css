@@ -1,4 +1,17 @@
+
 .watchButton {
     margin: 10px auto !important;
     display: block;
+    background-color: white;
+    color: #404040;
+    padding: 10px !important;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 10px;
+    border-radius: 8px;
+}
+
+.watchButton:hover {
+    background-color: #606060;
+    color: white;
 }

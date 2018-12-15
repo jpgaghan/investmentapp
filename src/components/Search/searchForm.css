@@ -20,10 +20,12 @@ form.search button[type="submit"] {
 }
 
 .form-control {
-  margin: auto;
+  margin: unset !important;
+  margin-top: 13px;
   width: 50%;
   text-align: center;
   text-transform: uppercase;
+  display: -webkit-inline-box;
 }
 
 .custom-button {
@@ -38,4 +40,21 @@ form.search button[type="submit"] {
 }
 .custom-button:hover {
   background-color: yellow;
+}
+
+.finChart {
+  text-align: center;
+  margin: auto;
+  margin-bottom: 10px;
+  max-width: 80%;
+}
+.tickerSearchBoxButton {
+  display: flex;
+  justify-content: center;
+}
+.tickerInputBox {
+  margin-top: 13px !important;
+}
+.stockSearch {
+  text-align: center;
 }
