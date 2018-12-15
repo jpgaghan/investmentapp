@@ -26,16 +26,9 @@
     padding-right: 0;
     display: block !important;
 }
-
 .navbar-right {
-    /* justify-content: flex-end;
-    float: right;
-    right: 0;
-    position: absolute; */
     margin-right: 10px;
-
  }
-
 .navbar-toggle {
     justify-content: flex-end;
     float: right;
@@ -43,7 +36,6 @@
     position: absolute;
     margin-right: 10px;
  }
-
 .navList{
     float: right;
     text-align: right;
@@ -68,4 +60,8 @@
     }
 
 } 
+
+.navbar-nav > li > a {
+    line-height: 10px;
+}
 

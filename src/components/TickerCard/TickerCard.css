@@ -16,8 +16,9 @@
     margin: auto;
     border: 1px solid #000000;
     border-radius: 5px;
-    margin: 1px;
+    margin: 5px;
     padding: 0px 5px;
+    box-shadow: rgba(0,0,0,.5) 3px 3px 0;
 }
 
 .expandedCard {
