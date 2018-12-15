@@ -18,11 +18,10 @@ class SearchForm extends Component {
 
 
     handleInputChange = event => {
-
         const name = event.target.name;
         const value = event.target.value;
         event.preventDefault();
-
+        console.log(this.state.submitted);
         this.setState({
             [name]: value
         });
@@ -37,7 +36,9 @@ class SearchForm extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
+        this.setState({ ticker2: this.state.ticker })
         this.setState({ submitted: true })
+        // console.log(this.state.ticker2);
     };
 
     render() {
