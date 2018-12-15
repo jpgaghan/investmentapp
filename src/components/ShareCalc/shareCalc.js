@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form } from "react-bootstrap";
 import numeral from "numeral";
+import "./shareCalc.css"
 
 class ShareCalc extends Component {
     constructor(props) {
@@ -30,18 +31,18 @@ class ShareCalc extends Component {
         return (
             <div>
                 <label htmlFor="dollarAmount">Enter $ Amount:</label>
-                <Form inline>
-                  <input
+                <Form inline >
+                  <input  className="calcInput"
                     value={this.state.dollarAmount}
                     onChange={this.handleInputChange}
                     name="dollarAmount"
                     placeholder="Dollar Amount"
                     id="dollarAmount"
                   />
-                  <input
-                    value= {this.state.shares + " shares"}
+                  <input  className="calcInput"
+                    value= {this.state.shares + "Shares"}
                   />
-                  <button
+                  <button className= "calcButton"
                   type="submit"
                   onClick={this.handleFormSubmit}
                   >Calculate
