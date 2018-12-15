@@ -9,3 +9,14 @@ tr {
     width: 94%;
     margin: 0 auto 20px auto
 }
+.termsBoxAfter {
+    display: flex;
+    justify-content: center;
+}
+#term {
+    margin-left: 10px;
+}
+.tickerSearchBoxButton {
+    display: flex;
+    justify-content: center;
+  }
