@@ -17,9 +17,9 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static(__dirname));
     app.use(express.static(path.join(__dirname, 'app/build')));
 }
-app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'app', 'build', 'index.html'));
-});
+// app.get('/*', function (req, res) {
+//     res.sendFile(path.join(__dirname, 'app', 'build', 'index.html'));
+// });
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
