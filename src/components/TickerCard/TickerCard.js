@@ -46,7 +46,7 @@ class TickerCard extends Component {
         // API.scrapefinancialTerms().then(res => {console.log(res)});
         console.log(window.location.href)
 
-        if (window.location.href === "http://localhost:3000/watchlist") {
+        if (window.location.href === "http://localhost:3000/watchlist" || window.location.href === "https://investmentappfinal.herokuapp.com/watchlist") {
             console.log(uid)
             this.setState({page:true})
             API.pullWatchlist(uid).then(res => {
@@ -58,7 +58,7 @@ class TickerCard extends Component {
                 this.getfinancialData()
             }
             )
-        } else if (window.location.href === "http://localhost:3000/") {
+        } else if (window.location.href === "http://localhost:3000/" || window.location.href === "https://investmentappfinal.herokuapp.com/") {
             this.setState({page:false})
             this.getfinancialData()
         }
