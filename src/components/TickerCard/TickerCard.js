@@ -46,7 +46,7 @@ class TickerCard extends Component {
         // API.scrapefinancialTerms().then(res => {console.log(res)});
         console.log(window.location.href)
 
-        if (window.location.href === "http://localhost:3000/watchlist") {
+        if (window.location.href === "http://localhost:3000/watchlist" || window.location.href === "https://investmentappfinal.herokuapp.com/watchlist") {
             console.log(uid)
             this.setState({page:true})
             API.pullWatchlist(uid).then(res => {
@@ -58,24 +58,23 @@ class TickerCard extends Component {
                 this.getfinancialData()
             }
             )
-        } else if (window.location.href === "http://localhost:3000/") {
+        } else if (window.location.href === "http://localhost:3000/" || window.location.href === "https://investmentappfinal.herokuapp.com/") {
             this.setState({page:false})
             this.getfinancialData()
         }
     };
 
     getfinancialData = () => {
-      const tickerdataarray = []
-    //   console.log(this.state.tickers)
+    let tickerArray = new Array();
+    let openstate = {};
     console.log(this.state.tickers)
       this.state.tickers.forEach((ticker, i) => {
-        this.setState({[`open${i}`]:false})
         
       API.financialData(ticker)
       .then(res => {
           console.log(ticker)
-          const tickerdataarray = this.state.tickerdata
-          tickerdataarray.push({
+        //   let tickerdataarray = this.state.tickerdata
+        tickerArray.push({
             ticker,
             CurrentPrice: numeral(res.data.quote.latestPrice).format("0.00"),
             PreviousClose: res.data.quote.previousClose,
@@ -95,10 +94,22 @@ class TickerCard extends Component {
             news: res.data.news,
             open:false,
             logo: res.data.logo.url
-            })
-          this.setState({tickerdata:tickerdataarray})
+        })
+        
+        // this.setState({
+        //     [`open${i}`]:false
+        // })
       })
     })
+    Object.keys(this.state.tickers).map(function(key, index) {
+        openstate[`open${index}`] = false
+      });
+     
+     console.log(openstate);
+      this.setState({
+        tickerdata:  tickerArray,
+        ...openstate
+      })
     
   }
   removefromWatchlist = (data) => {
