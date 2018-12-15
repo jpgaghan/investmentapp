@@ -100,7 +100,8 @@ class TickerCard extends Component {
         //     [`open${i}`]:false
         // })
       })
-      Object.keys(this.state.tickers).map(function(key, index) {
+    })
+    Object.keys(this.state.tickers).map(function(key, index) {
         openstate[`open${index}`] = false
       });
      
@@ -109,7 +110,6 @@ class TickerCard extends Component {
         tickerdata:  tickerArray,
         ...openstate
       })
-    })
     
   }
   removefromWatchlist = (data) => {
