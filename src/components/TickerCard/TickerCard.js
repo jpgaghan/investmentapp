@@ -8,13 +8,13 @@ import numeral from "numeral";
 // import { Grid } from "react-bootstrap";
 import "./TickerCard.css";
 import WatchlistRemoveComponent from "../WathlistRmBtn/index"
-import Indicies from "../Indicies/Indicies";
+// import Indicies from "../Indicies/Indicies";
 class TickerCard extends Component {
     constructor(props, context) {
         super(props, context);
 
         this.state = {
-            tickers: ["aapl", "msft", "googl", "amzn", "tsla", "rht"],
+            tickers: ["ddm", "qqq", "spy", "aapl", "msft", "goog", "amzn", "tsla", "rht", "nke" ],
             tickerdata: [],
             ticker: "",
             open: false,
@@ -113,7 +113,7 @@ class TickerCard extends Component {
         return (
 
             <div>
-                  <Indicies />
+                  {/* <Indicies /> */}
                 {this.state.tickerdata.length ? (
                     <div className="tickerContainer">
                         {this.state.tickerdata.map((ticker, i) => (
@@ -126,17 +126,17 @@ class TickerCard extends Component {
 
                                             <tr>
                                                 <td><h4 className="tickerSymbol">{ticker.ticker}</h4></td>
-                                                <td className="rightData"><h4>{"$ " + ticker.CurrentPrice}</h4></td>
+                                                <td className="rightData"><h4>{"Price:  " + "$ " + ticker.CurrentPrice}</h4></td>
                                             </tr>
 
                                             <tr>
                                                 <td>{ticker.Exchange}</td>
-                                                <td className="rightData">{ticker.DailyPercentChange + " %"}</td>
+                                                <td className="rightData">{"Daily:  " + ticker.DailyPercentChange + " %"}</td>
                                             </tr>
 
                                             <tr>
                                                 <td>{ticker.CompanyName}</td>
-                                                <td className="rightData">{ "$ " + ticker.DailyChange}</td>
+                                                <td className="rightData">{"Daily:  " +  "$ " + ticker.DailyChange}</td>
                                             </tr>
 
                                             <tr>

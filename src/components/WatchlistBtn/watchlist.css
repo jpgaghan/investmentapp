@@ -1,4 +1,4 @@
-.custom-BTN {
+.custom-button {
     background-color: white;
     color: black;
     padding: 10px !important;
@@ -8,7 +8,11 @@
     border-radius: 8px;
 }
 
-.custom-BTN:hover {
+.custom-button:hover {
     background-color: #383838;
     color: white;
+}
+.watchButton {
+    margin: 10px auto !important;
+    display: block;
 }
