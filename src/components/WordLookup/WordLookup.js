@@ -65,7 +65,7 @@ class WordSearch extends Component {
                                 onChange={this.handleInputChange}
                                 name="term"
                                 className="form-control"
-                                placeholder="i.e. : Dividends"
+                                placeholder="i.e. : Dividend"
                                 id="term"
                             />
                             <button
