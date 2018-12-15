@@ -1,13 +1,13 @@
-# InvestEd | 
+# InvestEd
+### Full Stack Web Application
+
+## Concept
+InvestEd is an educational app that offers an intuitive perspective with guidance on trading concepts, jargon, and latest stock position details. Users will be able to create their own account, search trending stocks and gain an understanding of complex terminology using our search term feature. Users are able to explore stocks they're interested in and save the data to their watchlist page. 
 
 ## Link to Heroku : 
 https://investmentappfinal.herokuapp.com/
 
 ## Video Demo:
-
-
-## Overview
-InvestEd is an educational app that offers an intuitive perspective with guidance on trading concepts, jargon, and latest stock position details. Users will be able to create their own account, search trending stocks and gain an understanding of complex terminology using our dictionary feature. Users will be able to find a company they're interested in and save the company's stock information to their own watchlist. 
 
 ## Developers
 UNC Charlotte Full Stack Web Developer Program
