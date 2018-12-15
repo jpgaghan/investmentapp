@@ -19,11 +19,10 @@ class ShareCalc extends Component {
         this.setState({
             [name]: value
         });
-        console.log(this.state.dollarAmount)
     }
     handleFormSubmit = event => {
         event.preventDefault();
-        var calc = numeral((this.state.dollarAmount * 10) / this.props.CurrentPrice).format("0.00");
+        var calc = numeral(this.state.dollarAmount / this.props.CurrentPrice).format("0.00");
         this.setState({shares: calc})
     };
 

@@ -97,6 +97,7 @@ class WordSearch extends Component {
                                 name="term"
                                 className="form-control"
                                 placeholder="Baby Bond"
+
                                 id="term"
                             />
                             <button
